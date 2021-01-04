@@ -1,0 +1,13 @@
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\bin\Debug\netcoreapp3.1\ReadSerial.exe
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\bin\Debug\netcoreapp3.1\ReadSerial.deps.json
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\bin\Debug\netcoreapp3.1\ReadSerial.runtimeconfig.json
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\bin\Debug\netcoreapp3.1\ReadSerial.runtimeconfig.dev.json
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\bin\Debug\netcoreapp3.1\ReadSerial.dll
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\bin\Debug\netcoreapp3.1\ReadSerial.pdb
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\obj\Debug\netcoreapp3.1\ReadSerial.csprojAssemblyReference.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\obj\Debug\netcoreapp3.1\ReadSerial.AssemblyInfoInputs.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\obj\Debug\netcoreapp3.1\ReadSerial.AssemblyInfo.cs
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\obj\Debug\netcoreapp3.1\ReadSerial.csproj.CoreCompileInputs.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\obj\Debug\netcoreapp3.1\ReadSerial.dll
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\obj\Debug\netcoreapp3.1\ReadSerial.pdb
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerial\obj\Debug\netcoreapp3.1\ReadSerial.genruntimeconfig.cache
