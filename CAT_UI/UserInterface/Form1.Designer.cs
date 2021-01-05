@@ -30,10 +30,24 @@ namespace UserInterface
         private void InitializeComponent()
         {
             this.gbData = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbPress = new System.Windows.Forms.TextBox();
-            this.tbTemp = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbPress6 = new System.Windows.Forms.TextBox();
+            this.tbPress5 = new System.Windows.Forms.TextBox();
+            this.tbPress4 = new System.Windows.Forms.TextBox();
+            this.tbPress3 = new System.Windows.Forms.TextBox();
+            this.tbPress2 = new System.Windows.Forms.TextBox();
+            this.tbTemp2 = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnGetData = new System.Windows.Forms.Button();
+            this.tbPress1 = new System.Windows.Forms.TextBox();
+            this.tbTemp1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbControls = new System.Windows.Forms.GroupBox();
@@ -71,6 +85,7 @@ namespace UserInterface
             this.tbFV1Pos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
             this.gbData.SuspendLayout();
             this.gbControls.SuspendLayout();
             this.gbNitrogen.SuspendLayout();
@@ -80,10 +95,25 @@ namespace UserInterface
             // 
             // gbData
             // 
-            this.gbData.Controls.Add(this.button2);
-            this.gbData.Controls.Add(this.button1);
-            this.gbData.Controls.Add(this.tbPress);
-            this.gbData.Controls.Add(this.tbTemp);
+            this.gbData.Controls.Add(this.btnTest);
+            this.gbData.Controls.Add(this.label22);
+            this.gbData.Controls.Add(this.label21);
+            this.gbData.Controls.Add(this.label20);
+            this.gbData.Controls.Add(this.label19);
+            this.gbData.Controls.Add(this.label18);
+            this.gbData.Controls.Add(this.label17);
+            this.gbData.Controls.Add(this.label16);
+            this.gbData.Controls.Add(this.label15);
+            this.gbData.Controls.Add(this.tbPress6);
+            this.gbData.Controls.Add(this.tbPress5);
+            this.gbData.Controls.Add(this.tbPress4);
+            this.gbData.Controls.Add(this.tbPress3);
+            this.gbData.Controls.Add(this.tbPress2);
+            this.gbData.Controls.Add(this.tbTemp2);
+            this.gbData.Controls.Add(this.btnClear);
+            this.gbData.Controls.Add(this.btnGetData);
+            this.gbData.Controls.Add(this.tbPress1);
+            this.gbData.Controls.Add(this.tbTemp1);
             this.gbData.Controls.Add(this.label2);
             this.gbData.Controls.Add(this.label1);
             this.gbData.Location = new System.Drawing.Point(14, 12);
@@ -93,44 +123,158 @@ namespace UserInterface
             this.gbData.TabStop = false;
             this.gbData.Text = "Data";
             // 
-            // button2
+            // label22
             // 
-            this.button2.Location = new System.Drawing.Point(21, 295);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(372, 67);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(15, 286);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 17);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "Sensor 6";
             // 
-            // button1
+            // label21
             // 
-            this.button1.Location = new System.Drawing.Point(21, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(372, 67);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(15, 258);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 17);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "Sensor 5";
             // 
-            // tbPress
+            // label20
             // 
-            this.tbPress.Location = new System.Drawing.Point(192, 115);
-            this.tbPress.Name = "tbPress";
-            this.tbPress.Size = new System.Drawing.Size(201, 22);
-            this.tbPress.TabIndex = 3;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(15, 230);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 17);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Sensor 4";
             // 
-            // tbTemp
+            // label19
             // 
-            this.tbTemp.Location = new System.Drawing.Point(192, 45);
-            this.tbTemp.Name = "tbTemp";
-            this.tbTemp.Size = new System.Drawing.Size(201, 22);
-            this.tbTemp.TabIndex = 2;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(15, 202);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 17);
+            this.label19.TabIndex = 16;
+            this.label19.Text = "Sensor 3";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 174);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 17);
+            this.label18.TabIndex = 15;
+            this.label18.Text = "Sensor 2";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 144);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 17);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Sensor 1";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 69);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(65, 17);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Sensor 2";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(15, 41);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(65, 17);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Sensor 1";
+            // 
+            // tbPress6
+            // 
+            this.tbPress6.Location = new System.Drawing.Point(159, 283);
+            this.tbPress6.Name = "tbPress6";
+            this.tbPress6.Size = new System.Drawing.Size(201, 22);
+            this.tbPress6.TabIndex = 11;
+            // 
+            // tbPress5
+            // 
+            this.tbPress5.Location = new System.Drawing.Point(159, 255);
+            this.tbPress5.Name = "tbPress5";
+            this.tbPress5.Size = new System.Drawing.Size(201, 22);
+            this.tbPress5.TabIndex = 10;
+            // 
+            // tbPress4
+            // 
+            this.tbPress4.Location = new System.Drawing.Point(159, 227);
+            this.tbPress4.Name = "tbPress4";
+            this.tbPress4.Size = new System.Drawing.Size(201, 22);
+            this.tbPress4.TabIndex = 9;
+            // 
+            // tbPress3
+            // 
+            this.tbPress3.Location = new System.Drawing.Point(159, 199);
+            this.tbPress3.Name = "tbPress3";
+            this.tbPress3.Size = new System.Drawing.Size(201, 22);
+            this.tbPress3.TabIndex = 8;
+            // 
+            // tbPress2
+            // 
+            this.tbPress2.Location = new System.Drawing.Point(159, 171);
+            this.tbPress2.Name = "tbPress2";
+            this.tbPress2.Size = new System.Drawing.Size(201, 22);
+            this.tbPress2.TabIndex = 7;
+            // 
+            // tbTemp2
+            // 
+            this.tbTemp2.Location = new System.Drawing.Point(159, 66);
+            this.tbTemp2.Name = "tbTemp2";
+            this.tbTemp2.Size = new System.Drawing.Size(201, 22);
+            this.tbTemp2.TabIndex = 6;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(21, 447);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(372, 67);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnGetData
+            // 
+            this.btnGetData.Location = new System.Drawing.Point(21, 374);
+            this.btnGetData.Name = "btnGetData";
+            this.btnGetData.Size = new System.Drawing.Size(372, 67);
+            this.btnGetData.TabIndex = 4;
+            this.btnGetData.Text = "Get Data";
+            this.btnGetData.UseVisualStyleBackColor = true;
+            this.btnGetData.Click += new System.EventHandler(this.btnGetData_Click);
+            // 
+            // tbPress1
+            // 
+            this.tbPress1.Location = new System.Drawing.Point(159, 141);
+            this.tbPress1.Name = "tbPress1";
+            this.tbPress1.Size = new System.Drawing.Size(201, 22);
+            this.tbPress1.TabIndex = 3;
+            // 
+            // tbTemp1
+            // 
+            this.tbTemp1.Location = new System.Drawing.Point(159, 38);
+            this.tbTemp1.Name = "tbTemp1";
+            this.tbTemp1.Size = new System.Drawing.Size(201, 22);
+            this.tbTemp1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 118);
+            this.label2.Location = new System.Drawing.Point(156, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 1;
@@ -139,7 +283,7 @@ namespace UserInterface
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 48);
+            this.label1.Location = new System.Drawing.Point(156, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 0;
@@ -505,6 +649,16 @@ namespace UserInterface
             this.label3.TabIndex = 0;
             this.label3.Text = "FV1:";
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(23, 330);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(369, 30);
+            this.btnTest.TabIndex = 20;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // CAT_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -531,16 +685,16 @@ namespace UserInterface
         #endregion
 
         private System.Windows.Forms.GroupBox gbData;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbPress;
-        private System.Windows.Forms.TextBox tbTemp;
+        private System.Windows.Forms.Button btnGetData;
+        private System.Windows.Forms.TextBox tbPress1;
+        private System.Windows.Forms.TextBox tbTemp1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbControls;
         private System.Windows.Forms.GroupBox gbNitrogen;
         private System.Windows.Forms.GroupBox gbOxygen;
         private System.Windows.Forms.GroupBox gbFuel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ComboBox cbFV1;
         private System.Windows.Forms.TextBox tbFV1Pos;
         private System.Windows.Forms.Label label4;
@@ -572,6 +726,21 @@ namespace UserInterface
         private System.Windows.Forms.TextBox tbOV1Pos;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbPress6;
+        private System.Windows.Forms.TextBox tbPress5;
+        private System.Windows.Forms.TextBox tbPress4;
+        private System.Windows.Forms.TextBox tbPress3;
+        private System.Windows.Forms.TextBox tbPress2;
+        private System.Windows.Forms.TextBox tbTemp2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 
