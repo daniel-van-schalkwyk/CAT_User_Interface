@@ -10,13 +10,17 @@ namespace ReadSerialV3
         static void Main(string[] args)
         {
             myport = new SerialPort("COM8", 9600);
-            myport.Open();
             while (true)
             {
-                byte a = (byte)myport.ReadByte();
-                Console.Write(a);
-                Thread.Sleep(1000);
+                Console.Write("Incoming data: ");
+                myport.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+                myport.Open();
+                Thread.Sleep(500);
             }
+        }
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            Console.WriteLine(myport.ReadExisting());
         }
     }
 }

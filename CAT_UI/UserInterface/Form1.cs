@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO.Ports;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,27 @@ using System.Windows.Forms;
 
 namespace UserInterface
 {
-    public partial class Form1 : Form
+    public partial class CAT_UI : Form
     {
-        public Form1()
+        static SerialPort myport;
+
+        public CAT_UI()
         {
             InitializeComponent();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            myport = new SerialPort("COM11", 9600);
+            myport.Open();
+            string line = myport.ReadLine();
+            tbTemp.Text = line;
+            myport.Close();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tbTemp.Text = "";
         }
     }
 }

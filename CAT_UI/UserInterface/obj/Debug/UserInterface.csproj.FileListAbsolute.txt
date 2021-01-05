@@ -2,9 +2,9 @@ C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\bin\Debug\UserInterfa
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\bin\Debug\UserInterface.exe
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\bin\Debug\UserInterface.pdb
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.csprojAssemblyReference.cache
-C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.Form1.resources
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.Properties.Resources.resources
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.csproj.GenerateResource.cache
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.csproj.CoreCompileInputs.cache
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.exe
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.pdb
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.CAT_UI.resources
