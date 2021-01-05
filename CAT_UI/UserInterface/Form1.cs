@@ -25,13 +25,22 @@ namespace UserInterface
             myport = new SerialPort("COM11", 9600);
             myport.Open();
             string line = myport.ReadLine();
-            tbTemp.Text = line;
+            myport.DiscardInBuffer();
+            if (line.Contains("Hello World!"))
+            {
+                tbTemp.Text = line;
+            }
+            else
+            {
+                tbPress.Text = line;
+            }
             myport.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             tbTemp.Text = "";
+            tbPress.Text = "";
         }
     }
 }

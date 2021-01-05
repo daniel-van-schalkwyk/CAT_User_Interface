@@ -1,7 +1,6 @@
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV2\bin\Debug\ReadSerialV2.exe.config
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV2\bin\Debug\ReadSerialV2.exe
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV2\bin\Debug\ReadSerialV2.pdb
-C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV2\obj\Debug\ReadSerialV2.csprojAssemblyReference.cache
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV2\obj\Debug\ReadSerialV2.csproj.CoreCompileInputs.cache
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV2\obj\Debug\ReadSerialV2.exe
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV2\obj\Debug\ReadSerialV2.pdb
