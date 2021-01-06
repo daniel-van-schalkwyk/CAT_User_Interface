@@ -7,23 +7,24 @@ namespace UserInterface
 {
     public partial class CAT_UI : Form
     {
+        //public variable declarations
         public SerialPort myport;
-        private delegate void SetTextDeleg(string text);
+        public delegate void SetTextDeleg(string text);
         private readonly string COMPort;
         readonly int BaudRate;
         public Form newForm = new Form2();
 
         private void CAT_UI_Load(object sender, EventArgs e)
         {
-            newForm.Show();
-            newForm.TopMost = true;
+            //newForm.Show();
+            //newForm.TopMost = true;
         }
 
         public CAT_UI()
         {
             InitializeComponent();
 
-            COMPort = "COM8";
+            COMPort = "COM7";
             BaudRate = 115200;
 
             if (COMPort != null && BaudRate != 0)
@@ -48,11 +49,6 @@ namespace UserInterface
             SerialPort sp = (SerialPort)sender;
             string x = sp.ReadLine();
             this.BeginInvoke(new SetTextDeleg(ReceiveData), new object[] { x });
-        }
-
-        private void btnGetData_Click(object sender, EventArgs e)
-        {
-            //ReceiveData(dataReceived);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -115,6 +111,38 @@ namespace UserInterface
                     else if (datapnt.Contains("S01"))
                     {
                         tbFV1Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S02"))
+                    {
+                        tbFV2Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S03"))
+                    {
+                        tbFV3Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S04"))
+                    {
+                        tbOV1Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S05"))
+                    {
+                        tbOV2Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S06"))
+                    {
+                        tbOV3Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S07"))
+                    {
+                        tbNV1Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S08"))
+                    {
+                        tbNV2Pos.Text = GetValue(datapnt);
+                    }
+                    else if (datapnt.Contains("S09"))
+                    {
+                        tbPVPos.Text = GetValue(datapnt);
                     }
                 }
             }

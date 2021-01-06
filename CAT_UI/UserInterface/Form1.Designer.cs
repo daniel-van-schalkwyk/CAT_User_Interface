@@ -30,10 +30,6 @@ namespace UserInterface
         private void InitializeComponent()
         {
             this.gbData = new System.Windows.Forms.GroupBox();
-            this.cbBaudRate = new System.Windows.Forms.ComboBox();
-            this.cbCOMChoice = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.btnReConnect = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -50,7 +46,6 @@ namespace UserInterface
             this.tbPress2 = new System.Windows.Forms.TextBox();
             this.tbTemp2 = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnGetData = new System.Windows.Forms.Button();
             this.tbPress1 = new System.Windows.Forms.TextBox();
             this.tbTemp1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -99,10 +94,6 @@ namespace UserInterface
             // 
             // gbData
             // 
-            this.gbData.Controls.Add(this.cbBaudRate);
-            this.gbData.Controls.Add(this.cbCOMChoice);
-            this.gbData.Controls.Add(this.label24);
-            this.gbData.Controls.Add(this.label23);
             this.gbData.Controls.Add(this.btnReConnect);
             this.gbData.Controls.Add(this.label22);
             this.gbData.Controls.Add(this.label21);
@@ -119,7 +110,6 @@ namespace UserInterface
             this.gbData.Controls.Add(this.tbPress2);
             this.gbData.Controls.Add(this.tbTemp2);
             this.gbData.Controls.Add(this.btnClear);
-            this.gbData.Controls.Add(this.btnGetData);
             this.gbData.Controls.Add(this.tbPress1);
             this.gbData.Controls.Add(this.tbTemp1);
             this.gbData.Controls.Add(this.label2);
@@ -131,65 +121,9 @@ namespace UserInterface
             this.gbData.TabStop = false;
             this.gbData.Text = "Data";
             // 
-            // cbBaudRate
-            // 
-            this.cbBaudRate.FormattingEnabled = true;
-            this.cbBaudRate.Items.AddRange(new object[] {
-            "4800",
-            "9600",
-            "19200",
-            "38400",
-            "57600",
-            "115200",
-            "250000",
-            "500000"});
-            this.cbBaudRate.Location = new System.Drawing.Point(159, 353);
-            this.cbBaudRate.Name = "cbBaudRate";
-            this.cbBaudRate.Size = new System.Drawing.Size(200, 24);
-            this.cbBaudRate.TabIndex = 24;
-            // 
-            // cbCOMChoice
-            // 
-            this.cbCOMChoice.FormattingEnabled = true;
-            this.cbCOMChoice.Items.AddRange(new object[] {
-            "COM1",
-            "COM2",
-            "COM3",
-            "COM4",
-            "COM5",
-            "COM6",
-            "COM7",
-            "COM8",
-            "COM9",
-            "COM10",
-            "COM11",
-            "COM12"});
-            this.cbCOMChoice.Location = new System.Drawing.Point(159, 324);
-            this.cbCOMChoice.Name = "cbCOMChoice";
-            this.cbCOMChoice.Size = new System.Drawing.Size(200, 24);
-            this.cbCOMChoice.TabIndex = 23;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(19, 357);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(75, 17);
-            this.label24.TabIndex = 22;
-            this.label24.Text = "Baud Rate";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(19, 328);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(39, 17);
-            this.label23.TabIndex = 21;
-            this.label23.Text = "COM";
-            // 
             // btnReConnect
             // 
-            this.btnReConnect.Location = new System.Drawing.Point(20, 402);
+            this.btnReConnect.Location = new System.Drawing.Point(20, 321);
             this.btnReConnect.Name = "btnReConnect";
             this.btnReConnect.Size = new System.Drawing.Size(372, 33);
             this.btnReConnect.TabIndex = 20;
@@ -313,23 +247,13 @@ namespace UserInterface
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(20, 481);
+            this.btnClear.Location = new System.Drawing.Point(20, 364);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(372, 33);
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnGetData
-            // 
-            this.btnGetData.Location = new System.Drawing.Point(20, 442);
-            this.btnGetData.Name = "btnGetData";
-            this.btnGetData.Size = new System.Drawing.Size(372, 33);
-            this.btnGetData.TabIndex = 4;
-            this.btnGetData.Text = "Get Data";
-            this.btnGetData.UseVisualStyleBackColor = true;
-            this.btnGetData.Click += new System.EventHandler(this.btnGetData_Click);
             // 
             // tbPress1
             // 
@@ -750,7 +674,6 @@ namespace UserInterface
         #endregion
 
         private System.Windows.Forms.GroupBox gbData;
-        private System.Windows.Forms.Button btnGetData;
         private System.Windows.Forms.TextBox tbPress1;
         private System.Windows.Forms.TextBox tbTemp1;
         private System.Windows.Forms.Label label2;
@@ -806,10 +729,6 @@ namespace UserInterface
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnReConnect;
-        private System.Windows.Forms.ComboBox cbBaudRate;
-        private System.Windows.Forms.ComboBox cbCOMChoice;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
     }
 }
 
