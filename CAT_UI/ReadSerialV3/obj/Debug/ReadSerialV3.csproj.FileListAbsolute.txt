@@ -1,0 +1,7 @@
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV3\bin\Debug\ReadSerialV3.exe.config
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV3\bin\Debug\ReadSerialV3.exe
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV3\bin\Debug\ReadSerialV3.pdb
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV3\obj\Debug\ReadSerialV3.csproj.CoreCompileInputs.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV3\obj\Debug\ReadSerialV3.exe
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV3\obj\Debug\ReadSerialV3.pdb
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI\ReadSerialV3\obj\Debug\ReadSerialV3.csprojAssemblyReference.cache
