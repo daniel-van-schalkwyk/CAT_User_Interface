@@ -8,3 +8,5 @@ C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterfa
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.exe
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.pdb
 C:\Users\totos\Desktop\CAT\Repository\CAT_UI\UserInterface\obj\Debug\UserInterface.CAT_UI.resources
+C:\Users\Daniel\Desktop\VacWork\CAT_UI\CAT_UI\UserInterface\obj\Debug\UserInterface.exe
+C:\Users\Daniel\Desktop\VacWork\CAT_UI\CAT_UI\UserInterface\obj\Debug\UserInterface.pdb

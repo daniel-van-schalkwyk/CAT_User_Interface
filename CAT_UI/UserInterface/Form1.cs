@@ -14,7 +14,7 @@ namespace UserInterface
 {
     public partial class CAT_UI : Form
     {
-        public SerialPort myport = new SerialPort("COM7", 115200);
+        public SerialPort myport = new SerialPort("COM11", 115200);
         private delegate void SetTextDeleg(string text);
         string dataReceived;
 
