@@ -30,6 +30,11 @@ namespace UserInterface
         private void InitializeComponent()
         {
             this.gbData = new System.Windows.Forms.GroupBox();
+            this.cbBaudRate = new System.Windows.Forms.ComboBox();
+            this.cbCOMChoice = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnReConnect = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -85,7 +90,6 @@ namespace UserInterface
             this.tbFV1Pos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnTest = new System.Windows.Forms.Button();
             this.gbData.SuspendLayout();
             this.gbControls.SuspendLayout();
             this.gbNitrogen.SuspendLayout();
@@ -95,7 +99,11 @@ namespace UserInterface
             // 
             // gbData
             // 
-            this.gbData.Controls.Add(this.btnTest);
+            this.gbData.Controls.Add(this.cbBaudRate);
+            this.gbData.Controls.Add(this.cbCOMChoice);
+            this.gbData.Controls.Add(this.label24);
+            this.gbData.Controls.Add(this.label23);
+            this.gbData.Controls.Add(this.btnReConnect);
             this.gbData.Controls.Add(this.label22);
             this.gbData.Controls.Add(this.label21);
             this.gbData.Controls.Add(this.label20);
@@ -122,6 +130,72 @@ namespace UserInterface
             this.gbData.TabIndex = 0;
             this.gbData.TabStop = false;
             this.gbData.Text = "Data";
+            // 
+            // cbBaudRate
+            // 
+            this.cbBaudRate.FormattingEnabled = true;
+            this.cbBaudRate.Items.AddRange(new object[] {
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200",
+            "250000",
+            "500000"});
+            this.cbBaudRate.Location = new System.Drawing.Point(159, 353);
+            this.cbBaudRate.Name = "cbBaudRate";
+            this.cbBaudRate.Size = new System.Drawing.Size(200, 24);
+            this.cbBaudRate.TabIndex = 24;
+            // 
+            // cbCOMChoice
+            // 
+            this.cbCOMChoice.FormattingEnabled = true;
+            this.cbCOMChoice.Items.AddRange(new object[] {
+            "COM1",
+            "COM2",
+            "COM3",
+            "COM4",
+            "COM5",
+            "COM6",
+            "COM7",
+            "COM8",
+            "COM9",
+            "COM10",
+            "COM11",
+            "COM12"});
+            this.cbCOMChoice.Location = new System.Drawing.Point(159, 324);
+            this.cbCOMChoice.Name = "cbCOMChoice";
+            this.cbCOMChoice.Size = new System.Drawing.Size(200, 24);
+            this.cbCOMChoice.TabIndex = 23;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(19, 357);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(75, 17);
+            this.label24.TabIndex = 22;
+            this.label24.Text = "Baud Rate";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(19, 328);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(39, 17);
+            this.label23.TabIndex = 21;
+            this.label23.Text = "COM";
+            // 
+            // btnReConnect
+            // 
+            this.btnReConnect.Location = new System.Drawing.Point(20, 402);
+            this.btnReConnect.Name = "btnReConnect";
+            this.btnReConnect.Size = new System.Drawing.Size(372, 33);
+            this.btnReConnect.TabIndex = 20;
+            this.btnReConnect.Text = "Reconnect";
+            this.btnReConnect.UseVisualStyleBackColor = true;
+            this.btnReConnect.Click += new System.EventHandler(this.btnReConnect_Click);
             // 
             // label22
             // 
@@ -239,9 +313,9 @@ namespace UserInterface
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(21, 447);
+            this.btnClear.Location = new System.Drawing.Point(20, 481);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(372, 67);
+            this.btnClear.Size = new System.Drawing.Size(372, 33);
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -249,9 +323,9 @@ namespace UserInterface
             // 
             // btnGetData
             // 
-            this.btnGetData.Location = new System.Drawing.Point(21, 374);
+            this.btnGetData.Location = new System.Drawing.Point(20, 442);
             this.btnGetData.Name = "btnGetData";
-            this.btnGetData.Size = new System.Drawing.Size(372, 67);
+            this.btnGetData.Size = new System.Drawing.Size(372, 33);
             this.btnGetData.TabIndex = 4;
             this.btnGetData.Text = "Get Data";
             this.btnGetData.UseVisualStyleBackColor = true;
@@ -649,16 +723,6 @@ namespace UserInterface
             this.label3.TabIndex = 0;
             this.label3.Text = "FV1:";
             // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(23, 330);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(369, 30);
-            this.btnTest.TabIndex = 20;
-            this.btnTest.Text = "Test";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // CAT_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -669,6 +733,7 @@ namespace UserInterface
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CAT_UI";
             this.Text = "CAT_UI";
+            this.Load += new System.EventHandler(this.CAT_UI_Load);
             this.gbData.ResumeLayout(false);
             this.gbData.PerformLayout();
             this.gbControls.ResumeLayout(false);
@@ -740,7 +805,11 @@ namespace UserInterface
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btnReConnect;
+        private System.Windows.Forms.ComboBox cbBaudRate;
+        private System.Windows.Forms.ComboBox cbCOMChoice;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
     }
 }
 
