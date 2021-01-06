@@ -14,7 +14,7 @@ namespace UserInterface
 {
     public partial class CAT_UI : Form
     {
-        public SerialPort myport = new SerialPort("COM11", 9600);
+        public SerialPort myport = new SerialPort("COM7", 115200);
         private delegate void SetTextDeleg(string text);
         string dataReceived;
 
@@ -37,12 +37,13 @@ namespace UserInterface
         private void si_DataReceived(string data)
         {
             dataReceived = data.Trim();
-            tbTemp1.Text = dataReceived;
+            //tbTemp1.Text = dataReceived;
+            ReceiveData(dataReceived);
         }
 
-    private void btnGetData_Click(object sender, EventArgs e)
+        private void btnGetData_Click(object sender, EventArgs e)
         {
-            ReceiveData();
+            ReceiveData(dataReceived);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -63,15 +64,11 @@ namespace UserInterface
             return data[1];
         }
 
-        private void ReceiveData()
+        private void ReceiveData(string indata)
         {
-            myport.Open();
-            string data = myport.ReadLine();
-            myport.DiscardInBuffer();
-            //tbTemp1.Text = data;
-            if (data != null)
+            if (indata != null)
             {
-                string[] splitdata = data.Split(',');
+                string[] splitdata = indata.Split(',');
                 foreach (string datapnt in splitdata)
                 {
                     if (datapnt.Contains("T01"))
@@ -116,12 +113,10 @@ namespace UserInterface
                     }
                 }
             }
-            myport.Close();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            myport.Open();
             string sentence = myport.ReadLine();
             if (sentence != null)
             {
@@ -131,7 +126,6 @@ namespace UserInterface
             {
                 tbTemp1.Text = "Boo!";
             }
-            myport.Close();
         }
     }
 }
