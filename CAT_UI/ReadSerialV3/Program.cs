@@ -10,24 +10,36 @@ namespace ReadSerialV3
         static SerialPort myport;
         static void Main(string[] args)
         {
+            //myport = new SerialPort("COM11", 9600);
+            //while (true)
+            //{
+            //    //Debug.WriteLine("Incoming data: ");
+            //    myport.Open();
+            //    string data = myport.ReadLine();
+            //    string[] splitdata = data.Split(',');
+            //    foreach (var word in splitdata)
+            //    {
+            //        if (word.Contains("T01"))
+            //        {
+            //            string[] datapnt = word.Split(':');
+            //            Debug.WriteLine("Temp Sensor 1: " + datapnt[1]);
+            //        }
+            //    }
+            //    Thread.Sleep(500);
+            //    myport.Close();
+            //}
+
             myport = new SerialPort("COM11", 9600);
-            while (true)
-            {
-                //Debug.WriteLine("Incoming data: ");
-                myport.Open();
-                string data = myport.ReadLine();
-                string[] splitdata = data.Split(',');
-                foreach (var word in splitdata)
-                {
-                    if (word.Contains("T01"))
-                    {
-                        string[] datapnt = word.Split(':');
-                        Debug.WriteLine("Temp Sensor 1: " + datapnt[1]);
-                    }
-                }
-                Thread.Sleep(500);
-                myport.Close();
-            }
+            myport.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            myport.Open();
+            myport.Close();
+        }
+
+        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            string indata = sp.ReadExisting();
+            Debug.WriteLine(indata);
         }
     }
 }

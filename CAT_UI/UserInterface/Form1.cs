@@ -15,13 +15,32 @@ namespace UserInterface
     public partial class CAT_UI : Form
     {
         public SerialPort myport = new SerialPort("COM11", 9600);
+        private delegate void SetTextDeleg(string text);
+        string dataReceived;
 
         public CAT_UI()
         {
             InitializeComponent();
+            myport.DtrEnable = true;
+            myport.Open();
+            myport.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
 
-        private void btnGetData_Click(object sender, EventArgs e)
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            string x = sp.ReadLine();
+            this.BeginInvoke(new SetTextDeleg(si_DataReceived), new object[] { x });
+
+        }
+
+        private void si_DataReceived(string data)
+        {
+            dataReceived = data.Trim();
+            tbTemp1.Text = dataReceived;
+        }
+
+    private void btnGetData_Click(object sender, EventArgs e)
         {
             ReceiveData();
         }
