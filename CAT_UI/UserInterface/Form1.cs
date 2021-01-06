@@ -23,8 +23,8 @@ namespace UserInterface
         {
             InitializeComponent();
 
-            COMPort = Form2.COMPort;
-            BaudRate = Form2.BaudRate;
+            COMPort = "COM8";
+            BaudRate = 115200;
 
             if (COMPort != null && BaudRate != 0)
             {
@@ -48,12 +48,11 @@ namespace UserInterface
             SerialPort sp = (SerialPort)sender;
             string x = sp.ReadLine();
             this.BeginInvoke(new SetTextDeleg(ReceiveData), new object[] { x });
-
         }
 
         private void btnGetData_Click(object sender, EventArgs e)
         {
-            ReceiveData(dataReceived);
+            //ReceiveData(dataReceived);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
