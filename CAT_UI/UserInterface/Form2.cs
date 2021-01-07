@@ -13,18 +13,15 @@ namespace UserInterface
         private void Form2_Load(object sender, EventArgs e)
         {
             getPortNames();
+            cbCOM.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbBaudRate.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbBaudRate.SelectedItem = "115200";
         }
 
         public Form2()
         {
             InitializeComponent();
         }
-
-        // Event Handlers
-        //private void getPortNamesHandler(object sender, EventArgs e)
-        //{
-        //    getPortNames();
-        //}
 
         // Methods
         public void getPortNames()

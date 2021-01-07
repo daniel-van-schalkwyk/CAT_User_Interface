@@ -35,6 +35,8 @@ namespace UserInterface
             this.cbValveName = new System.Windows.Forms.ComboBox();
             this.cbValvePosition = new System.Windows.Forms.ComboBox();
             this.btnActuate = new System.Windows.Forms.Button();
+            this.cbFormat = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +63,7 @@ namespace UserInterface
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(234, 90);
+            this.label3.Location = new System.Drawing.Point(394, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 2;
@@ -79,14 +81,14 @@ namespace UserInterface
             // cbValvePosition
             // 
             this.cbValvePosition.FormattingEnabled = true;
-            this.cbValvePosition.Location = new System.Drawing.Point(191, 113);
+            this.cbValvePosition.Location = new System.Drawing.Point(351, 113);
             this.cbValvePosition.Name = "cbValvePosition";
             this.cbValvePosition.Size = new System.Drawing.Size(154, 24);
             this.cbValvePosition.TabIndex = 5;
             // 
             // btnActuate
             // 
-            this.btnActuate.Location = new System.Drawing.Point(351, 113);
+            this.btnActuate.Location = new System.Drawing.Point(511, 113);
             this.btnActuate.Name = "btnActuate";
             this.btnActuate.Size = new System.Drawing.Size(154, 24);
             this.btnActuate.TabIndex = 6;
@@ -95,11 +97,35 @@ namespace UserInterface
             this.btnActuate.UseVisualStyleBackColor = true;
             this.btnActuate.Click += new System.EventHandler(this.btnActuate_Click);
             // 
+            // cbFormat
+            // 
+            this.cbFormat.FormattingEnabled = true;
+            this.cbFormat.Items.AddRange(new object[] {
+            "State",
+            "Degrees"});
+            this.cbFormat.Location = new System.Drawing.Point(191, 113);
+            this.cbFormat.Name = "cbFormat";
+            this.cbFormat.Size = new System.Drawing.Size(154, 24);
+            this.cbFormat.TabIndex = 7;
+            this.cbFormat.SelectedIndexChanged += new System.EventHandler(this.cbFormat_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(234, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 20);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Format";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 182);
+            this.ClientSize = new System.Drawing.Size(837, 182);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbFormat);
             this.Controls.Add(this.btnActuate);
             this.Controls.Add(this.cbValvePosition);
             this.Controls.Add(this.cbValveName);
@@ -122,5 +148,7 @@ namespace UserInterface
         private System.Windows.Forms.ComboBox cbValveName;
         private System.Windows.Forms.ComboBox cbValvePosition;
         public System.Windows.Forms.Button btnActuate;
+        private System.Windows.Forms.ComboBox cbFormat;
+        private System.Windows.Forms.Label label4;
     }
 }

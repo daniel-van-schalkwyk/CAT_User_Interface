@@ -323,6 +323,7 @@ namespace UserInterface
             this.btnReset.TabIndex = 2;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // gbNitrogen
             // 
@@ -619,7 +620,7 @@ namespace UserInterface
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(12, 42);
+            this.label23.Location = new System.Drawing.Point(14, 42);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(395, 48);
             this.label23.TabIndex = 2;
@@ -630,6 +631,7 @@ namespace UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(843, 545);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.gbControls);

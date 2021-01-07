@@ -29,11 +29,9 @@ namespace UserInterface
             InitializeComponent();
         }
 
-        // Button Events
-        private void cbValveName_SelectedIndexChanged(object sender, EventArgs e)
+        // Methods
+        private void AddValvePositions()
         {
-            cbValvePosition.Items.Clear();
-
             if (Convert.ToString(cbValveName.SelectedItem) == "FV1" || Convert.ToString(cbValveName.SelectedItem) == "OV1")
             {
                 cbValvePosition.Items.AddRange(pos3);
@@ -43,11 +41,32 @@ namespace UserInterface
                 cbValvePosition.Items.AddRange(pos2);
             }
         }
+
+        // Button Events
+        private void cbValveName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbValvePosition.Items.Clear();
+            AddValvePositions();
+        }
         public void btnActuate_Click(object sender, EventArgs e)
         {
             ValveName = cbValveName.GetItemText(cbValveName.SelectedItem);
-            ValvePosition = cbValvePosition.GetItemText(cbValvePosition.SelectedItem);
+            ValvePosition = cbValvePosition.GetItemText(cbValvePosition.SelectedItem).Substring(0,1);
             this.Hide();
+        }
+        private void cbFormat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbValvePosition.Items.Clear(); 
+            string option = cbFormat.GetItemText(cbFormat.SelectedItem);
+            if (option.Contains("Degrees"))
+            {
+                cbValvePosition.DropDownStyle = ComboBoxStyle.DropDown;
+            }
+            else
+            {
+                cbValvePosition.DropDownStyle = ComboBoxStyle.DropDownList;
+                AddValvePositions();
+            }
         }
     }
 }
