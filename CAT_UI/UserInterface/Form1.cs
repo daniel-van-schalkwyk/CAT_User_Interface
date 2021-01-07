@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.IO.Ports;
-using System.Threading;
+//using System.Threading;
 using System.Windows.Forms;
 
 namespace UserInterface
@@ -153,7 +154,10 @@ namespace UserInterface
         {
             string valve = form3.ValveName;
             string position = form3.ValvePosition;
-            mySerialPort.WriteLine(valve + ":" + position);
+            if (!string.IsNullOrEmpty(position))
+            {
+                mySerialPort.WriteLine(valve + ":" + position);
+            }
             //tbFV1State.Text = valve + ":" + position;
         }
         private string GetValue(string line)
@@ -222,8 +226,17 @@ namespace UserInterface
             ClearBoxes();
             form2.Show();
         }
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
+            btnStart.BackColor = Color.White;
+            btnStop.BackColor = Color.Red;
+            mySerialPort.WriteLine("Start");
+        }
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            btnStop.BackColor = Color.White;
+            btnStart.BackColor = Color.Green;
+            mySerialPort.WriteLine("Stop");
             ClearBoxes();
         }
         private void btnActuate_Click(object sender, EventArgs e)

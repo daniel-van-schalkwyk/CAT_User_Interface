@@ -18,6 +18,7 @@ namespace UserInterface
 
         public string ValveName;
         public string ValvePosition;
+        public string Format;
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -50,9 +51,29 @@ namespace UserInterface
         }
         public void btnActuate_Click(object sender, EventArgs e)
         {
+            this.Hide(); 
+            double number;
             ValveName = cbValveName.GetItemText(cbValveName.SelectedItem);
-            ValvePosition = cbValvePosition.GetItemText(cbValvePosition.SelectedItem).Substring(0,1);
-            this.Hide();
+            Format = cbFormat.GetItemText(cbFormat.SelectedItem);
+            ValvePosition = cbValvePosition.GetItemText(cbValvePosition.SelectedItem);
+            if (Format.Contains("Degrees"))
+            {
+                if (Double.TryParse(ValvePosition, out number))
+                {
+                    number = 0;
+                }
+                else
+                {
+                    ValvePosition = null; 
+                    MessageBox.Show("Please fill in a valid degree value.");
+                    cbValvePosition.Text = " ";
+                    this.Show();
+                }
+            }
+            else
+            {
+                ValvePosition = ValvePosition.Substring(0, 1);
+            }
         }
         private void cbFormat_SelectedIndexChanged(object sender, EventArgs e)
         {

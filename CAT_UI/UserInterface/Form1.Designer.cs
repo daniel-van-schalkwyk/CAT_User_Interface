@@ -31,6 +31,7 @@ namespace UserInterface
         {
             this.components = new System.ComponentModel.Container();
             this.gbData = new System.Windows.Forms.GroupBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.btnReConnect = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@ namespace UserInterface
             this.tbPress3 = new System.Windows.Forms.TextBox();
             this.tbPress2 = new System.Windows.Forms.TextBox();
             this.tbTemp2 = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.tbPress1 = new System.Windows.Forms.TextBox();
             this.tbTemp1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@ namespace UserInterface
             this.btnActuate = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gbNitrogen = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.tbNV2State = new System.Windows.Forms.TextBox();
             this.tbNV1State = new System.Windows.Forms.TextBox();
             this.tbNV2Pos = new System.Windows.Forms.TextBox();
@@ -63,6 +65,7 @@ namespace UserInterface
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.gbOxygen = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.tbPVState = new System.Windows.Forms.TextBox();
             this.tbOV3State = new System.Windows.Forms.TextBox();
             this.tbOV2State = new System.Windows.Forms.TextBox();
@@ -77,6 +80,7 @@ namespace UserInterface
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.gbFuel = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.tbFV3State = new System.Windows.Forms.TextBox();
             this.tbFV2State = new System.Windows.Forms.TextBox();
             this.tbFV1State = new System.Windows.Forms.TextBox();
@@ -89,9 +93,6 @@ namespace UserInterface
             this.label3 = new System.Windows.Forms.Label();
             this.mySerialPort = new System.IO.Ports.SerialPort(this.components);
             this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.gbData.SuspendLayout();
             this.gbControls.SuspendLayout();
             this.gbNitrogen.SuspendLayout();
@@ -101,6 +102,7 @@ namespace UserInterface
             // 
             // gbData
             // 
+            this.gbData.Controls.Add(this.btnStop);
             this.gbData.Controls.Add(this.btnReConnect);
             this.gbData.Controls.Add(this.label22);
             this.gbData.Controls.Add(this.label21);
@@ -116,7 +118,7 @@ namespace UserInterface
             this.gbData.Controls.Add(this.tbPress3);
             this.gbData.Controls.Add(this.tbPress2);
             this.gbData.Controls.Add(this.tbTemp2);
-            this.gbData.Controls.Add(this.btnClear);
+            this.gbData.Controls.Add(this.btnStart);
             this.gbData.Controls.Add(this.tbPress1);
             this.gbData.Controls.Add(this.tbTemp1);
             this.gbData.Controls.Add(this.label2);
@@ -128,6 +130,17 @@ namespace UserInterface
             this.gbData.TabIndex = 0;
             this.gbData.TabStop = false;
             this.gbData.Text = "Data";
+            // 
+            // btnStop
+            // 
+            this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStop.Location = new System.Drawing.Point(215, 368);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(177, 33);
+            this.btnStop.TabIndex = 21;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnReConnect
             // 
@@ -254,16 +267,17 @@ namespace UserInterface
             this.tbTemp2.Size = new System.Drawing.Size(306, 22);
             this.tbTemp2.TabIndex = 6;
             // 
-            // btnClear
+            // btnStart
             // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(20, 368);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(372, 33);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Location = new System.Drawing.Point(20, 368);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(189, 33);
+            this.btnStart.TabIndex = 5;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // tbPress1
             // 
@@ -353,6 +367,16 @@ namespace UserInterface
             this.gbNitrogen.TabStop = false;
             this.gbNitrogen.Text = "Nitrogen";
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(255, 18);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(46, 17);
+            this.label26.TabIndex = 29;
+            this.label26.Text = "State";
+            // 
             // tbNV2State
             // 
             this.tbNV2State.Location = new System.Drawing.Point(180, 79);
@@ -431,6 +455,16 @@ namespace UserInterface
             this.gbOxygen.TabIndex = 1;
             this.gbOxygen.TabStop = false;
             this.gbOxygen.Text = "Oxygen";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(255, 18);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(46, 17);
+            this.label25.TabIndex = 28;
+            this.label25.Text = "State";
             // 
             // tbPVState
             // 
@@ -554,6 +588,16 @@ namespace UserInterface
             this.gbFuel.TabStop = false;
             this.gbFuel.Text = "Fuel";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(255, 23);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(46, 17);
+            this.label24.TabIndex = 14;
+            this.label24.Text = "State";
+            // 
             // tbFV3State
             // 
             this.tbFV3State.Location = new System.Drawing.Point(180, 113);
@@ -645,36 +689,6 @@ namespace UserInterface
             this.label23.Text = "Test Station Monitor";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(255, 23);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(46, 17);
-            this.label24.TabIndex = 14;
-            this.label24.Text = "State";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(255, 18);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(46, 17);
-            this.label25.TabIndex = 28;
-            this.label25.Text = "State";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(255, 18);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(46, 17);
-            this.label26.TabIndex = 29;
-            this.label26.Text = "State";
-            // 
             // CAT_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -714,7 +728,7 @@ namespace UserInterface
         private System.Windows.Forms.GroupBox gbNitrogen;
         private System.Windows.Forms.GroupBox gbOxygen;
         private System.Windows.Forms.GroupBox gbFuel;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox tbFV1Pos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -767,6 +781,7 @@ namespace UserInterface
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 
