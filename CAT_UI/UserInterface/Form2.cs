@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO.Ports;
 using System.Windows.Forms;
 
 namespace UserInterface
@@ -18,8 +12,7 @@ namespace UserInterface
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            cbCOM.SelectedItem = "COM10";
-            cbBaudRate.SelectedItem = "115200";
+            getPortNames();
         }
 
         public Form2()
@@ -27,6 +20,20 @@ namespace UserInterface
             InitializeComponent();
         }
 
+        // Event Handlers
+        //private void getPortNamesHandler(object sender, EventArgs e)
+        //{
+        //    getPortNames();
+        //}
+
+        // Methods
+        public void getPortNames()
+        {
+            string[] ports = SerialPort.GetPortNames();
+            cbCOM.Items.AddRange(ports);
+        }
+
+        // Button Events
         public void btnConnect_Click(object sender, EventArgs e)
         {
             COMPort = cbCOM.GetItemText(cbCOM.SelectedItem);

@@ -40,19 +40,6 @@ namespace UserInterface
             // cbCOM
             // 
             this.cbCOM.FormattingEnabled = true;
-            this.cbCOM.Items.AddRange(new object[] {
-            "COM1",
-            "COM2",
-            "COM3",
-            "COM4",
-            "COM5",
-            "COM6",
-            "COM7",
-            "COM8",
-            "COM9",
-            "COM10",
-            "COM11",
-            "COM12"});
             this.cbCOM.Location = new System.Drawing.Point(164, 46);
             this.cbCOM.Name = "cbCOM";
             this.cbCOM.Size = new System.Drawing.Size(322, 24);

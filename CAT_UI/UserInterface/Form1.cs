@@ -9,40 +9,45 @@ namespace UserInterface
     {
         //public variable declarations
         public delegate void SetTextDeleg(string text);
-        public Form2 newForm = new Form2();
+        public Form2 form2 = new Form2();
+        public Form3 form3 = new Form3();
 
         private void CAT_UI_Load(object sender, EventArgs e)
         {
-            newForm.Show();
-            newForm.TopMost = true;
+            form2.Show();
+            form2.TopMost = true;
         }
 
         public CAT_UI()
         {
             InitializeComponent();
 
-            newForm.btnConnect.Click += new EventHandler(ReconnectPortHandler);
+            form2.btnConnect.Click += new EventHandler(ReconnectPortHandler);
+            form3.btnActuate.Click += new EventHandler(WriteSerialHandler);
         }
 
         // Event Handlers
-        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
-            SerialPort sp = (SerialPort)sender;
-            string x = sp.ReadLine();
-            this.BeginInvoke(new SetTextDeleg(ReceiveData), new object[] { x });
-        }
         private void ReconnectPortHandler(object sender, EventArgs e)
         {
             ReconnectPort();
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-            //tbTemp1.Text = "The event click is working!:)";
+        }
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            string x = sp.ReadLine();
+            this.BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
+        }
+        private void WriteSerialHandler(object sender, EventArgs e)
+        {
+            WriteSerial();
         }
 
         // Methods
         public void ReconnectPort()
         {
-            string CP = newForm.COMPort;
-            int BR = newForm.BaudRate;
+            string CP = form2.COMPort;
+            int BR = form2.BaudRate;
 
             mySerialPort = new SerialPort(CP, BR);
             mySerialPort.DtrEnable = true;
@@ -53,20 +58,10 @@ namespace UserInterface
             catch
             {
                 MessageBox.Show("Port not accessible. Try again.");
-                newForm.Show();
+                form2.Show();
             }
         }
-        private string GetValue(string line)
-        {
-            string[] data = line.Split(':');
-            return data[1];
-        }
-        public string GetStateValue(string line)
-        {
-            string[] data = line.Split(':');
-            return data[2];
-        }
-        private void ReceiveData(string indata)
+        private void WriteData(string indata)
         {
             if (indata != null)
             {
@@ -153,13 +148,31 @@ namespace UserInterface
                 }
             }
         }
+        private void WriteSerial()
+        {
+            string valve = form3.ValveName;
+            string position = form3.ValvePosition;
+            //mySerialPort.WriteLine(valve + ":" + position);
+            tbFV1State.Text = valve + ":" + position;
+        }
+        private string GetValue(string line)
+        {
+            string[] data = line.Split(':');
+            return data[1];
+        }
+        private string GetStateValue(string line)
+        {
+            string[] data = line.Split(':');
+            return data[2];
+        }
+        
 
         // Button Events
         private void btnReConnect_Click(object sender, EventArgs e)
         {
             mySerialPort.Close();
             ClearBoxes();
-            newForm.Show();
+            form2.Show();
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -175,6 +188,11 @@ namespace UserInterface
             tbPress4.Text = "";
             tbPress5.Text = "";
             tbPress6.Text = "";
+        }
+
+        private void btnActuate_Click(object sender, EventArgs e)
+        {
+            form3.Show();
         }
     }
 }

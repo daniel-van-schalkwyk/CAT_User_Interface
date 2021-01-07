@@ -52,14 +52,21 @@ namespace UserInterface
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbControls = new System.Windows.Forms.GroupBox();
+            this.btnActuate = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gbNitrogen = new System.Windows.Forms.GroupBox();
+            this.tbNV2State = new System.Windows.Forms.TextBox();
+            this.tbNV1State = new System.Windows.Forms.TextBox();
             this.tbNV2Pos = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbNV1Pos = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.gbOxygen = new System.Windows.Forms.GroupBox();
+            this.tbPVState = new System.Windows.Forms.TextBox();
+            this.tbOV3State = new System.Windows.Forms.TextBox();
+            this.tbOV2State = new System.Windows.Forms.TextBox();
+            this.tbOV1State = new System.Windows.Forms.TextBox();
             this.tbPVPos = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbOV3Pos = new System.Windows.Forms.TextBox();
@@ -70,6 +77,9 @@ namespace UserInterface
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.gbFuel = new System.Windows.Forms.GroupBox();
+            this.tbFV3State = new System.Windows.Forms.TextBox();
+            this.tbFV2State = new System.Windows.Forms.TextBox();
+            this.tbFV1State = new System.Windows.Forms.TextBox();
             this.tbFV3Pos = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbFV2Pos = new System.Windows.Forms.TextBox();
@@ -78,17 +88,7 @@ namespace UserInterface
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.mySerialPort = new System.IO.Ports.SerialPort(this.components);
-            this.btnActuate = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
-            this.tbFV1State = new System.Windows.Forms.TextBox();
-            this.tbFV2State = new System.Windows.Forms.TextBox();
-            this.tbFV3State = new System.Windows.Forms.TextBox();
-            this.tbOV1State = new System.Windows.Forms.TextBox();
-            this.tbOV2State = new System.Windows.Forms.TextBox();
-            this.tbOV3State = new System.Windows.Forms.TextBox();
-            this.tbPVState = new System.Windows.Forms.TextBox();
-            this.tbNV1State = new System.Windows.Forms.TextBox();
-            this.tbNV2State = new System.Windows.Forms.TextBox();
             this.gbData.SuspendLayout();
             this.gbControls.SuspendLayout();
             this.gbNitrogen.SuspendLayout();
@@ -305,6 +305,16 @@ namespace UserInterface
             this.gbControls.TabStop = false;
             this.gbControls.Text = "Controls";
             // 
+            // btnActuate
+            // 
+            this.btnActuate.Location = new System.Drawing.Point(107, 482);
+            this.btnActuate.Name = "btnActuate";
+            this.btnActuate.Size = new System.Drawing.Size(138, 33);
+            this.btnActuate.TabIndex = 3;
+            this.btnActuate.Text = "Actuate";
+            this.btnActuate.UseVisualStyleBackColor = true;
+            this.btnActuate.Click += new System.EventHandler(this.btnActuate_Click);
+            // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(251, 482);
@@ -329,6 +339,20 @@ namespace UserInterface
             this.gbNitrogen.TabIndex = 1;
             this.gbNitrogen.TabStop = false;
             this.gbNitrogen.Text = "Nitrogen";
+            // 
+            // tbNV2State
+            // 
+            this.tbNV2State.Location = new System.Drawing.Point(180, 79);
+            this.tbNV2State.Name = "tbNV2State";
+            this.tbNV2State.Size = new System.Drawing.Size(197, 22);
+            this.tbNV2State.TabIndex = 29;
+            // 
+            // tbNV1State
+            // 
+            this.tbNV1State.Location = new System.Drawing.Point(180, 50);
+            this.tbNV1State.Name = "tbNV1State";
+            this.tbNV1State.Size = new System.Drawing.Size(197, 22);
+            this.tbNV1State.TabIndex = 28;
             // 
             // tbNV2Pos
             // 
@@ -392,6 +416,34 @@ namespace UserInterface
             this.gbOxygen.TabIndex = 1;
             this.gbOxygen.TabStop = false;
             this.gbOxygen.Text = "Oxygen";
+            // 
+            // tbPVState
+            // 
+            this.tbPVState.Location = new System.Drawing.Point(180, 127);
+            this.tbPVState.Name = "tbPVState";
+            this.tbPVState.Size = new System.Drawing.Size(197, 22);
+            this.tbPVState.TabIndex = 27;
+            // 
+            // tbOV3State
+            // 
+            this.tbOV3State.Location = new System.Drawing.Point(180, 99);
+            this.tbOV3State.Name = "tbOV3State";
+            this.tbOV3State.Size = new System.Drawing.Size(197, 22);
+            this.tbOV3State.TabIndex = 26;
+            // 
+            // tbOV2State
+            // 
+            this.tbOV2State.Location = new System.Drawing.Point(180, 70);
+            this.tbOV2State.Name = "tbOV2State";
+            this.tbOV2State.Size = new System.Drawing.Size(197, 22);
+            this.tbOV2State.TabIndex = 25;
+            // 
+            // tbOV1State
+            // 
+            this.tbOV1State.Location = new System.Drawing.Point(180, 42);
+            this.tbOV1State.Name = "tbOV1State";
+            this.tbOV1State.Size = new System.Drawing.Size(197, 22);
+            this.tbOV1State.TabIndex = 24;
             // 
             // tbPVPos
             // 
@@ -485,6 +537,27 @@ namespace UserInterface
             this.gbFuel.TabStop = false;
             this.gbFuel.Text = "Fuel";
             // 
+            // tbFV3State
+            // 
+            this.tbFV3State.Location = new System.Drawing.Point(180, 113);
+            this.tbFV3State.Name = "tbFV3State";
+            this.tbFV3State.Size = new System.Drawing.Size(197, 22);
+            this.tbFV3State.TabIndex = 13;
+            // 
+            // tbFV2State
+            // 
+            this.tbFV2State.Location = new System.Drawing.Point(180, 85);
+            this.tbFV2State.Name = "tbFV2State";
+            this.tbFV2State.Size = new System.Drawing.Size(197, 22);
+            this.tbFV2State.TabIndex = 12;
+            // 
+            // tbFV1State
+            // 
+            this.tbFV1State.Location = new System.Drawing.Point(180, 56);
+            this.tbFV1State.Name = "tbFV1State";
+            this.tbFV1State.Size = new System.Drawing.Size(197, 22);
+            this.tbFV1State.TabIndex = 11;
+            // 
             // tbFV3Pos
             // 
             this.tbFV3Pos.Location = new System.Drawing.Point(54, 113);
@@ -542,15 +615,6 @@ namespace UserInterface
             this.label3.TabIndex = 0;
             this.label3.Text = "FV1:";
             // 
-            // btnActuate
-            // 
-            this.btnActuate.Location = new System.Drawing.Point(107, 482);
-            this.btnActuate.Name = "btnActuate";
-            this.btnActuate.Size = new System.Drawing.Size(138, 33);
-            this.btnActuate.TabIndex = 3;
-            this.btnActuate.Text = "Actuate";
-            this.btnActuate.UseVisualStyleBackColor = true;
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -561,69 +625,6 @@ namespace UserInterface
             this.label23.TabIndex = 2;
             this.label23.Text = "Test Station Monitor";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbFV1State
-            // 
-            this.tbFV1State.Location = new System.Drawing.Point(180, 56);
-            this.tbFV1State.Name = "tbFV1State";
-            this.tbFV1State.Size = new System.Drawing.Size(197, 22);
-            this.tbFV1State.TabIndex = 11;
-            // 
-            // tbFV2State
-            // 
-            this.tbFV2State.Location = new System.Drawing.Point(180, 85);
-            this.tbFV2State.Name = "tbFV2State";
-            this.tbFV2State.Size = new System.Drawing.Size(197, 22);
-            this.tbFV2State.TabIndex = 12;
-            // 
-            // tbFV3State
-            // 
-            this.tbFV3State.Location = new System.Drawing.Point(180, 113);
-            this.tbFV3State.Name = "tbFV3State";
-            this.tbFV3State.Size = new System.Drawing.Size(197, 22);
-            this.tbFV3State.TabIndex = 13;
-            // 
-            // tbOV1State
-            // 
-            this.tbOV1State.Location = new System.Drawing.Point(180, 42);
-            this.tbOV1State.Name = "tbOV1State";
-            this.tbOV1State.Size = new System.Drawing.Size(197, 22);
-            this.tbOV1State.TabIndex = 24;
-            // 
-            // tbOV2State
-            // 
-            this.tbOV2State.Location = new System.Drawing.Point(180, 70);
-            this.tbOV2State.Name = "tbOV2State";
-            this.tbOV2State.Size = new System.Drawing.Size(197, 22);
-            this.tbOV2State.TabIndex = 25;
-            // 
-            // tbOV3State
-            // 
-            this.tbOV3State.Location = new System.Drawing.Point(180, 99);
-            this.tbOV3State.Name = "tbOV3State";
-            this.tbOV3State.Size = new System.Drawing.Size(197, 22);
-            this.tbOV3State.TabIndex = 26;
-            // 
-            // tbPVState
-            // 
-            this.tbPVState.Location = new System.Drawing.Point(180, 127);
-            this.tbPVState.Name = "tbPVState";
-            this.tbPVState.Size = new System.Drawing.Size(197, 22);
-            this.tbPVState.TabIndex = 27;
-            // 
-            // tbNV1State
-            // 
-            this.tbNV1State.Location = new System.Drawing.Point(180, 50);
-            this.tbNV1State.Name = "tbNV1State";
-            this.tbNV1State.Size = new System.Drawing.Size(197, 22);
-            this.tbNV1State.TabIndex = 28;
-            // 
-            // tbNV2State
-            // 
-            this.tbNV2State.Location = new System.Drawing.Point(180, 79);
-            this.tbNV2State.Name = "tbNV2State";
-            this.tbNV2State.Size = new System.Drawing.Size(197, 22);
-            this.tbNV2State.TabIndex = 29;
             // 
             // CAT_UI
             // 
@@ -699,7 +700,7 @@ namespace UserInterface
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnReConnect;
+        public System.Windows.Forms.Button btnReConnect;
         private System.IO.Ports.SerialPort mySerialPort;
         private System.Windows.Forms.Button btnActuate;
         private System.Windows.Forms.Label label23;
