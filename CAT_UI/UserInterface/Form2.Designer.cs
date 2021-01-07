@@ -141,7 +141,7 @@ namespace UserInterface
         private System.Windows.Forms.ComboBox cbBaudRate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnConnect;
+        public System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Label label3;
     }
 }

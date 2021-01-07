@@ -12,9 +12,9 @@ namespace UserInterface
 {
     public partial class Form2 : Form
     {
-        public static string COMPort;
-        public static string BRString;
-        public static int BaudRate;
+        public string COMPort;
+        public string BRString;
+        public int BaudRate;
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -27,15 +27,12 @@ namespace UserInterface
             InitializeComponent();
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
+        public void btnConnect_Click(object sender, EventArgs e)
         {
             COMPort = cbCOM.GetItemText(cbCOM.SelectedItem);
             BRString = cbBaudRate.GetItemText(cbBaudRate.SelectedItem);
-            BaudRate = Convert.ToInt32(BRString);
-
+            BaudRate = int.Parse(BRString);
             this.Hide();
         }
-
-        
     }
 }
