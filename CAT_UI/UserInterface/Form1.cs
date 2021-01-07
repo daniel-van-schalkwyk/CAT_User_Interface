@@ -104,47 +104,47 @@ namespace UserInterface
                     else if (datapnt.Contains("S01"))
                     {
                         tbFV1Pos.Text = GetValue(datapnt);
-                        //tbFV1State.Text = GetStateValue(datapnt);
+                        tbFV1State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S02"))
                     {
                         tbFV2Pos.Text = GetValue(datapnt);
-                        //tbFV2State.Text = GetStateValue(datapnt);
+                        tbFV2State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S03"))
                     {
                         tbFV3Pos.Text = GetValue(datapnt);
-                        //tbFV3State.Text = GetStateValue(datapnt);
+                        tbFV3State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S04"))
                     {
                         tbOV1Pos.Text = GetValue(datapnt);
-                        //tbOV1State.Text = GetStateValue(datapnt);
+                        tbOV1State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S05"))
                     {
                         tbOV2Pos.Text = GetValue(datapnt);
-                        //tbOV2State.Text = GetStateValue(datapnt);
+                        tbOV2State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S06"))
                     {
                         tbOV3Pos.Text = GetValue(datapnt);
-                        //tbOV3State.Text = GetStateValue(datapnt);
+                        tbOV3State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S07"))
                     {
                         tbNV1Pos.Text = GetValue(datapnt);
-                        //tbNV1State.Text = GetStateValue(datapnt);
+                        tbNV1State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S08"))
                     {
                         tbNV2Pos.Text = GetValue(datapnt);
-                        //tbNV2State.Text = GetStateValue(datapnt);
+                        tbNV2State.Text = GetStateValue(datapnt);
                     }
                     else if (datapnt.Contains("S09"))
                     {
                         tbPVPos.Text = GetValue(datapnt);
-                        //tbPVState.Text = GetStateValue(datapnt);
+                        tbPVState.Text = GetStateValue(datapnt);
                     }
                 }
             }
@@ -163,36 +163,43 @@ namespace UserInterface
         }
         private string GetStateValue(string line)
         {
-            string state;
-            string[] data = line.Split(':');
-            if (data[2].Contains("C"))
+            string state = " ";
+            string[] data = new string[3];
+            data = line.Split(':');
+            try
             {
-                state = "Closed";
-                return state;
+                if (data[2].Contains("C"))
+                {
+                    state = "Closed";
+                    return state;
+                }
+                else if (data[2].Contains("O"))
+                {
+                    state = "Open";
+                    return state;
+                }
+                else if (data[2].Contains("I"))
+                {
+                    state = "Isolate";
+                    return state;
+                }
+                else if (data[2].Contains("V"))
+                {
+                    state = "Vent";
+                    return state;
+                }
+                else if (data[2].Contains("F"))
+                {
+                    state = "Feed";
+                    return state;
+                }
+                else
+                {
+                    return state;
+                }
             }
-            else if (data[2].Contains("O"))
+            catch (Exception)
             {
-                state = "Open";
-                return state;
-            }
-            else if (data[2].Contains("I"))
-            {
-                state = "Isolate";
-                return state;
-            }
-            else if (data[2].Contains("V"))
-            {
-                state = "Vent";
-                return state;
-            }
-            else if (data[2].Contains("F"))
-            {
-                state = "Feed";
-                return state;
-            }
-            else
-            {
-                state = " ";
                 return state;
             }
         }

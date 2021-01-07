@@ -89,6 +89,9 @@ namespace UserInterface
             this.label3 = new System.Windows.Forms.Label();
             this.mySerialPort = new System.IO.Ports.SerialPort(this.components);
             this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.gbData.SuspendLayout();
             this.gbControls.SuspendLayout();
             this.gbNitrogen.SuspendLayout();
@@ -118,6 +121,7 @@ namespace UserInterface
             this.gbData.Controls.Add(this.tbTemp1);
             this.gbData.Controls.Add(this.label2);
             this.gbData.Controls.Add(this.label1);
+            this.gbData.ForeColor = System.Drawing.SystemColors.ControlText;
             this.gbData.Location = new System.Drawing.Point(14, 126);
             this.gbData.Name = "gbData";
             this.gbData.Size = new System.Drawing.Size(415, 407);
@@ -127,6 +131,7 @@ namespace UserInterface
             // 
             // btnReConnect
             // 
+            this.btnReConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReConnect.Location = new System.Drawing.Point(20, 329);
             this.btnReConnect.Name = "btnReConnect";
             this.btnReConnect.Size = new System.Drawing.Size(372, 33);
@@ -209,48 +214,49 @@ namespace UserInterface
             // 
             // tbPress6
             // 
-            this.tbPress6.Location = new System.Drawing.Point(191, 283);
+            this.tbPress6.Location = new System.Drawing.Point(86, 283);
             this.tbPress6.Name = "tbPress6";
-            this.tbPress6.Size = new System.Drawing.Size(201, 22);
+            this.tbPress6.Size = new System.Drawing.Size(306, 22);
             this.tbPress6.TabIndex = 11;
             // 
             // tbPress5
             // 
-            this.tbPress5.Location = new System.Drawing.Point(191, 255);
+            this.tbPress5.Location = new System.Drawing.Point(86, 255);
             this.tbPress5.Name = "tbPress5";
-            this.tbPress5.Size = new System.Drawing.Size(201, 22);
+            this.tbPress5.Size = new System.Drawing.Size(306, 22);
             this.tbPress5.TabIndex = 10;
             // 
             // tbPress4
             // 
-            this.tbPress4.Location = new System.Drawing.Point(191, 227);
+            this.tbPress4.Location = new System.Drawing.Point(86, 227);
             this.tbPress4.Name = "tbPress4";
-            this.tbPress4.Size = new System.Drawing.Size(201, 22);
+            this.tbPress4.Size = new System.Drawing.Size(306, 22);
             this.tbPress4.TabIndex = 9;
             // 
             // tbPress3
             // 
-            this.tbPress3.Location = new System.Drawing.Point(191, 199);
+            this.tbPress3.Location = new System.Drawing.Point(86, 199);
             this.tbPress3.Name = "tbPress3";
-            this.tbPress3.Size = new System.Drawing.Size(201, 22);
+            this.tbPress3.Size = new System.Drawing.Size(306, 22);
             this.tbPress3.TabIndex = 8;
             // 
             // tbPress2
             // 
-            this.tbPress2.Location = new System.Drawing.Point(191, 171);
+            this.tbPress2.Location = new System.Drawing.Point(86, 171);
             this.tbPress2.Name = "tbPress2";
-            this.tbPress2.Size = new System.Drawing.Size(201, 22);
+            this.tbPress2.Size = new System.Drawing.Size(306, 22);
             this.tbPress2.TabIndex = 7;
             // 
             // tbTemp2
             // 
-            this.tbTemp2.Location = new System.Drawing.Point(191, 66);
+            this.tbTemp2.Location = new System.Drawing.Point(86, 66);
             this.tbTemp2.Name = "tbTemp2";
-            this.tbTemp2.Size = new System.Drawing.Size(201, 22);
+            this.tbTemp2.Size = new System.Drawing.Size(306, 22);
             this.tbTemp2.TabIndex = 6;
             // 
             // btnClear
             // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(20, 368);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(372, 33);
@@ -261,33 +267,35 @@ namespace UserInterface
             // 
             // tbPress1
             // 
-            this.tbPress1.Location = new System.Drawing.Point(191, 141);
+            this.tbPress1.Location = new System.Drawing.Point(86, 141);
             this.tbPress1.Name = "tbPress1";
-            this.tbPress1.Size = new System.Drawing.Size(201, 22);
+            this.tbPress1.Size = new System.Drawing.Size(306, 22);
             this.tbPress1.TabIndex = 3;
             // 
             // tbTemp1
             // 
-            this.tbTemp1.Location = new System.Drawing.Point(191, 38);
+            this.tbTemp1.Location = new System.Drawing.Point(86, 38);
             this.tbTemp1.Name = "tbTemp1";
-            this.tbTemp1.Size = new System.Drawing.Size(201, 22);
+            this.tbTemp1.Size = new System.Drawing.Size(306, 22);
             this.tbTemp1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(156, 121);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(174, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Pressure";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(156, 18);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(161, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 17);
+            this.label1.Size = new System.Drawing.Size(101, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Temperature";
             // 
@@ -298,6 +306,7 @@ namespace UserInterface
             this.gbControls.Controls.Add(this.gbNitrogen);
             this.gbControls.Controls.Add(this.gbOxygen);
             this.gbControls.Controls.Add(this.gbFuel);
+            this.gbControls.ForeColor = System.Drawing.SystemColors.ControlText;
             this.gbControls.Location = new System.Drawing.Point(435, 12);
             this.gbControls.Name = "gbControls";
             this.gbControls.Size = new System.Drawing.Size(395, 521);
@@ -307,6 +316,7 @@ namespace UserInterface
             // 
             // btnActuate
             // 
+            this.btnActuate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActuate.Location = new System.Drawing.Point(107, 482);
             this.btnActuate.Name = "btnActuate";
             this.btnActuate.Size = new System.Drawing.Size(138, 33);
@@ -317,6 +327,7 @@ namespace UserInterface
             // 
             // btnReset
             // 
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.Location = new System.Drawing.Point(251, 482);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(138, 33);
@@ -327,6 +338,7 @@ namespace UserInterface
             // 
             // gbNitrogen
             // 
+            this.gbNitrogen.Controls.Add(this.label26);
             this.gbNitrogen.Controls.Add(this.tbNV2State);
             this.gbNitrogen.Controls.Add(this.tbNV1State);
             this.gbNitrogen.Controls.Add(this.tbNV2Pos);
@@ -381,9 +393,10 @@ namespace UserInterface
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(58, 18);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(49, 18);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(113, 17);
+            this.label13.Size = new System.Drawing.Size(130, 17);
             this.label13.TabIndex = 13;
             this.label13.Text = "Current Position:";
             // 
@@ -398,6 +411,7 @@ namespace UserInterface
             // 
             // gbOxygen
             // 
+            this.gbOxygen.Controls.Add(this.label25);
             this.gbOxygen.Controls.Add(this.tbPVState);
             this.gbOxygen.Controls.Add(this.tbOV3State);
             this.gbOxygen.Controls.Add(this.tbOV2State);
@@ -504,9 +518,10 @@ namespace UserInterface
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(58, 18);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(49, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(113, 17);
+            this.label9.Size = new System.Drawing.Size(130, 17);
             this.label9.TabIndex = 13;
             this.label9.Text = "Current Position:";
             // 
@@ -521,6 +536,7 @@ namespace UserInterface
             // 
             // gbFuel
             // 
+            this.gbFuel.Controls.Add(this.label24);
             this.gbFuel.Controls.Add(this.tbFV3State);
             this.gbFuel.Controls.Add(this.tbFV2State);
             this.gbFuel.Controls.Add(this.tbFV1State);
@@ -601,11 +617,12 @@ namespace UserInterface
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 23);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(52, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 17);
+            this.label4.Size = new System.Drawing.Size(125, 17);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Current Position:";
+            this.label4.Text = "Current Position";
             // 
             // label3
             // 
@@ -619,23 +636,55 @@ namespace UserInterface
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label23.Location = new System.Drawing.Point(14, 42);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(395, 48);
+            this.label23.Size = new System.Drawing.Size(371, 42);
             this.label23.TabIndex = 2;
             this.label23.Text = "Test Station Monitor";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(255, 23);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(46, 17);
+            this.label24.TabIndex = 14;
+            this.label24.Text = "State";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(255, 18);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(46, 17);
+            this.label25.TabIndex = 28;
+            this.label25.Text = "State";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(255, 18);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(46, 17);
+            this.label26.TabIndex = 29;
+            this.label26.Text = "State";
             // 
             // CAT_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(843, 545);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.gbControls);
             this.Controls.Add(this.gbData);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CAT_UI";
             this.Text = "CAT_UI";
@@ -715,6 +764,9 @@ namespace UserInterface
         private System.Windows.Forms.TextBox tbFV3State;
         private System.Windows.Forms.TextBox tbFV2State;
         private System.Windows.Forms.TextBox tbFV1State;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
     }
 }
 
