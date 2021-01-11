@@ -14,7 +14,7 @@ namespace UserInterface
     {
         private string[] pos3 = new string[] { "Isolate", "Vent", "Feed"};
         private string[] pos2 = new string[] { "Open", "Close" };
-        private string[] vname = new string[] { "FV1", "FV2", "FV3", "OV1", "OV2", "OV3", "PV", "NV1", "NV2" };
+        private string[] vname = new string[] { "FV1", "FV2", "FV3", "FV4", "OV1", "OV2", "OV3", "OV4", "PV", "NV1", "NV2" };
 
         public string ValveName;
         public string ValvePosition;

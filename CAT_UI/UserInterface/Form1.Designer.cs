@@ -30,11 +30,17 @@ namespace UserInterface
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.gbPress = new System.Windows.Forms.GroupBox();
+            this.checkBoxP6 = new System.Windows.Forms.CheckBox();
+            this.checkBoxP5 = new System.Windows.Forms.CheckBox();
+            this.checkBoxP4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxP3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxP2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxP1 = new System.Windows.Forms.CheckBox();
             this.label30 = new System.Windows.Forms.Label();
             this.chartPress = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label22 = new System.Windows.Forms.Label();
@@ -50,7 +56,6 @@ namespace UserInterface
             this.tbPress2 = new System.Windows.Forms.TextBox();
             this.tbPress1 = new System.Windows.Forms.TextBox();
             this.btnReConnect = new System.Windows.Forms.Button();
-            this.gbControls = new System.Windows.Forms.GroupBox();
             this.btnActuate = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gbNitrogen = new System.Windows.Forms.GroupBox();
@@ -92,6 +97,12 @@ namespace UserInterface
             this.mySerialPort = new System.IO.Ports.SerialPort(this.components);
             this.label23 = new System.Windows.Forms.Label();
             this.gbTemp = new System.Windows.Forms.GroupBox();
+            this.checkBoxT6 = new System.Windows.Forms.CheckBox();
+            this.checkBoxT5 = new System.Windows.Forms.CheckBox();
+            this.checkBoxT4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxT3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxT2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxT1 = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.chartTemp = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
@@ -108,28 +119,62 @@ namespace UserInterface
             this.tbTemp1 = new System.Windows.Forms.TextBox();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnStopRec = new System.Windows.Forms.Button();
-            this.checkBoxT1 = new System.Windows.Forms.CheckBox();
-            this.checkBoxT2 = new System.Windows.Forms.CheckBox();
-            this.checkBoxT3 = new System.Windows.Forms.CheckBox();
-            this.checkBoxT4 = new System.Windows.Forms.CheckBox();
-            this.checkBoxT5 = new System.Windows.Forms.CheckBox();
-            this.checkBoxT6 = new System.Windows.Forms.CheckBox();
-            this.checkBoxP1 = new System.Windows.Forms.CheckBox();
-            this.checkBoxP2 = new System.Windows.Forms.CheckBox();
-            this.checkBoxP3 = new System.Windows.Forms.CheckBox();
-            this.checkBoxP4 = new System.Windows.Forms.CheckBox();
-            this.checkBoxP5 = new System.Windows.Forms.CheckBox();
-            this.checkBoxP6 = new System.Windows.Forms.CheckBox();
+            this.pbMain = new System.Windows.Forms.PictureBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pbFV2 = new System.Windows.Forms.PictureBox();
+            this.pbFV3 = new System.Windows.Forms.PictureBox();
+            this.pbPV = new System.Windows.Forms.PictureBox();
+            this.pbOV1 = new System.Windows.Forms.PictureBox();
+            this.pbFV1 = new System.Windows.Forms.PictureBox();
+            this.pbOV2 = new System.Windows.Forms.PictureBox();
+            this.pbOV3 = new System.Windows.Forms.PictureBox();
+            this.pbFV4 = new System.Windows.Forms.PictureBox();
+            this.pbOV4 = new System.Windows.Forms.PictureBox();
+            this.pbNV2 = new System.Windows.Forms.PictureBox();
+            this.pbNV1 = new System.Windows.Forms.PictureBox();
+            this.tbOV4State = new System.Windows.Forms.TextBox();
+            this.tbOV4Pos = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tbFV4State = new System.Windows.Forms.TextBox();
+            this.tbFV4Pos = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.gbPress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPress)).BeginInit();
-            this.gbControls.SuspendLayout();
             this.gbNitrogen.SuspendLayout();
             this.gbOxygen.SuspendLayout();
             this.gbFuel.SuspendLayout();
             this.gbTemp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNV1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbPress
@@ -155,18 +200,72 @@ namespace UserInterface
             this.gbPress.Controls.Add(this.tbPress2);
             this.gbPress.Controls.Add(this.tbPress1);
             this.gbPress.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.gbPress.Location = new System.Drawing.Point(14, 329);
+            this.gbPress.Location = new System.Drawing.Point(6, 427);
             this.gbPress.Name = "gbPress";
-            this.gbPress.Size = new System.Drawing.Size(952, 297);
+            this.gbPress.Size = new System.Drawing.Size(1660, 413);
             this.gbPress.TabIndex = 0;
             this.gbPress.TabStop = false;
             this.gbPress.Text = "Pressure";
+            // 
+            // checkBoxP6
+            // 
+            this.checkBoxP6.AutoSize = true;
+            this.checkBoxP6.Location = new System.Drawing.Point(1632, 207);
+            this.checkBoxP6.Name = "checkBoxP6";
+            this.checkBoxP6.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxP6.TabIndex = 41;
+            this.checkBoxP6.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxP5
+            // 
+            this.checkBoxP5.AutoSize = true;
+            this.checkBoxP5.Location = new System.Drawing.Point(1632, 179);
+            this.checkBoxP5.Name = "checkBoxP5";
+            this.checkBoxP5.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxP5.TabIndex = 40;
+            this.checkBoxP5.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxP4
+            // 
+            this.checkBoxP4.AutoSize = true;
+            this.checkBoxP4.Location = new System.Drawing.Point(1632, 151);
+            this.checkBoxP4.Name = "checkBoxP4";
+            this.checkBoxP4.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxP4.TabIndex = 39;
+            this.checkBoxP4.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxP3
+            // 
+            this.checkBoxP3.AutoSize = true;
+            this.checkBoxP3.Location = new System.Drawing.Point(1632, 123);
+            this.checkBoxP3.Name = "checkBoxP3";
+            this.checkBoxP3.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxP3.TabIndex = 38;
+            this.checkBoxP3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxP2
+            // 
+            this.checkBoxP2.AutoSize = true;
+            this.checkBoxP2.Location = new System.Drawing.Point(1632, 95);
+            this.checkBoxP2.Name = "checkBoxP2";
+            this.checkBoxP2.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxP2.TabIndex = 37;
+            this.checkBoxP2.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxP1
+            // 
+            this.checkBoxP1.AutoSize = true;
+            this.checkBoxP1.Location = new System.Drawing.Point(1632, 65);
+            this.checkBoxP1.Name = "checkBoxP1";
+            this.checkBoxP1.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxP1.TabIndex = 36;
+            this.checkBoxP1.UseVisualStyleBackColor = true;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(699, 36);
+            this.label30.Location = new System.Drawing.Point(1413, 23);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(121, 25);
             this.label30.TabIndex = 30;
@@ -174,20 +273,20 @@ namespace UserInterface
             // 
             // chartPress
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartPress.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartPress.Legends.Add(legend1);
-            this.chartPress.Location = new System.Drawing.Point(6, 21);
+            chartArea13.Name = "ChartArea1";
+            this.chartPress.ChartAreas.Add(chartArea13);
+            legend13.Name = "Legend1";
+            this.chartPress.Legends.Add(legend13);
+            this.chartPress.Location = new System.Drawing.Point(6, 23);
             this.chartPress.Name = "chartPress";
-            this.chartPress.Size = new System.Drawing.Size(547, 270);
+            this.chartPress.Size = new System.Drawing.Size(1364, 365);
             this.chartPress.TabIndex = 29;
             this.chartPress.Text = "Pressure";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(559, 220);
+            this.label22.Location = new System.Drawing.Point(1408, 207);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 17);
             this.label22.TabIndex = 19;
@@ -196,7 +295,7 @@ namespace UserInterface
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(559, 192);
+            this.label21.Location = new System.Drawing.Point(1408, 179);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 17);
             this.label21.TabIndex = 18;
@@ -205,7 +304,7 @@ namespace UserInterface
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(559, 164);
+            this.label20.Location = new System.Drawing.Point(1408, 151);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 17);
             this.label20.TabIndex = 17;
@@ -214,7 +313,7 @@ namespace UserInterface
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(559, 136);
+            this.label19.Location = new System.Drawing.Point(1408, 123);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 17);
             this.label19.TabIndex = 16;
@@ -223,7 +322,7 @@ namespace UserInterface
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(559, 108);
+            this.label18.Location = new System.Drawing.Point(1408, 95);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(65, 17);
             this.label18.TabIndex = 15;
@@ -232,7 +331,7 @@ namespace UserInterface
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(559, 78);
+            this.label17.Location = new System.Drawing.Point(1408, 65);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(65, 17);
             this.label17.TabIndex = 14;
@@ -240,78 +339,63 @@ namespace UserInterface
             // 
             // tbPress6
             // 
-            this.tbPress6.Location = new System.Drawing.Point(630, 217);
+            this.tbPress6.Location = new System.Drawing.Point(1479, 204);
             this.tbPress6.Name = "tbPress6";
-            this.tbPress6.Size = new System.Drawing.Size(282, 22);
+            this.tbPress6.Size = new System.Drawing.Size(147, 22);
             this.tbPress6.TabIndex = 11;
             // 
             // tbPress5
             // 
-            this.tbPress5.Location = new System.Drawing.Point(630, 189);
+            this.tbPress5.Location = new System.Drawing.Point(1479, 176);
             this.tbPress5.Name = "tbPress5";
-            this.tbPress5.Size = new System.Drawing.Size(282, 22);
+            this.tbPress5.Size = new System.Drawing.Size(147, 22);
             this.tbPress5.TabIndex = 10;
             // 
             // tbPress4
             // 
-            this.tbPress4.Location = new System.Drawing.Point(630, 161);
+            this.tbPress4.Location = new System.Drawing.Point(1479, 148);
             this.tbPress4.Name = "tbPress4";
-            this.tbPress4.Size = new System.Drawing.Size(282, 22);
+            this.tbPress4.Size = new System.Drawing.Size(147, 22);
             this.tbPress4.TabIndex = 9;
             // 
             // tbPress3
             // 
-            this.tbPress3.Location = new System.Drawing.Point(630, 133);
+            this.tbPress3.Location = new System.Drawing.Point(1479, 120);
             this.tbPress3.Name = "tbPress3";
-            this.tbPress3.Size = new System.Drawing.Size(282, 22);
+            this.tbPress3.Size = new System.Drawing.Size(147, 22);
             this.tbPress3.TabIndex = 8;
             // 
             // tbPress2
             // 
-            this.tbPress2.Location = new System.Drawing.Point(630, 105);
+            this.tbPress2.Location = new System.Drawing.Point(1479, 92);
             this.tbPress2.Name = "tbPress2";
-            this.tbPress2.Size = new System.Drawing.Size(282, 22);
+            this.tbPress2.Size = new System.Drawing.Size(147, 22);
             this.tbPress2.TabIndex = 7;
             // 
             // tbPress1
             // 
-            this.tbPress1.Location = new System.Drawing.Point(630, 75);
+            this.tbPress1.Location = new System.Drawing.Point(1479, 62);
             this.tbPress1.Name = "tbPress1";
-            this.tbPress1.Size = new System.Drawing.Size(282, 22);
+            this.tbPress1.Size = new System.Drawing.Size(147, 22);
             this.tbPress1.TabIndex = 3;
             // 
             // btnReConnect
             // 
             this.btnReConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReConnect.Location = new System.Drawing.Point(31, 632);
+            this.btnReConnect.Location = new System.Drawing.Point(802, 846);
             this.btnReConnect.Name = "btnReConnect";
-            this.btnReConnect.Size = new System.Drawing.Size(372, 33);
+            this.btnReConnect.Size = new System.Drawing.Size(284, 33);
             this.btnReConnect.TabIndex = 20;
             this.btnReConnect.Text = "Reconnect";
             this.btnReConnect.UseVisualStyleBackColor = true;
             this.btnReConnect.Click += new System.EventHandler(this.btnReConnect_Click);
             // 
-            // gbControls
-            // 
-            this.gbControls.Controls.Add(this.btnActuate);
-            this.gbControls.Controls.Add(this.btnReset);
-            this.gbControls.Controls.Add(this.gbNitrogen);
-            this.gbControls.Controls.Add(this.gbOxygen);
-            this.gbControls.Controls.Add(this.gbFuel);
-            this.gbControls.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.gbControls.Location = new System.Drawing.Point(973, 105);
-            this.gbControls.Name = "gbControls";
-            this.gbControls.Size = new System.Drawing.Size(395, 521);
-            this.gbControls.TabIndex = 1;
-            this.gbControls.TabStop = false;
-            this.gbControls.Text = "Controls";
-            // 
             // btnActuate
             // 
             this.btnActuate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActuate.Location = new System.Drawing.Point(107, 482);
+            this.btnActuate.Location = new System.Drawing.Point(848, 501);
             this.btnActuate.Name = "btnActuate";
-            this.btnActuate.Size = new System.Drawing.Size(138, 33);
+            this.btnActuate.Size = new System.Drawing.Size(189, 33);
             this.btnActuate.TabIndex = 3;
             this.btnActuate.Text = "Actuate";
             this.btnActuate.UseVisualStyleBackColor = true;
@@ -320,9 +404,9 @@ namespace UserInterface
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(251, 482);
+            this.btnReset.Location = new System.Drawing.Point(1042, 501);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(138, 33);
+            this.btnReset.Size = new System.Drawing.Size(189, 33);
             this.btnReset.TabIndex = 2;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -338,7 +422,7 @@ namespace UserInterface
             this.gbNitrogen.Controls.Add(this.tbNV1Pos);
             this.gbNitrogen.Controls.Add(this.label13);
             this.gbNitrogen.Controls.Add(this.label14);
-            this.gbNitrogen.Location = new System.Drawing.Point(6, 350);
+            this.gbNitrogen.Location = new System.Drawing.Point(848, 375);
             this.gbNitrogen.Name = "gbNitrogen";
             this.gbNitrogen.Size = new System.Drawing.Size(383, 120);
             this.gbNitrogen.TabIndex = 1;
@@ -413,6 +497,9 @@ namespace UserInterface
             // 
             // gbOxygen
             // 
+            this.gbOxygen.Controls.Add(this.tbOV4State);
+            this.gbOxygen.Controls.Add(this.tbOV4Pos);
+            this.gbOxygen.Controls.Add(this.label31);
             this.gbOxygen.Controls.Add(this.label25);
             this.gbOxygen.Controls.Add(this.tbPVState);
             this.gbOxygen.Controls.Add(this.tbOV3State);
@@ -427,9 +514,9 @@ namespace UserInterface
             this.gbOxygen.Controls.Add(this.tbOV1Pos);
             this.gbOxygen.Controls.Add(this.label9);
             this.gbOxygen.Controls.Add(this.label10);
-            this.gbOxygen.Location = new System.Drawing.Point(6, 189);
+            this.gbOxygen.Location = new System.Drawing.Point(847, 184);
             this.gbOxygen.Name = "gbOxygen";
-            this.gbOxygen.Size = new System.Drawing.Size(383, 155);
+            this.gbOxygen.Size = new System.Drawing.Size(383, 185);
             this.gbOxygen.TabIndex = 1;
             this.gbOxygen.TabStop = false;
             this.gbOxygen.Text = "Oxygen";
@@ -446,7 +533,7 @@ namespace UserInterface
             // 
             // tbPVState
             // 
-            this.tbPVState.Location = new System.Drawing.Point(180, 127);
+            this.tbPVState.Location = new System.Drawing.Point(181, 155);
             this.tbPVState.Name = "tbPVState";
             this.tbPVState.Size = new System.Drawing.Size(197, 22);
             this.tbPVState.TabIndex = 27;
@@ -474,7 +561,7 @@ namespace UserInterface
             // 
             // tbPVPos
             // 
-            this.tbPVPos.Location = new System.Drawing.Point(54, 127);
+            this.tbPVPos.Location = new System.Drawing.Point(55, 155);
             this.tbPVPos.Name = "tbPVPos";
             this.tbPVPos.Size = new System.Drawing.Size(120, 22);
             this.tbPVPos.TabIndex = 23;
@@ -482,7 +569,7 @@ namespace UserInterface
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 130);
+            this.label11.Location = new System.Drawing.Point(9, 158);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 17);
             this.label11.TabIndex = 22;
@@ -548,6 +635,9 @@ namespace UserInterface
             // 
             // gbFuel
             // 
+            this.gbFuel.Controls.Add(this.tbFV4State);
+            this.gbFuel.Controls.Add(this.tbFV4Pos);
+            this.gbFuel.Controls.Add(this.label32);
             this.gbFuel.Controls.Add(this.label24);
             this.gbFuel.Controls.Add(this.tbFV3State);
             this.gbFuel.Controls.Add(this.tbFV2State);
@@ -559,9 +649,9 @@ namespace UserInterface
             this.gbFuel.Controls.Add(this.tbFV1Pos);
             this.gbFuel.Controls.Add(this.label4);
             this.gbFuel.Controls.Add(this.label3);
-            this.gbFuel.Location = new System.Drawing.Point(6, 38);
+            this.gbFuel.Location = new System.Drawing.Point(847, 6);
             this.gbFuel.Name = "gbFuel";
-            this.gbFuel.Size = new System.Drawing.Size(383, 145);
+            this.gbFuel.Size = new System.Drawing.Size(383, 172);
             this.gbFuel.TabIndex = 0;
             this.gbFuel.TabStop = false;
             this.gbFuel.Text = "Fuel";
@@ -660,7 +750,7 @@ namespace UserInterface
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label23.Location = new System.Drawing.Point(973, 30);
+            this.label23.Location = new System.Drawing.Point(12, 13);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(371, 42);
             this.label23.TabIndex = 2;
@@ -689,18 +779,72 @@ namespace UserInterface
             this.gbTemp.Controls.Add(this.label15);
             this.gbTemp.Controls.Add(this.tbTemp2);
             this.gbTemp.Controls.Add(this.tbTemp1);
-            this.gbTemp.Location = new System.Drawing.Point(14, 30);
+            this.gbTemp.Location = new System.Drawing.Point(6, 8);
             this.gbTemp.Name = "gbTemp";
-            this.gbTemp.Size = new System.Drawing.Size(952, 297);
+            this.gbTemp.Size = new System.Drawing.Size(1660, 413);
             this.gbTemp.TabIndex = 3;
             this.gbTemp.TabStop = false;
             this.gbTemp.Text = "Temperature";
+            // 
+            // checkBoxT6
+            // 
+            this.checkBoxT6.AutoSize = true;
+            this.checkBoxT6.Location = new System.Drawing.Point(1632, 199);
+            this.checkBoxT6.Name = "checkBoxT6";
+            this.checkBoxT6.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxT6.TabIndex = 35;
+            this.checkBoxT6.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxT5
+            // 
+            this.checkBoxT5.AutoSize = true;
+            this.checkBoxT5.Location = new System.Drawing.Point(1632, 171);
+            this.checkBoxT5.Name = "checkBoxT5";
+            this.checkBoxT5.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxT5.TabIndex = 34;
+            this.checkBoxT5.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxT4
+            // 
+            this.checkBoxT4.AutoSize = true;
+            this.checkBoxT4.Location = new System.Drawing.Point(1632, 143);
+            this.checkBoxT4.Name = "checkBoxT4";
+            this.checkBoxT4.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxT4.TabIndex = 33;
+            this.checkBoxT4.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxT3
+            // 
+            this.checkBoxT3.AutoSize = true;
+            this.checkBoxT3.Location = new System.Drawing.Point(1632, 115);
+            this.checkBoxT3.Name = "checkBoxT3";
+            this.checkBoxT3.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxT3.TabIndex = 32;
+            this.checkBoxT3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxT2
+            // 
+            this.checkBoxT2.AutoSize = true;
+            this.checkBoxT2.Location = new System.Drawing.Point(1632, 87);
+            this.checkBoxT2.Name = "checkBoxT2";
+            this.checkBoxT2.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxT2.TabIndex = 31;
+            this.checkBoxT2.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxT1
+            // 
+            this.checkBoxT1.AutoSize = true;
+            this.checkBoxT1.Location = new System.Drawing.Point(1632, 59);
+            this.checkBoxT1.Name = "checkBoxT1";
+            this.checkBoxT1.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxT1.TabIndex = 30;
+            this.checkBoxT1.UseVisualStyleBackColor = true;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(699, 44);
+            this.label29.Location = new System.Drawing.Point(1413, 18);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(121, 25);
             this.label29.TabIndex = 29;
@@ -708,19 +852,19 @@ namespace UserInterface
             // 
             // chartTemp
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartTemp.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartTemp.Legends.Add(legend2);
+            chartArea14.Name = "ChartArea1";
+            this.chartTemp.ChartAreas.Add(chartArea14);
+            legend14.Name = "Legend1";
+            this.chartTemp.Legends.Add(legend14);
             this.chartTemp.Location = new System.Drawing.Point(6, 21);
             this.chartTemp.Name = "chartTemp";
-            this.chartTemp.Size = new System.Drawing.Size(547, 270);
+            this.chartTemp.Size = new System.Drawing.Size(1364, 365);
             this.chartTemp.TabIndex = 28;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(559, 225);
+            this.label1.Location = new System.Drawing.Point(1408, 199);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 27;
@@ -729,7 +873,7 @@ namespace UserInterface
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(559, 197);
+            this.label2.Location = new System.Drawing.Point(1408, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 26;
@@ -738,7 +882,7 @@ namespace UserInterface
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(559, 169);
+            this.label27.Location = new System.Drawing.Point(1408, 143);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(65, 17);
             this.label27.TabIndex = 25;
@@ -747,7 +891,7 @@ namespace UserInterface
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(559, 141);
+            this.label28.Location = new System.Drawing.Point(1408, 115);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(65, 17);
             this.label28.TabIndex = 24;
@@ -755,36 +899,36 @@ namespace UserInterface
             // 
             // tbTemp6
             // 
-            this.tbTemp6.Location = new System.Drawing.Point(630, 222);
+            this.tbTemp6.Location = new System.Drawing.Point(1479, 196);
             this.tbTemp6.Name = "tbTemp6";
-            this.tbTemp6.Size = new System.Drawing.Size(282, 22);
+            this.tbTemp6.Size = new System.Drawing.Size(147, 22);
             this.tbTemp6.TabIndex = 23;
             // 
             // tbTemp5
             // 
-            this.tbTemp5.Location = new System.Drawing.Point(630, 194);
+            this.tbTemp5.Location = new System.Drawing.Point(1479, 168);
             this.tbTemp5.Name = "tbTemp5";
-            this.tbTemp5.Size = new System.Drawing.Size(282, 22);
+            this.tbTemp5.Size = new System.Drawing.Size(147, 22);
             this.tbTemp5.TabIndex = 22;
             // 
             // tbTemp4
             // 
-            this.tbTemp4.Location = new System.Drawing.Point(630, 166);
+            this.tbTemp4.Location = new System.Drawing.Point(1479, 140);
             this.tbTemp4.Name = "tbTemp4";
-            this.tbTemp4.Size = new System.Drawing.Size(282, 22);
+            this.tbTemp4.Size = new System.Drawing.Size(147, 22);
             this.tbTemp4.TabIndex = 21;
             // 
             // tbTemp3
             // 
-            this.tbTemp3.Location = new System.Drawing.Point(630, 138);
+            this.tbTemp3.Location = new System.Drawing.Point(1479, 112);
             this.tbTemp3.Name = "tbTemp3";
-            this.tbTemp3.Size = new System.Drawing.Size(282, 22);
+            this.tbTemp3.Size = new System.Drawing.Size(147, 22);
             this.tbTemp3.TabIndex = 20;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(559, 113);
+            this.label16.Location = new System.Drawing.Point(1408, 87);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 17);
             this.label16.TabIndex = 18;
@@ -793,7 +937,7 @@ namespace UserInterface
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(559, 85);
+            this.label15.Location = new System.Drawing.Point(1408, 59);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 17);
             this.label15.TabIndex = 17;
@@ -801,22 +945,22 @@ namespace UserInterface
             // 
             // tbTemp2
             // 
-            this.tbTemp2.Location = new System.Drawing.Point(630, 110);
+            this.tbTemp2.Location = new System.Drawing.Point(1479, 84);
             this.tbTemp2.Name = "tbTemp2";
-            this.tbTemp2.Size = new System.Drawing.Size(282, 22);
+            this.tbTemp2.Size = new System.Drawing.Size(147, 22);
             this.tbTemp2.TabIndex = 16;
             // 
             // tbTemp1
             // 
-            this.tbTemp1.Location = new System.Drawing.Point(630, 82);
+            this.tbTemp1.Location = new System.Drawing.Point(1479, 56);
             this.tbTemp1.Name = "tbTemp1";
-            this.tbTemp1.Size = new System.Drawing.Size(282, 22);
+            this.tbTemp1.Size = new System.Drawing.Size(147, 22);
             this.tbTemp1.TabIndex = 15;
             // 
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(1188, 632);
+            this.btnStop.Location = new System.Drawing.Point(614, 311);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(177, 33);
             this.btnStop.TabIndex = 23;
@@ -827,7 +971,7 @@ namespace UserInterface
             // 
             this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(993, 632);
+            this.btnStart.Location = new System.Drawing.Point(419, 308);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(189, 33);
             this.btnStart.TabIndex = 22;
@@ -837,136 +981,342 @@ namespace UserInterface
             // btnStopRec
             // 
             this.btnStopRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStopRec.Location = new System.Drawing.Point(409, 632);
+            this.btnStopRec.Location = new System.Drawing.Point(1092, 846);
             this.btnStopRec.Name = "btnStopRec";
-            this.btnStopRec.Size = new System.Drawing.Size(372, 33);
+            this.btnStopRec.Size = new System.Drawing.Size(284, 33);
             this.btnStopRec.TabIndex = 24;
             this.btnStopRec.Text = "Stop Recording";
             this.btnStopRec.UseVisualStyleBackColor = true;
             this.btnStopRec.Click += new System.EventHandler(this.btnStopRec_Click);
             // 
-            // checkBoxT1
+            // pbMain
             // 
-            this.checkBoxT1.AutoSize = true;
-            this.checkBoxT1.Location = new System.Drawing.Point(918, 85);
-            this.checkBoxT1.Name = "checkBoxT1";
-            this.checkBoxT1.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxT1.TabIndex = 30;
-            this.checkBoxT1.UseVisualStyleBackColor = true;
+            this.pbMain.Image = global::UserInterface.Properties.Resources.CAT_Pipe_Schematic;
+            this.pbMain.Location = new System.Drawing.Point(6, 6);
+            this.pbMain.Name = "pbMain";
+            this.pbMain.Size = new System.Drawing.Size(679, 947);
+            this.pbMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMain.TabIndex = 25;
+            this.pbMain.TabStop = false;
             // 
-            // checkBoxT2
+            // btnClear
             // 
-            this.checkBoxT2.AutoSize = true;
-            this.checkBoxT2.Location = new System.Drawing.Point(918, 113);
-            this.checkBoxT2.Name = "checkBoxT2";
-            this.checkBoxT2.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxT2.TabIndex = 31;
-            this.checkBoxT2.UseVisualStyleBackColor = true;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(1382, 846);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(284, 33);
+            this.btnClear.TabIndex = 26;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // checkBoxT3
+            // tabControl1
             // 
-            this.checkBoxT3.AutoSize = true;
-            this.checkBoxT3.Location = new System.Drawing.Point(918, 141);
-            this.checkBoxT3.Name = "checkBoxT3";
-            this.checkBoxT3.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxT3.TabIndex = 32;
-            this.checkBoxT3.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(19, 58);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1680, 985);
+            this.tabControl1.TabIndex = 27;
             // 
-            // checkBoxT4
+            // tabPage1
             // 
-            this.checkBoxT4.AutoSize = true;
-            this.checkBoxT4.Location = new System.Drawing.Point(918, 169);
-            this.checkBoxT4.Name = "checkBoxT4";
-            this.checkBoxT4.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxT4.TabIndex = 33;
-            this.checkBoxT4.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.gbTemp);
+            this.tabPage1.Controls.Add(this.btnClear);
+            this.tabPage1.Controls.Add(this.gbPress);
+            this.tabPage1.Controls.Add(this.btnReConnect);
+            this.tabPage1.Controls.Add(this.btnStopRec);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1672, 885);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Sensor Data";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // checkBoxT5
+            // tabPage2
             // 
-            this.checkBoxT5.AutoSize = true;
-            this.checkBoxT5.Location = new System.Drawing.Point(918, 197);
-            this.checkBoxT5.Name = "checkBoxT5";
-            this.checkBoxT5.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxT5.TabIndex = 34;
-            this.checkBoxT5.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.label43);
+            this.tabPage2.Controls.Add(this.label42);
+            this.tabPage2.Controls.Add(this.label41);
+            this.tabPage2.Controls.Add(this.label40);
+            this.tabPage2.Controls.Add(this.label39);
+            this.tabPage2.Controls.Add(this.label38);
+            this.tabPage2.Controls.Add(this.label37);
+            this.tabPage2.Controls.Add(this.label36);
+            this.tabPage2.Controls.Add(this.label35);
+            this.tabPage2.Controls.Add(this.label34);
+            this.tabPage2.Controls.Add(this.label33);
+            this.tabPage2.Controls.Add(this.pbNV1);
+            this.tabPage2.Controls.Add(this.pbNV2);
+            this.tabPage2.Controls.Add(this.pbOV4);
+            this.tabPage2.Controls.Add(this.pbFV4);
+            this.tabPage2.Controls.Add(this.pbOV3);
+            this.tabPage2.Controls.Add(this.pbOV2);
+            this.tabPage2.Controls.Add(this.pbFV1);
+            this.tabPage2.Controls.Add(this.pbOV1);
+            this.tabPage2.Controls.Add(this.pbPV);
+            this.tabPage2.Controls.Add(this.pbFV3);
+            this.tabPage2.Controls.Add(this.pbFV2);
+            this.tabPage2.Controls.Add(this.pbMain);
+            this.tabPage2.Controls.Add(this.btnReset);
+            this.tabPage2.Controls.Add(this.gbFuel);
+            this.tabPage2.Controls.Add(this.btnActuate);
+            this.tabPage2.Controls.Add(this.gbOxygen);
+            this.tabPage2.Controls.Add(this.gbNitrogen);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1672, 956);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Servo Control";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkBoxT6
+            // pbFV2
             // 
-            this.checkBoxT6.AutoSize = true;
-            this.checkBoxT6.Location = new System.Drawing.Point(918, 225);
-            this.checkBoxT6.Name = "checkBoxT6";
-            this.checkBoxT6.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxT6.TabIndex = 35;
-            this.checkBoxT6.UseVisualStyleBackColor = true;
+            this.pbFV2.Location = new System.Drawing.Point(599, 569);
+            this.pbFV2.Name = "pbFV2";
+            this.pbFV2.Size = new System.Drawing.Size(58, 54);
+            this.pbFV2.TabIndex = 26;
+            this.pbFV2.TabStop = false;
             // 
-            // checkBoxP1
+            // pbFV3
             // 
-            this.checkBoxP1.AutoSize = true;
-            this.checkBoxP1.Location = new System.Drawing.Point(918, 78);
-            this.checkBoxP1.Name = "checkBoxP1";
-            this.checkBoxP1.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxP1.TabIndex = 36;
-            this.checkBoxP1.UseVisualStyleBackColor = true;
+            this.pbFV3.Location = new System.Drawing.Point(529, 459);
+            this.pbFV3.Name = "pbFV3";
+            this.pbFV3.Size = new System.Drawing.Size(58, 54);
+            this.pbFV3.TabIndex = 27;
+            this.pbFV3.TabStop = false;
             // 
-            // checkBoxP2
+            // pbPV
             // 
-            this.checkBoxP2.AutoSize = true;
-            this.checkBoxP2.Location = new System.Drawing.Point(918, 108);
-            this.checkBoxP2.Name = "checkBoxP2";
-            this.checkBoxP2.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxP2.TabIndex = 37;
-            this.checkBoxP2.UseVisualStyleBackColor = true;
+            this.pbPV.Location = new System.Drawing.Point(271, 583);
+            this.pbPV.Name = "pbPV";
+            this.pbPV.Size = new System.Drawing.Size(58, 54);
+            this.pbPV.TabIndex = 28;
+            this.pbPV.TabStop = false;
             // 
-            // checkBoxP3
+            // pbOV1
             // 
-            this.checkBoxP3.AutoSize = true;
-            this.checkBoxP3.Location = new System.Drawing.Point(918, 136);
-            this.checkBoxP3.Name = "checkBoxP3";
-            this.checkBoxP3.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxP3.TabIndex = 38;
-            this.checkBoxP3.UseVisualStyleBackColor = true;
+            this.pbOV1.Location = new System.Drawing.Point(96, 737);
+            this.pbOV1.Name = "pbOV1";
+            this.pbOV1.Size = new System.Drawing.Size(58, 54);
+            this.pbOV1.TabIndex = 29;
+            this.pbOV1.TabStop = false;
             // 
-            // checkBoxP4
+            // pbFV1
             // 
-            this.checkBoxP4.AutoSize = true;
-            this.checkBoxP4.Location = new System.Drawing.Point(918, 164);
-            this.checkBoxP4.Name = "checkBoxP4";
-            this.checkBoxP4.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxP4.TabIndex = 39;
-            this.checkBoxP4.UseVisualStyleBackColor = true;
+            this.pbFV1.Location = new System.Drawing.Point(532, 736);
+            this.pbFV1.Name = "pbFV1";
+            this.pbFV1.Size = new System.Drawing.Size(58, 54);
+            this.pbFV1.TabIndex = 30;
+            this.pbFV1.TabStop = false;
             // 
-            // checkBoxP5
+            // pbOV2
             // 
-            this.checkBoxP5.AutoSize = true;
-            this.checkBoxP5.Location = new System.Drawing.Point(918, 192);
-            this.checkBoxP5.Name = "checkBoxP5";
-            this.checkBoxP5.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxP5.TabIndex = 40;
-            this.checkBoxP5.UseVisualStyleBackColor = true;
+            this.pbOV2.Location = new System.Drawing.Point(35, 573);
+            this.pbOV2.Name = "pbOV2";
+            this.pbOV2.Size = new System.Drawing.Size(58, 54);
+            this.pbOV2.TabIndex = 31;
+            this.pbOV2.TabStop = false;
             // 
-            // checkBoxP6
+            // pbOV3
             // 
-            this.checkBoxP6.AutoSize = true;
-            this.checkBoxP6.Location = new System.Drawing.Point(918, 220);
-            this.checkBoxP6.Name = "checkBoxP6";
-            this.checkBoxP6.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxP6.TabIndex = 41;
-            this.checkBoxP6.UseVisualStyleBackColor = true;
+            this.pbOV3.Location = new System.Drawing.Point(96, 454);
+            this.pbOV3.Name = "pbOV3";
+            this.pbOV3.Size = new System.Drawing.Size(58, 54);
+            this.pbOV3.TabIndex = 32;
+            this.pbOV3.TabStop = false;
+            // 
+            // pbFV4
+            // 
+            this.pbFV4.Location = new System.Drawing.Point(529, 268);
+            this.pbFV4.Name = "pbFV4";
+            this.pbFV4.Size = new System.Drawing.Size(58, 54);
+            this.pbFV4.TabIndex = 33;
+            this.pbFV4.TabStop = false;
+            // 
+            // pbOV4
+            // 
+            this.pbOV4.Location = new System.Drawing.Point(98, 271);
+            this.pbOV4.Name = "pbOV4";
+            this.pbOV4.Size = new System.Drawing.Size(58, 54);
+            this.pbOV4.TabIndex = 34;
+            this.pbOV4.TabStop = false;
+            // 
+            // pbNV2
+            // 
+            this.pbNV2.Location = new System.Drawing.Point(228, 334);
+            this.pbNV2.Name = "pbNV2";
+            this.pbNV2.Size = new System.Drawing.Size(58, 54);
+            this.pbNV2.TabIndex = 35;
+            this.pbNV2.TabStop = false;
+            // 
+            // pbNV1
+            // 
+            this.pbNV1.Location = new System.Drawing.Point(444, 335);
+            this.pbNV1.Name = "pbNV1";
+            this.pbNV1.Size = new System.Drawing.Size(58, 54);
+            this.pbNV1.TabIndex = 36;
+            this.pbNV1.TabStop = false;
+            // 
+            // tbOV4State
+            // 
+            this.tbOV4State.Location = new System.Drawing.Point(180, 127);
+            this.tbOV4State.Name = "tbOV4State";
+            this.tbOV4State.Size = new System.Drawing.Size(197, 22);
+            this.tbOV4State.TabIndex = 31;
+            // 
+            // tbOV4Pos
+            // 
+            this.tbOV4Pos.Location = new System.Drawing.Point(54, 127);
+            this.tbOV4Pos.Name = "tbOV4Pos";
+            this.tbOV4Pos.Size = new System.Drawing.Size(120, 22);
+            this.tbOV4Pos.TabIndex = 30;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(8, 130);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(40, 17);
+            this.label31.TabIndex = 29;
+            this.label31.Text = "OV4:";
+            // 
+            // tbFV4State
+            // 
+            this.tbFV4State.Location = new System.Drawing.Point(181, 141);
+            this.tbFV4State.Name = "tbFV4State";
+            this.tbFV4State.Size = new System.Drawing.Size(197, 22);
+            this.tbFV4State.TabIndex = 17;
+            // 
+            // tbFV4Pos
+            // 
+            this.tbFV4Pos.Location = new System.Drawing.Point(55, 141);
+            this.tbFV4Pos.Name = "tbFV4Pos";
+            this.tbFV4Pos.Size = new System.Drawing.Size(120, 22);
+            this.tbFV4Pos.TabIndex = 16;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(12, 144);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(37, 17);
+            this.label32.TabIndex = 15;
+            this.label32.Text = "FV4:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(545, 793);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(33, 17);
+            this.label33.TabIndex = 37;
+            this.label33.Text = "FV1";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(107, 793);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(36, 17);
+            this.label34.TabIndex = 32;
+            this.label34.Text = "OV1";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(242, 602);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(26, 17);
+            this.label35.TabIndex = 32;
+            this.label35.Text = "PV";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(46, 555);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(36, 17);
+            this.label36.TabIndex = 32;
+            this.label36.Text = "OV2";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(59, 473);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(36, 17);
+            this.label37.TabIndex = 32;
+            this.label37.Text = "OV3";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(53, 290);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(36, 17);
+            this.label38.TabIndex = 32;
+            this.label38.Text = "OV4";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(612, 550);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(33, 17);
+            this.label39.TabIndex = 38;
+            this.label39.Text = "FV2";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(491, 480);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(33, 17);
+            this.label40.TabIndex = 18;
+            this.label40.Text = "FV3";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(493, 287);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(33, 17);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "FV4";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(240, 314);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(35, 17);
+            this.label42.TabIndex = 30;
+            this.label42.Text = "NV2";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(456, 316);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(35, 17);
+            this.label43.TabIndex = 30;
+            this.label43.Text = "NV1";
             // 
             // CAT_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1386, 677);
-            this.Controls.Add(this.btnStopRec);
-            this.Controls.Add(this.btnReConnect);
+            this.ClientSize = new System.Drawing.Size(1711, 1055);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.gbTemp);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.gbControls);
-            this.Controls.Add(this.gbPress);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CAT_UI";
@@ -975,7 +1325,6 @@ namespace UserInterface
             this.gbPress.ResumeLayout(false);
             this.gbPress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPress)).EndInit();
-            this.gbControls.ResumeLayout(false);
             this.gbNitrogen.ResumeLayout(false);
             this.gbNitrogen.PerformLayout();
             this.gbOxygen.ResumeLayout(false);
@@ -985,6 +1334,22 @@ namespace UserInterface
             this.gbTemp.ResumeLayout(false);
             this.gbTemp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMain)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNV1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -994,7 +1359,6 @@ namespace UserInterface
 
         private System.Windows.Forms.GroupBox gbPress;
         private System.Windows.Forms.TextBox tbPress1;
-        private System.Windows.Forms.GroupBox gbControls;
         private System.Windows.Forms.GroupBox gbNitrogen;
         private System.Windows.Forms.GroupBox gbOxygen;
         private System.Windows.Forms.GroupBox gbFuel;
@@ -1066,7 +1430,6 @@ namespace UserInterface
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Button btnStopRec;
         private System.Windows.Forms.CheckBox checkBoxT1;
         private System.Windows.Forms.CheckBox checkBoxP6;
@@ -1080,6 +1443,39 @@ namespace UserInterface
         private System.Windows.Forms.CheckBox checkBoxT4;
         private System.Windows.Forms.CheckBox checkBoxT3;
         private System.Windows.Forms.CheckBox checkBoxT2;
+        private System.Windows.Forms.PictureBox pbMain;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.PictureBox pbFV2;
+        private System.Windows.Forms.PictureBox pbNV1;
+        private System.Windows.Forms.PictureBox pbNV2;
+        private System.Windows.Forms.PictureBox pbOV4;
+        private System.Windows.Forms.PictureBox pbFV4;
+        private System.Windows.Forms.PictureBox pbOV3;
+        private System.Windows.Forms.PictureBox pbOV2;
+        private System.Windows.Forms.PictureBox pbFV1;
+        private System.Windows.Forms.PictureBox pbOV1;
+        private System.Windows.Forms.PictureBox pbPV;
+        private System.Windows.Forms.PictureBox pbFV3;
+        private System.Windows.Forms.TextBox tbOV4State;
+        private System.Windows.Forms.TextBox tbOV4Pos;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox tbFV4State;
+        private System.Windows.Forms.TextBox tbFV4Pos;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
     }
 }
 

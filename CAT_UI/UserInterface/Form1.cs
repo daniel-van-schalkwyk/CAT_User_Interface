@@ -27,9 +27,16 @@ namespace UserInterface
         public Series pressSens4 = new Series();
         public Series pressSens5 = new Series();
         public Series pressSens6 = new Series();
+        public enum BoxType : int
+        {
+            Horizontal, Vertical, Threeway
+        }
 
         private void CAT_UI_Load(object sender, EventArgs e)
         {
+            // Make the form full screen
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             // Show the connect COM port form
             form2.Show();
             form2.TopMost = true;
@@ -123,15 +130,7 @@ namespace UserInterface
         // Methods
         private void ReconnectPort()
         {
-            foreach (var series in chartTemp.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (var series in chartPress.Series)
-            {
-                series.Points.Clear();
-            }
-
+            clearSeries();
             dateTime = DateTime.Now;
 
             string CP = form2.COMPort;
@@ -256,46 +255,67 @@ namespace UserInterface
                     {
                         tbFV1Pos.Text = GetValue(datapnt);
                         tbFV1State.Text = GetStateValue(datapnt);
+                        drawServo(pbFV1);
                     }
                     else if (datapnt.Contains("S02"))
                     {
                         tbFV2Pos.Text = GetValue(datapnt);
                         tbFV2State.Text = GetStateValue(datapnt);
+                        drawServo(pbFV2);
                     }
                     else if (datapnt.Contains("S03"))
                     {
                         tbFV3Pos.Text = GetValue(datapnt);
                         tbFV3State.Text = GetStateValue(datapnt);
+                        drawServo(pbFV3);
                     }
                     else if (datapnt.Contains("S04"))
                     {
                         tbOV1Pos.Text = GetValue(datapnt);
                         tbOV1State.Text = GetStateValue(datapnt);
+                        drawServo(pbOV1);
                     }
                     else if (datapnt.Contains("S05"))
                     {
                         tbOV2Pos.Text = GetValue(datapnt);
                         tbOV2State.Text = GetStateValue(datapnt);
+                        drawServo(pbOV2);
                     }
                     else if (datapnt.Contains("S06"))
                     {
                         tbOV3Pos.Text = GetValue(datapnt);
                         tbOV3State.Text = GetStateValue(datapnt);
+                        drawServo(pbOV3);
                     }
                     else if (datapnt.Contains("S07"))
                     {
                         tbNV1Pos.Text = GetValue(datapnt);
                         tbNV1State.Text = GetStateValue(datapnt);
+                        drawServo(pbNV1);
                     }
                     else if (datapnt.Contains("S08"))
                     {
                         tbNV2Pos.Text = GetValue(datapnt);
                         tbNV2State.Text = GetStateValue(datapnt);
+                        drawServo(pbNV2, (int)BoxType.Horizontal);
                     }
                     else if (datapnt.Contains("S09"))
                     {
                         tbPVPos.Text = GetValue(datapnt);
                         tbPVState.Text = GetStateValue(datapnt);
+                        drawServo(pbPV);
+                    }
+                    else if (datapnt.Contains("S10"))
+                    {
+                        tbFV4Pos.Text = GetValue(datapnt);
+                        tbFV4State.Text = GetStateValue(datapnt);
+                        drawServo(pbFV4);
+                    }
+                    else if (datapnt.Contains("S11"))
+                    {
+                        tbOV4Pos.Text = GetValue(datapnt);
+                        tbOV4State.Text = GetStateValue(datapnt);
+                        drawServo(pbOV4);
                     }
                 }
             }
@@ -310,11 +330,15 @@ namespace UserInterface
             }
             //tbFV1State.Text = valve + ":" + position;
         }
-        private void ClearBoxes()
+        private void clearBoxes()
         {
             // Clear the boxes containing the temperature and pressure data
             tbTemp1.Text = "";
             tbTemp2.Text = "";
+            tbTemp3.Text = "";
+            tbTemp4.Text = "";
+            tbTemp5.Text = "";
+            tbTemp6.Text = "";
             tbPress1.Text = "";
             tbPress2.Text = "";
             tbPress3.Text = "";
@@ -351,6 +375,45 @@ namespace UserInterface
             checkBoxP4.Checked = true;
             checkBoxP5.Checked = true;
             checkBoxP6.Checked = true;
+        }
+        private void clearSeries()
+        {
+            foreach (var series in chartTemp.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (var series in chartPress.Series)
+            {
+                series.Points.Clear();
+            }
+        }
+        private void drawServo(PictureBox pb, int boxType)
+        {
+            int x = 2;
+            int y = 2;
+            int width = 40;
+            int height = 40;
+
+            Graphics g = pb.CreateGraphics();
+            g.Clear(Color.Transparent);
+
+            Pen myPen = new Pen(Color.Black, 2f);
+            SolidBrush myBrush = new SolidBrush(Color.White);
+
+            g.FillRectangle(myBrush, x, y, width, height); 
+
+            switch(boxType)
+            {
+                case (int)BoxType.Horizontal:
+
+                    break;
+                case (int)BoxType.Vertical:
+
+                    break;
+                case (int)BoxType.Threeway:
+
+                    break;
+            }
         }
         private string GetValue(string line)
         {
@@ -412,7 +475,7 @@ namespace UserInterface
         private void btnReConnect_Click(object sender, EventArgs e)
         {
             mySerialPort.Close();
-            ClearBoxes();
+            clearBoxes();
             form2.Show();
         }
         private void btnStart_Click(object sender, EventArgs e)
@@ -426,11 +489,12 @@ namespace UserInterface
             btnStop.BackColor = Color.White;
             btnStart.BackColor = Color.Green;
             mySerialPort.WriteLine("Stop");
-            ClearBoxes();
+            clearBoxes();
         }
         private void btnActuate_Click(object sender, EventArgs e)
         {
             form3.Show();
+            form3.TopMost = true;
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -439,7 +503,13 @@ namespace UserInterface
         private void btnStopRec_Click(object sender, EventArgs e)
         {
             rec = false;
+            clearBoxes();
             mySerialPort.WriteLine("StopRec");
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearBoxes();
+            clearSeries();
         }
     }
 }
