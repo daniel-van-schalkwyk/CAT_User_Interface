@@ -1,0 +1,10 @@
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\bin\Debug\Drawing Test.exe.config
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\bin\Debug\Drawing Test.exe
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\bin\Debug\Drawing Test.pdb
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\obj\Debug\Drawing Test.csprojAssemblyReference.cache
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\obj\Debug\Drawing_Test.Form1.resources
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\obj\Debug\Drawing_Test.Properties.Resources.resources
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\obj\Debug\Drawing Test.csproj.GenerateResource.cache
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\obj\Debug\Drawing Test.csproj.CoreCompileInputs.cache
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\obj\Debug\Drawing Test.exe
+C:\Users\totos\Desktop\CAT\Repository\Drawing Test\Drawing Test\obj\Debug\Drawing Test.pdb
