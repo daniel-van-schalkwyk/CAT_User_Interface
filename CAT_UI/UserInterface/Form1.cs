@@ -29,7 +29,7 @@ namespace UserInterface
         public Series pressSens6 = new Series();
         public enum BoxType : int
         {
-            Horizontal, Vertical, Threeway
+            Horizontal, Vertical, ThreewayF, ThreewayO
         }
 
         private void CAT_UI_Load(object sender, EventArgs e)
@@ -255,67 +255,67 @@ namespace UserInterface
                     {
                         tbFV1Pos.Text = GetValue(datapnt);
                         tbFV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV1);
+                        drawServo(pbFV1, (int)BoxType.ThreewayF, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S02"))
                     {
                         tbFV2Pos.Text = GetValue(datapnt);
                         tbFV2State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV2);
+                        drawServo(pbFV2, (int)BoxType.Horizontal, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S03"))
                     {
                         tbFV3Pos.Text = GetValue(datapnt);
                         tbFV3State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV3);
+                        drawServo(pbFV3, (int)BoxType.Vertical, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S04"))
                     {
                         tbOV1Pos.Text = GetValue(datapnt);
                         tbOV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV1);
+                        drawServo(pbOV1, (int)BoxType.ThreewayO, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S05"))
                     {
                         tbOV2Pos.Text = GetValue(datapnt);
                         tbOV2State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV2);
+                        drawServo(pbOV2, (int)BoxType.Horizontal, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S06"))
                     {
                         tbOV3Pos.Text = GetValue(datapnt);
                         tbOV3State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV3);
+                        drawServo(pbOV3, (int)BoxType.Vertical, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S07"))
                     {
                         tbNV1Pos.Text = GetValue(datapnt);
                         tbNV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbNV1);
+                        drawServo(pbNV1, (int)BoxType.Horizontal, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S08"))
                     {
                         tbNV2Pos.Text = GetValue(datapnt);
                         tbNV2State.Text = GetStateValue(datapnt);
-                        drawServo(pbNV2, (int)BoxType.Horizontal);
+                        drawServo(pbNV2, (int)BoxType.Horizontal, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S09"))
                     {
                         tbPVPos.Text = GetValue(datapnt);
                         tbPVState.Text = GetStateValue(datapnt);
-                        drawServo(pbPV);
+                        drawServo(pbPV, (int)BoxType.Vertical, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S10"))
                     {
                         tbFV4Pos.Text = GetValue(datapnt);
                         tbFV4State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV4);
+                        drawServo(pbFV4, (int)BoxType.Vertical, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S11"))
                     {
                         tbOV4Pos.Text = GetValue(datapnt);
                         tbOV4State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV4);
+                        drawServo(pbOV4, (int)BoxType.Vertical, GetValue(datapnt));
                     }
                 }
             }
@@ -328,7 +328,6 @@ namespace UserInterface
             {
                 mySerialPort.WriteLine(valve + ":" + position);
             }
-            //tbFV1State.Text = valve + ":" + position;
         }
         private void clearBoxes()
         {
@@ -387,31 +386,56 @@ namespace UserInterface
                 series.Points.Clear();
             }
         }
-        private void drawServo(PictureBox pb, int boxType)
+        private void drawServo(PictureBox pb, int boxType, string degrees)
         {
             int x = 2;
             int y = 2;
             int width = 40;
             int height = 40;
+            float deg = float.Parse(degrees);
 
             Graphics g = pb.CreateGraphics();
             g.Clear(Color.Transparent);
 
             Pen myPen = new Pen(Color.Black, 2f);
             SolidBrush myBrush = new SolidBrush(Color.White);
+            SolidBrush myBrush1 = new SolidBrush(Color.Black);
 
             g.FillRectangle(myBrush, x, y, width, height); 
 
             switch(boxType)
             {
                 case (int)BoxType.Horizontal:
-
+                    g.TranslateTransform((width + 2) / 2, (height + 2) / 2);
+                    g.RotateTransform(deg);
+                    g.TranslateTransform(-(width + 2) / 2, -(height + 2) / 2);
+                    g.DrawRectangle(myPen, x + 2, y + 15, width - 4, 8);
+                    g.FillRectangle(myBrush1, x + 2, y + 15, width - 4, 8);
                     break;
                 case (int)BoxType.Vertical:
-
+                    g.TranslateTransform((width + 6) / 2, (height + 3) / 2);
+                    g.RotateTransform(deg);
+                    g.TranslateTransform(-(width + 6) / 2, -(height + 3) / 2);
+                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height - 4);
+                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height - 4);
                     break;
-                case (int)BoxType.Threeway:
-
+                case (int)BoxType.ThreewayF:
+                    g.TranslateTransform((width + 6) / 2, (height + 3) / 2);
+                    g.RotateTransform(-deg);
+                    g.TranslateTransform(-(width + 6) / 2, -(height + 3) / 2);
+                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height - 4);
+                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height - 4);
+                    g.DrawRectangle(myPen, x + 2, y + 15, (width - 4) / 2, 8);
+                    g.FillRectangle(myBrush1, x + 2, y + 15, (width - 4) / 2, 8);
+                    break;
+                case (int)BoxType.ThreewayO:
+                    g.TranslateTransform((width + 6) / 2, (height + 3) / 2);
+                    g.RotateTransform(deg);
+                    g.TranslateTransform(-(width + 6) / 2, -(height + 3) / 2);
+                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height - 4);
+                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height - 4);
+                    g.DrawRectangle(myPen, x + 15, y + 15, (width - 4) / 2, 8);
+                    g.FillRectangle(myBrush1, x + 15, y + 15, (width - 4) / 2, 8);
                     break;
             }
         }
