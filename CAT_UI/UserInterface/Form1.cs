@@ -87,14 +87,10 @@ namespace UserInterface
             // Initialise Temperature Chart
             Title title1 = chartTemp.Titles.Add("Temperature");
             chartTemp.ChartAreas["ChartArea1"].Visible = true;
-            chartTemp.ChartAreas["ChartArea1"].AxisX.Name = "Time";
-            chartTemp.ChartAreas["ChartArea1"].AxisY.Name = "Temperature";
 
             // Initialise Pressure Chart
             Title title2 = chartPress.Titles.Add("Pressure");
             chartPress.ChartAreas["ChartArea1"].Visible = true;
-            chartPress.ChartAreas["ChartArea1"].AxisX.Name = "Time";
-            chartPress.ChartAreas["ChartArea1"].AxisY.Name = "Pressure";
         }
 
         public CAT_UI()

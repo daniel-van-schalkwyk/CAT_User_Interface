@@ -273,6 +273,8 @@ namespace UserInterface
             // 
             // chartPress
             // 
+            chartArea1.AxisX.Title = "Time [s]";
+            chartArea1.AxisY.Title = "Pressure [bar]";
             chartArea1.Name = "ChartArea1";
             this.chartPress.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -898,6 +900,8 @@ namespace UserInterface
             // 
             // chartTemp
             // 
+            chartArea2.AxisX.Title = "Time [s]";
+            chartArea2.AxisY.Title = "Temperature [°C]";
             chartArea2.Name = "ChartArea1";
             this.chartTemp.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
@@ -1417,7 +1421,6 @@ namespace UserInterface
         private System.Windows.Forms.TextBox tbPress5;
         private System.Windows.Forms.TextBox tbPress4;
         private System.Windows.Forms.TextBox tbPress3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartTemp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label27;
@@ -1476,6 +1479,7 @@ namespace UserInterface
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chartTemp;
     }
 }
 
