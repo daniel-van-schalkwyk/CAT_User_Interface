@@ -30,10 +30,10 @@ namespace UserInterface
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.gbPress = new System.Windows.Forms.GroupBox();
             this.checkBoxP6 = new System.Windows.Forms.CheckBox();
             this.checkBoxP5 = new System.Windows.Forms.CheckBox();
@@ -68,6 +68,9 @@ namespace UserInterface
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.gbOxygen = new System.Windows.Forms.GroupBox();
+            this.tbOV4State = new System.Windows.Forms.TextBox();
+            this.tbOV4Pos = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tbPVState = new System.Windows.Forms.TextBox();
             this.tbOV3State = new System.Windows.Forms.TextBox();
@@ -83,6 +86,9 @@ namespace UserInterface
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.gbFuel = new System.Windows.Forms.GroupBox();
+            this.tbFV4State = new System.Windows.Forms.TextBox();
+            this.tbFV4Pos = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.tbFV3State = new System.Windows.Forms.TextBox();
             this.tbFV2State = new System.Windows.Forms.TextBox();
@@ -125,34 +131,28 @@ namespace UserInterface
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pbFV2 = new System.Windows.Forms.PictureBox();
-            this.pbFV3 = new System.Windows.Forms.PictureBox();
-            this.pbPV = new System.Windows.Forms.PictureBox();
-            this.pbOV1 = new System.Windows.Forms.PictureBox();
-            this.pbFV1 = new System.Windows.Forms.PictureBox();
-            this.pbOV2 = new System.Windows.Forms.PictureBox();
-            this.pbOV3 = new System.Windows.Forms.PictureBox();
-            this.pbFV4 = new System.Windows.Forms.PictureBox();
-            this.pbOV4 = new System.Windows.Forms.PictureBox();
-            this.pbNV2 = new System.Windows.Forms.PictureBox();
-            this.pbNV1 = new System.Windows.Forms.PictureBox();
-            this.tbOV4State = new System.Windows.Forms.TextBox();
-            this.tbOV4Pos = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.tbFV4State = new System.Windows.Forms.TextBox();
-            this.tbFV4Pos = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.pbNV1 = new System.Windows.Forms.PictureBox();
+            this.pbNV2 = new System.Windows.Forms.PictureBox();
+            this.pbOV4 = new System.Windows.Forms.PictureBox();
+            this.pbFV4 = new System.Windows.Forms.PictureBox();
+            this.pbOV3 = new System.Windows.Forms.PictureBox();
+            this.pbOV2 = new System.Windows.Forms.PictureBox();
+            this.pbFV1 = new System.Windows.Forms.PictureBox();
+            this.pbOV1 = new System.Windows.Forms.PictureBox();
+            this.pbPV = new System.Windows.Forms.PictureBox();
+            this.pbFV3 = new System.Windows.Forms.PictureBox();
+            this.pbFV2 = new System.Windows.Forms.PictureBox();
             this.gbPress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPress)).BeginInit();
             this.gbNitrogen.SuspendLayout();
@@ -164,17 +164,17 @@ namespace UserInterface
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNV2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV2)).BeginInit();
             this.SuspendLayout();
             // 
             // gbPress
@@ -273,10 +273,10 @@ namespace UserInterface
             // 
             // chartPress
             // 
-            chartArea13.Name = "ChartArea1";
-            this.chartPress.ChartAreas.Add(chartArea13);
-            legend13.Name = "Legend1";
-            this.chartPress.Legends.Add(legend13);
+            chartArea1.Name = "ChartArea1";
+            this.chartPress.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartPress.Legends.Add(legend1);
             this.chartPress.Location = new System.Drawing.Point(6, 23);
             this.chartPress.Name = "chartPress";
             this.chartPress.Size = new System.Drawing.Size(1364, 365);
@@ -521,6 +521,29 @@ namespace UserInterface
             this.gbOxygen.TabStop = false;
             this.gbOxygen.Text = "Oxygen";
             // 
+            // tbOV4State
+            // 
+            this.tbOV4State.Location = new System.Drawing.Point(180, 127);
+            this.tbOV4State.Name = "tbOV4State";
+            this.tbOV4State.Size = new System.Drawing.Size(197, 22);
+            this.tbOV4State.TabIndex = 31;
+            // 
+            // tbOV4Pos
+            // 
+            this.tbOV4Pos.Location = new System.Drawing.Point(54, 127);
+            this.tbOV4Pos.Name = "tbOV4Pos";
+            this.tbOV4Pos.Size = new System.Drawing.Size(120, 22);
+            this.tbOV4Pos.TabIndex = 30;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(8, 130);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(40, 17);
+            this.label31.TabIndex = 29;
+            this.label31.Text = "OV4:";
+            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -655,6 +678,29 @@ namespace UserInterface
             this.gbFuel.TabIndex = 0;
             this.gbFuel.TabStop = false;
             this.gbFuel.Text = "Fuel";
+            // 
+            // tbFV4State
+            // 
+            this.tbFV4State.Location = new System.Drawing.Point(181, 141);
+            this.tbFV4State.Name = "tbFV4State";
+            this.tbFV4State.Size = new System.Drawing.Size(197, 22);
+            this.tbFV4State.TabIndex = 17;
+            // 
+            // tbFV4Pos
+            // 
+            this.tbFV4Pos.Location = new System.Drawing.Point(55, 141);
+            this.tbFV4Pos.Name = "tbFV4Pos";
+            this.tbFV4Pos.Size = new System.Drawing.Size(120, 22);
+            this.tbFV4Pos.TabIndex = 16;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(12, 144);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(37, 17);
+            this.label32.TabIndex = 15;
+            this.label32.Text = "FV4:";
             // 
             // label24
             // 
@@ -852,10 +898,10 @@ namespace UserInterface
             // 
             // chartTemp
             // 
-            chartArea14.Name = "ChartArea1";
-            this.chartTemp.ChartAreas.Add(chartArea14);
-            legend14.Name = "Legend1";
-            this.chartTemp.Legends.Add(legend14);
+            chartArea2.Name = "ChartArea1";
+            this.chartTemp.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartTemp.Legends.Add(legend2);
             this.chartTemp.Location = new System.Drawing.Point(6, 21);
             this.chartTemp.Name = "chartTemp";
             this.chartTemp.Size = new System.Drawing.Size(1364, 365);
@@ -994,7 +1040,7 @@ namespace UserInterface
             this.pbMain.Image = global::UserInterface.Properties.Resources.CAT_Pipe_Schematic;
             this.pbMain.Location = new System.Drawing.Point(6, 6);
             this.pbMain.Name = "pbMain";
-            this.pbMain.Size = new System.Drawing.Size(679, 947);
+            this.pbMain.Size = new System.Drawing.Size(679, 873);
             this.pbMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMain.TabIndex = 25;
             this.pbMain.TabStop = false;
@@ -1017,7 +1063,7 @@ namespace UserInterface
             this.tabControl1.Location = new System.Drawing.Point(19, 58);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1680, 985);
+            this.tabControl1.Size = new System.Drawing.Size(1680, 914);
             this.tabControl1.TabIndex = 27;
             // 
             // tabPage1
@@ -1069,243 +1115,197 @@ namespace UserInterface
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1672, 956);
+            this.tabPage2.Size = new System.Drawing.Size(1672, 885);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Servo Control";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pbFV2
+            // label43
             // 
-            this.pbFV2.Location = new System.Drawing.Point(599, 569);
-            this.pbFV2.Name = "pbFV2";
-            this.pbFV2.Size = new System.Drawing.Size(58, 54);
-            this.pbFV2.TabIndex = 26;
-            this.pbFV2.TabStop = false;
-            // 
-            // pbFV3
-            // 
-            this.pbFV3.Location = new System.Drawing.Point(529, 459);
-            this.pbFV3.Name = "pbFV3";
-            this.pbFV3.Size = new System.Drawing.Size(58, 54);
-            this.pbFV3.TabIndex = 27;
-            this.pbFV3.TabStop = false;
-            // 
-            // pbPV
-            // 
-            this.pbPV.Location = new System.Drawing.Point(271, 583);
-            this.pbPV.Name = "pbPV";
-            this.pbPV.Size = new System.Drawing.Size(58, 54);
-            this.pbPV.TabIndex = 28;
-            this.pbPV.TabStop = false;
-            // 
-            // pbOV1
-            // 
-            this.pbOV1.Location = new System.Drawing.Point(96, 737);
-            this.pbOV1.Name = "pbOV1";
-            this.pbOV1.Size = new System.Drawing.Size(58, 54);
-            this.pbOV1.TabIndex = 29;
-            this.pbOV1.TabStop = false;
-            // 
-            // pbFV1
-            // 
-            this.pbFV1.Location = new System.Drawing.Point(532, 736);
-            this.pbFV1.Name = "pbFV1";
-            this.pbFV1.Size = new System.Drawing.Size(58, 54);
-            this.pbFV1.TabIndex = 30;
-            this.pbFV1.TabStop = false;
-            // 
-            // pbOV2
-            // 
-            this.pbOV2.Location = new System.Drawing.Point(35, 573);
-            this.pbOV2.Name = "pbOV2";
-            this.pbOV2.Size = new System.Drawing.Size(58, 54);
-            this.pbOV2.TabIndex = 31;
-            this.pbOV2.TabStop = false;
-            // 
-            // pbOV3
-            // 
-            this.pbOV3.Location = new System.Drawing.Point(96, 454);
-            this.pbOV3.Name = "pbOV3";
-            this.pbOV3.Size = new System.Drawing.Size(58, 54);
-            this.pbOV3.TabIndex = 32;
-            this.pbOV3.TabStop = false;
-            // 
-            // pbFV4
-            // 
-            this.pbFV4.Location = new System.Drawing.Point(529, 268);
-            this.pbFV4.Name = "pbFV4";
-            this.pbFV4.Size = new System.Drawing.Size(58, 54);
-            this.pbFV4.TabIndex = 33;
-            this.pbFV4.TabStop = false;
-            // 
-            // pbOV4
-            // 
-            this.pbOV4.Location = new System.Drawing.Point(98, 271);
-            this.pbOV4.Name = "pbOV4";
-            this.pbOV4.Size = new System.Drawing.Size(58, 54);
-            this.pbOV4.TabIndex = 34;
-            this.pbOV4.TabStop = false;
-            // 
-            // pbNV2
-            // 
-            this.pbNV2.Location = new System.Drawing.Point(228, 334);
-            this.pbNV2.Name = "pbNV2";
-            this.pbNV2.Size = new System.Drawing.Size(58, 54);
-            this.pbNV2.TabIndex = 35;
-            this.pbNV2.TabStop = false;
-            // 
-            // pbNV1
-            // 
-            this.pbNV1.Location = new System.Drawing.Point(444, 335);
-            this.pbNV1.Name = "pbNV1";
-            this.pbNV1.Size = new System.Drawing.Size(58, 54);
-            this.pbNV1.TabIndex = 36;
-            this.pbNV1.TabStop = false;
-            // 
-            // tbOV4State
-            // 
-            this.tbOV4State.Location = new System.Drawing.Point(180, 127);
-            this.tbOV4State.Name = "tbOV4State";
-            this.tbOV4State.Size = new System.Drawing.Size(197, 22);
-            this.tbOV4State.TabIndex = 31;
-            // 
-            // tbOV4Pos
-            // 
-            this.tbOV4Pos.Location = new System.Drawing.Point(54, 127);
-            this.tbOV4Pos.Name = "tbOV4Pos";
-            this.tbOV4Pos.Size = new System.Drawing.Size(120, 22);
-            this.tbOV4Pos.TabIndex = 30;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(8, 130);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(40, 17);
-            this.label31.TabIndex = 29;
-            this.label31.Text = "OV4:";
-            // 
-            // tbFV4State
-            // 
-            this.tbFV4State.Location = new System.Drawing.Point(181, 141);
-            this.tbFV4State.Name = "tbFV4State";
-            this.tbFV4State.Size = new System.Drawing.Size(197, 22);
-            this.tbFV4State.TabIndex = 17;
-            // 
-            // tbFV4Pos
-            // 
-            this.tbFV4Pos.Location = new System.Drawing.Point(55, 141);
-            this.tbFV4Pos.Name = "tbFV4Pos";
-            this.tbFV4Pos.Size = new System.Drawing.Size(120, 22);
-            this.tbFV4Pos.TabIndex = 16;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(12, 144);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(37, 17);
-            this.label32.TabIndex = 15;
-            this.label32.Text = "FV4:";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(545, 793);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(33, 17);
-            this.label33.TabIndex = 37;
-            this.label33.Text = "FV1";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(107, 793);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(36, 17);
-            this.label34.TabIndex = 32;
-            this.label34.Text = "OV1";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(242, 602);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(26, 17);
-            this.label35.TabIndex = 32;
-            this.label35.Text = "PV";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(46, 555);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(36, 17);
-            this.label36.TabIndex = 32;
-            this.label36.Text = "OV2";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(59, 473);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(36, 17);
-            this.label37.TabIndex = 32;
-            this.label37.Text = "OV3";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(53, 290);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(36, 17);
-            this.label38.TabIndex = 32;
-            this.label38.Text = "OV4";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(612, 550);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(33, 17);
-            this.label39.TabIndex = 38;
-            this.label39.Text = "FV2";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(491, 480);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(33, 17);
-            this.label40.TabIndex = 18;
-            this.label40.Text = "FV3";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(493, 287);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(33, 17);
-            this.label41.TabIndex = 18;
-            this.label41.Text = "FV4";
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(457, 286);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(35, 17);
+            this.label43.TabIndex = 30;
+            this.label43.Text = "NV1";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(240, 314);
+            this.label42.Location = new System.Drawing.Point(242, 288);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(35, 17);
             this.label42.TabIndex = 30;
             this.label42.Text = "NV2";
             // 
-            // label43
+            // label41
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(456, 316);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(35, 17);
-            this.label43.TabIndex = 30;
-            this.label43.Text = "NV1";
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(493, 264);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(33, 17);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "FV4";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(492, 442);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(33, 17);
+            this.label40.TabIndex = 18;
+            this.label40.Text = "FV3";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(613, 508);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(33, 17);
+            this.label39.TabIndex = 38;
+            this.label39.Text = "FV2";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(57, 264);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(36, 17);
+            this.label38.TabIndex = 32;
+            this.label38.Text = "OV4";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(60, 439);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(36, 17);
+            this.label37.TabIndex = 32;
+            this.label37.Text = "OV3";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(46, 507);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(36, 17);
+            this.label36.TabIndex = 32;
+            this.label36.Text = "OV2";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(242, 551);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(26, 17);
+            this.label35.TabIndex = 32;
+            this.label35.Text = "PV";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(108, 735);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(36, 17);
+            this.label34.TabIndex = 32;
+            this.label34.Text = "OV1";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(546, 734);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(33, 17);
+            this.label33.TabIndex = 37;
+            this.label33.Text = "FV1";
+            // 
+            // pbNV1
+            // 
+            this.pbNV1.Location = new System.Drawing.Point(445, 305);
+            this.pbNV1.Name = "pbNV1";
+            this.pbNV1.Size = new System.Drawing.Size(58, 54);
+            this.pbNV1.TabIndex = 36;
+            this.pbNV1.TabStop = false;
+            // 
+            // pbNV2
+            // 
+            this.pbNV2.Location = new System.Drawing.Point(230, 308);
+            this.pbNV2.Name = "pbNV2";
+            this.pbNV2.Size = new System.Drawing.Size(58, 54);
+            this.pbNV2.TabIndex = 35;
+            this.pbNV2.TabStop = false;
+            // 
+            // pbOV4
+            // 
+            this.pbOV4.Location = new System.Drawing.Point(96, 248);
+            this.pbOV4.Name = "pbOV4";
+            this.pbOV4.Size = new System.Drawing.Size(58, 54);
+            this.pbOV4.TabIndex = 34;
+            this.pbOV4.TabStop = false;
+            // 
+            // pbFV4
+            // 
+            this.pbFV4.Location = new System.Drawing.Point(529, 245);
+            this.pbFV4.Name = "pbFV4";
+            this.pbFV4.Size = new System.Drawing.Size(58, 54);
+            this.pbFV4.TabIndex = 33;
+            this.pbFV4.TabStop = false;
+            // 
+            // pbOV3
+            // 
+            this.pbOV3.Location = new System.Drawing.Point(97, 420);
+            this.pbOV3.Name = "pbOV3";
+            this.pbOV3.Size = new System.Drawing.Size(58, 54);
+            this.pbOV3.TabIndex = 32;
+            this.pbOV3.TabStop = false;
+            // 
+            // pbOV2
+            // 
+            this.pbOV2.Location = new System.Drawing.Point(35, 525);
+            this.pbOV2.Name = "pbOV2";
+            this.pbOV2.Size = new System.Drawing.Size(58, 54);
+            this.pbOV2.TabIndex = 31;
+            this.pbOV2.TabStop = false;
+            // 
+            // pbFV1
+            // 
+            this.pbFV1.Location = new System.Drawing.Point(533, 677);
+            this.pbFV1.Name = "pbFV1";
+            this.pbFV1.Size = new System.Drawing.Size(58, 54);
+            this.pbFV1.TabIndex = 30;
+            this.pbFV1.TabStop = false;
+            // 
+            // pbOV1
+            // 
+            this.pbOV1.Location = new System.Drawing.Point(97, 679);
+            this.pbOV1.Name = "pbOV1";
+            this.pbOV1.Size = new System.Drawing.Size(58, 54);
+            this.pbOV1.TabIndex = 29;
+            this.pbOV1.TabStop = false;
+            // 
+            // pbPV
+            // 
+            this.pbPV.Location = new System.Drawing.Point(271, 532);
+            this.pbPV.Name = "pbPV";
+            this.pbPV.Size = new System.Drawing.Size(58, 54);
+            this.pbPV.TabIndex = 28;
+            this.pbPV.TabStop = false;
+            // 
+            // pbFV3
+            // 
+            this.pbFV3.Location = new System.Drawing.Point(530, 421);
+            this.pbFV3.Name = "pbFV3";
+            this.pbFV3.Size = new System.Drawing.Size(58, 54);
+            this.pbFV3.TabIndex = 27;
+            this.pbFV3.TabStop = false;
+            // 
+            // pbFV2
+            // 
+            this.pbFV2.Location = new System.Drawing.Point(600, 527);
+            this.pbFV2.Name = "pbFV2";
+            this.pbFV2.Size = new System.Drawing.Size(58, 54);
+            this.pbFV2.TabIndex = 26;
+            this.pbFV2.TabStop = false;
             // 
             // CAT_UI
             // 
@@ -1339,17 +1339,17 @@ namespace UserInterface
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFV4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOV4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNV2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFV2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

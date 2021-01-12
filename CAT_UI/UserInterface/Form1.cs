@@ -29,7 +29,7 @@ namespace UserInterface
         public Series pressSens6 = new Series();
         public enum BoxType : int
         {
-            Horizontal, Vertical, ThreewayF, ThreewayO
+            Horizontal, Vertical, Threeway
         }
 
         private void CAT_UI_Load(object sender, EventArgs e)
@@ -255,7 +255,7 @@ namespace UserInterface
                     {
                         tbFV1Pos.Text = GetValue(datapnt);
                         tbFV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV1, (int)BoxType.ThreewayF, GetValue(datapnt));
+                        drawServo(pbFV1, (int)BoxType.Threeway, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S02"))
                     {
@@ -273,7 +273,7 @@ namespace UserInterface
                     {
                         tbOV1Pos.Text = GetValue(datapnt);
                         tbOV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV1, (int)BoxType.ThreewayO, GetValue(datapnt));
+                        drawServo(pbOV1, (int)BoxType.Threeway, GetValue(datapnt));
                     }
                     else if (datapnt.Contains("S05"))
                     {
@@ -419,23 +419,14 @@ namespace UserInterface
                     g.DrawRectangle(myPen, x + 15, y + 2, 8, height - 4);
                     g.FillRectangle(myBrush1, x + 15, y + 2, 8, height - 4);
                     break;
-                case (int)BoxType.ThreewayF:
-                    g.TranslateTransform((width + 6) / 2, (height + 3) / 2);
-                    g.RotateTransform(-deg);
-                    g.TranslateTransform(-(width + 6) / 2, -(height + 3) / 2);
-                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height - 4);
-                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height - 4);
-                    g.DrawRectangle(myPen, x + 2, y + 15, (width - 4) / 2, 8);
-                    g.FillRectangle(myBrush1, x + 2, y + 15, (width - 4) / 2, 8);
-                    break;
-                case (int)BoxType.ThreewayO:
-                    g.TranslateTransform((width + 6) / 2, (height + 3) / 2);
-                    g.RotateTransform(deg);
-                    g.TranslateTransform(-(width + 6) / 2, -(height + 3) / 2);
-                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height - 4);
-                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height - 4);
-                    g.DrawRectangle(myPen, x + 15, y + 15, (width - 4) / 2, 8);
-                    g.FillRectangle(myBrush1, x + 15, y + 15, (width - 4) / 2, 8);
+                case (int)BoxType.Threeway:
+                    g.TranslateTransform((width + 4) / 2, (height + 4) / 2);
+                    g.RotateTransform(deg/2);
+                    g.TranslateTransform(-(width + 4) / 2, -(height + 4) / 2);
+                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height / 2);
+                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height / 2);
+                    g.DrawRectangle(myPen, x + 2, y + 15, width / 2, 8);
+                    g.FillRectangle(myBrush1, x + 2, y + 15, width / 2, 8);
                     break;
             }
         }
