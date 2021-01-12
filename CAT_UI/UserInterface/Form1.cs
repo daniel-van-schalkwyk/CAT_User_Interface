@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.IO.Ports;
+using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-//using System.Threading;
 
 namespace UserInterface
 {
@@ -15,6 +16,12 @@ namespace UserInterface
         public Form2 form2 = new Form2();
         public Form3 form3 = new Form3();
         public DateTime dateTime;
+        //public FileInfo file;
+        //public string separator = ",";
+        //public string headings = "TempSens1,TempSens2,TempSens3,TempSens4,TempSens5,TempSens6,PressSens1,PressSens2,PressSens3,PressSens4,PressSens5,PressSens6";
+
+
+        // series declarations
         public Series tempSens1 = new Series();
         public Series tempSens2 = new Series();
         public Series tempSens3 = new Series();
@@ -27,6 +34,7 @@ namespace UserInterface
         public Series pressSens4 = new Series();
         public Series pressSens5 = new Series();
         public Series pressSens6 = new Series();
+
         public enum BoxType : int
         {
             Horizontal, Vertical, Threeway
@@ -35,7 +43,7 @@ namespace UserInterface
         private void CAT_UI_Load(object sender, EventArgs e)
         {
             // Make the form full screen
-            this.Bounds = Screen.PrimaryScreen.Bounds;
+            this.WindowState = FormWindowState.Maximized;
 
             // Show the connect COM port form
             form2.Show();
@@ -107,16 +115,18 @@ namespace UserInterface
             rec = true;
             setCheckBoxTrue();
             ReconnectPort();
+            //DateTime fileDate = DateTime.Now;
+            //string path = @"c:\Users\totos\Desktop\Data_Log_" + fileDate.ToString("yyyy/MM/dd") + ".csv";
+            //file = new FileInfo(path);
+            //StreamWriter sw = file.AppendText();
+            //sw.WriteLine(headings);
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
-            if (rec)
-            {
-                string x = sp.ReadLine();
-                this.BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
-            }
+            string x = sp.ReadLine();
+            this.BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
         }
         private void WriteSerialHandler(object sender, EventArgs e)
         {
@@ -151,103 +161,106 @@ namespace UserInterface
                 string[] splitdata = indata.Split(',');
                 foreach (string datapnt in splitdata)
                 {
-                    if (datapnt.Contains("T01"))
+                    if (rec)
                     {
-                        if (checkBoxT1.Checked == true)
+                        if (datapnt.Contains("T01"))
                         {
-                            tbTemp1.Text = GetValue(datapnt);
-                            addDataPnt(chartTemp, tempSens1, tbTemp1.Text);
+                            if (checkBoxT1.Checked == true)
+                            {
+                                tbTemp1.Text = GetValue(datapnt);
+                                addDataPnt(chartTemp, tempSens1, tbTemp1.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("T02"))
+                        {
+                            if (checkBoxT2.Checked == true)
+                            {
+                                tbTemp2.Text = GetValue(datapnt);
+                                addDataPnt(chartTemp, tempSens2, tbTemp2.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("T03"))
+                        {
+                            if (checkBoxT3.Checked == true)
+                            {
+                                tbTemp3.Text = GetValue(datapnt);
+                                addDataPnt(chartTemp, tempSens3, tbTemp3.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("T04"))
+                        {
+                            if (checkBoxT4.Checked == true)
+                            {
+                                tbTemp4.Text = GetValue(datapnt);
+                                addDataPnt(chartTemp, tempSens4, tbTemp4.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("T05"))
+                        {
+                            if (checkBoxT5.Checked == true)
+                            {
+                                tbTemp5.Text = GetValue(datapnt);
+                                addDataPnt(chartTemp, tempSens5, tbTemp5.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("T06"))
+                        {
+                            if (checkBoxT6.Checked == true)
+                            {
+                                tbTemp6.Text = GetValue(datapnt);
+                                addDataPnt(chartTemp, tempSens6, tbTemp6.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("P01"))
+                        {
+                            if (checkBoxP1.Checked == true)
+                            {
+                                tbPress1.Text = GetValue(datapnt);
+                                addDataPnt(chartPress, pressSens1, tbPress1.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("P02"))
+                        {
+                            if (checkBoxP2.Checked == true)
+                            {
+                                tbPress2.Text = GetValue(datapnt);
+                                addDataPnt(chartPress, pressSens2, tbPress2.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("P03"))
+                        {
+                            if (checkBoxP3.Checked == true)
+                            {
+                                tbPress3.Text = GetValue(datapnt);
+                                addDataPnt(chartPress, pressSens3, tbPress3.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("P04"))
+                        {
+                            if (checkBoxP4.Checked == true)
+                            {
+                                tbPress4.Text = GetValue(datapnt);
+                                addDataPnt(chartPress, pressSens4, tbPress4.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("P05"))
+                        {
+                            if (checkBoxP5.Checked == true)
+                            {
+                                tbPress5.Text = GetValue(datapnt);
+                                addDataPnt(chartPress, pressSens5, tbPress5.Text);
+                            }
+                        }
+                        else if (datapnt.Contains("P06"))
+                        {
+                            if (checkBoxP6.Checked == true)
+                            {
+                                tbPress6.Text = GetValue(datapnt);
+                                addDataPnt(chartPress, pressSens6, tbPress6.Text);
+                            }
                         }
                     }
-                    else if (datapnt.Contains("T02"))
-                    {
-                        if (checkBoxT2.Checked == true)
-                        {
-                            tbTemp2.Text = GetValue(datapnt);
-                            addDataPnt(chartTemp, tempSens2, tbTemp2.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("T03"))
-                    {
-                        if (checkBoxT3.Checked == true)
-                        {
-                            tbTemp3.Text = GetValue(datapnt);
-                            addDataPnt(chartTemp, tempSens3, tbTemp3.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("T04"))
-                    {
-                        if (checkBoxT4.Checked == true)
-                        {
-                            tbTemp4.Text = GetValue(datapnt);
-                            addDataPnt(chartTemp, tempSens4, tbTemp4.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("T05"))
-                    {
-                        if (checkBoxT5.Checked == true)
-                        {
-                            tbTemp5.Text = GetValue(datapnt);
-                            addDataPnt(chartTemp, tempSens5, tbTemp5.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("T06"))
-                    {
-                        if (checkBoxT6.Checked == true)
-                        {
-                            tbTemp6.Text = GetValue(datapnt);
-                            addDataPnt(chartTemp, tempSens6, tbTemp6.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("P01"))
-                    {
-                        if (checkBoxP1.Checked == true)
-                        {
-                            tbPress1.Text = GetValue(datapnt);
-                            addDataPnt(chartPress, pressSens1, tbPress1.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("P02"))
-                    {
-                        if (checkBoxP2.Checked == true)
-                        {
-                            tbPress2.Text = GetValue(datapnt);
-                            addDataPnt(chartPress, pressSens2, tbPress2.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("P03"))
-                    {
-                        if (checkBoxP3.Checked == true)
-                        {
-                            tbPress3.Text = GetValue(datapnt);
-                            addDataPnt(chartPress, pressSens3, tbPress3.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("P04"))
-                    {
-                        if (checkBoxP4.Checked == true)
-                        {
-                            tbPress4.Text = GetValue(datapnt);
-                            addDataPnt(chartPress, pressSens4, tbPress4.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("P05"))
-                    {
-                        if (checkBoxP5.Checked == true)
-                        {
-                            tbPress5.Text = GetValue(datapnt);
-                            addDataPnt(chartPress, pressSens5, tbPress5.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("P06"))
-                    {
-                        if (checkBoxP6.Checked == true)
-                        {
-                            tbPress6.Text = GetValue(datapnt);
-                            addDataPnt(chartPress, pressSens6, tbPress6.Text);
-                        }
-                    }
-                    else if (datapnt.Contains("S01"))
+                    if (datapnt.Contains("S01"))
                     {
                         tbFV1Pos.Text = GetValue(datapnt);
                         tbFV1State.Text = GetStateValue(datapnt);
@@ -397,9 +410,9 @@ namespace UserInterface
             SolidBrush myBrush = new SolidBrush(Color.White);
             SolidBrush myBrush1 = new SolidBrush(Color.Black);
 
-            g.FillRectangle(myBrush, x, y, width, height); 
+            g.FillRectangle(myBrush, x, y, width, height);
 
-            switch(boxType)
+            switch (boxType)
             {
                 case (int)BoxType.Horizontal:
                     g.TranslateTransform((width + 2) / 2, (height + 2) / 2);
@@ -417,7 +430,7 @@ namespace UserInterface
                     break;
                 case (int)BoxType.Threeway:
                     g.TranslateTransform((width + 4) / 2, (height + 4) / 2);
-                    g.RotateTransform(deg/2);
+                    g.RotateTransform(deg / 2);
                     g.TranslateTransform(-(width + 4) / 2, -(height + 4) / 2);
                     g.DrawRectangle(myPen, x + 15, y + 2, 8, height / 2);
                     g.FillRectangle(myBrush1, x + 15, y + 2, 8, height / 2);
@@ -480,7 +493,6 @@ namespace UserInterface
             s.BorderWidth = 3;
             return s;
         }
-        
 
         // Button Events
         private void btnReConnect_Click(object sender, EventArgs e)
@@ -511,10 +523,13 @@ namespace UserInterface
         {
             mySerialPort.WriteLine("Reset");
         }
+        private void btnStartRec_Click(object sender, EventArgs e)
+        {
+            rec = true;
+        }
         private void btnStopRec_Click(object sender, EventArgs e)
         {
             rec = false;
-            clearBoxes();
             mySerialPort.WriteLine("StopRec");
         }
         private void btnClear_Click(object sender, EventArgs e)

@@ -30,10 +30,10 @@ namespace UserInterface
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.gbPress = new System.Windows.Forms.GroupBox();
             this.checkBoxP6 = new System.Windows.Forms.CheckBox();
             this.checkBoxP5 = new System.Windows.Forms.CheckBox();
@@ -130,6 +130,7 @@ namespace UserInterface
             this.btnClear = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnStartRec = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -273,12 +274,12 @@ namespace UserInterface
             // 
             // chartPress
             // 
-            chartArea1.AxisX.Title = "Time [s]";
-            chartArea1.AxisY.Title = "Pressure [bar]";
-            chartArea1.Name = "ChartArea1";
-            this.chartPress.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartPress.Legends.Add(legend1);
+            chartArea3.AxisX.Title = "Time [s]";
+            chartArea3.AxisY.Title = "Pressure [bar]";
+            chartArea3.Name = "ChartArea1";
+            this.chartPress.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartPress.Legends.Add(legend3);
             this.chartPress.Location = new System.Drawing.Point(6, 23);
             this.chartPress.Name = "chartPress";
             this.chartPress.Size = new System.Drawing.Size(1364, 365);
@@ -384,7 +385,7 @@ namespace UserInterface
             // btnReConnect
             // 
             this.btnReConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReConnect.Location = new System.Drawing.Point(802, 846);
+            this.btnReConnect.Location = new System.Drawing.Point(512, 846);
             this.btnReConnect.Name = "btnReConnect";
             this.btnReConnect.Size = new System.Drawing.Size(284, 33);
             this.btnReConnect.TabIndex = 20;
@@ -796,11 +797,11 @@ namespace UserInterface
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label23.Location = new System.Drawing.Point(12, 13);
+            this.label23.Location = new System.Drawing.Point(229, 9);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(371, 42);
+            this.label23.Size = new System.Drawing.Size(433, 52);
             this.label23.TabIndex = 2;
             this.label23.Text = "Test Station Monitor";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -900,12 +901,12 @@ namespace UserInterface
             // 
             // chartTemp
             // 
-            chartArea2.AxisX.Title = "Time [s]";
-            chartArea2.AxisY.Title = "Temperature [°C]";
-            chartArea2.Name = "ChartArea1";
-            this.chartTemp.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartTemp.Legends.Add(legend2);
+            chartArea4.AxisX.Title = "Time [s]";
+            chartArea4.AxisY.Title = "Temperature [°C]";
+            chartArea4.Name = "ChartArea1";
+            this.chartTemp.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartTemp.Legends.Add(legend4);
             this.chartTemp.Location = new System.Drawing.Point(6, 21);
             this.chartTemp.Name = "chartTemp";
             this.chartTemp.Size = new System.Drawing.Size(1364, 365);
@@ -1064,7 +1065,7 @@ namespace UserInterface
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(19, 58);
+            this.tabControl1.Location = new System.Drawing.Point(19, 54);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1680, 914);
@@ -1072,6 +1073,7 @@ namespace UserInterface
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnStartRec);
             this.tabPage1.Controls.Add(this.gbTemp);
             this.tabPage1.Controls.Add(this.btnClear);
             this.tabPage1.Controls.Add(this.gbPress);
@@ -1085,6 +1087,17 @@ namespace UserInterface
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sensor Data";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnStartRec
+            // 
+            this.btnStartRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartRec.Location = new System.Drawing.Point(802, 846);
+            this.btnStartRec.Name = "btnStartRec";
+            this.btnStartRec.Size = new System.Drawing.Size(284, 33);
+            this.btnStartRec.TabIndex = 27;
+            this.btnStartRec.Text = "Start Recording";
+            this.btnStartRec.UseVisualStyleBackColor = true;
+            this.btnStartRec.Click += new System.EventHandler(this.btnStartRec_Click);
             // 
             // tabPage2
             // 
@@ -1316,7 +1329,7 @@ namespace UserInterface
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1711, 1055);
+            this.ClientSize = new System.Drawing.Size(1711, 995);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
@@ -1480,6 +1493,7 @@ namespace UserInterface
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         public System.Windows.Forms.DataVisualization.Charting.Chart chartTemp;
+        public System.Windows.Forms.Button btnStartRec;
     }
 }
 
