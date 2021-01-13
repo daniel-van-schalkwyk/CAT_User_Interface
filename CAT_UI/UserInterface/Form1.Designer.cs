@@ -56,9 +56,10 @@ namespace UserInterface
             this.tbPress2 = new System.Windows.Forms.TextBox();
             this.tbPress1 = new System.Windows.Forms.TextBox();
             this.btnReConnect = new System.Windows.Forms.Button();
-            this.btnActuate = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gbNitrogen = new System.Windows.Forms.GroupBox();
+            this.tbarNV2 = new System.Windows.Forms.TrackBar();
+            this.tbarNV1 = new System.Windows.Forms.TrackBar();
             this.label26 = new System.Windows.Forms.Label();
             this.tbNV2State = new System.Windows.Forms.TextBox();
             this.tbNV1State = new System.Windows.Forms.TextBox();
@@ -68,6 +69,11 @@ namespace UserInterface
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.gbOxygen = new System.Windows.Forms.GroupBox();
+            this.tbarPV = new System.Windows.Forms.TrackBar();
+            this.tbarOV4 = new System.Windows.Forms.TrackBar();
+            this.tbarOV3 = new System.Windows.Forms.TrackBar();
+            this.tbarOV2 = new System.Windows.Forms.TrackBar();
+            this.tbarOV1 = new System.Windows.Forms.TrackBar();
             this.tbOV4State = new System.Windows.Forms.TextBox();
             this.tbOV4Pos = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -86,6 +92,10 @@ namespace UserInterface
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.gbFuel = new System.Windows.Forms.GroupBox();
+            this.tbarFV4 = new System.Windows.Forms.TrackBar();
+            this.tbarFV3 = new System.Windows.Forms.TrackBar();
+            this.tbarFV2 = new System.Windows.Forms.TrackBar();
+            this.tbarFV1 = new System.Windows.Forms.TrackBar();
             this.tbFV4State = new System.Windows.Forms.TextBox();
             this.tbFV4Pos = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -157,8 +167,19 @@ namespace UserInterface
             this.gbPress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPress)).BeginInit();
             this.gbNitrogen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarNV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarNV1)).BeginInit();
             this.gbOxygen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarPV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV1)).BeginInit();
             this.gbFuel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV1)).BeginInit();
             this.gbTemp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
@@ -393,21 +414,10 @@ namespace UserInterface
             this.btnReConnect.UseVisualStyleBackColor = true;
             this.btnReConnect.Click += new System.EventHandler(this.btnReConnect_Click);
             // 
-            // btnActuate
-            // 
-            this.btnActuate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActuate.Location = new System.Drawing.Point(848, 501);
-            this.btnActuate.Name = "btnActuate";
-            this.btnActuate.Size = new System.Drawing.Size(189, 33);
-            this.btnActuate.TabIndex = 3;
-            this.btnActuate.Text = "Actuate";
-            this.btnActuate.UseVisualStyleBackColor = true;
-            this.btnActuate.Click += new System.EventHandler(this.btnActuate_Click);
-            // 
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(1042, 501);
+            this.btnReset.Location = new System.Drawing.Point(1477, 846);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(189, 33);
             this.btnReset.TabIndex = 2;
@@ -417,6 +427,8 @@ namespace UserInterface
             // 
             // gbNitrogen
             // 
+            this.gbNitrogen.Controls.Add(this.tbarNV2);
+            this.gbNitrogen.Controls.Add(this.tbarNV1);
             this.gbNitrogen.Controls.Add(this.label26);
             this.gbNitrogen.Controls.Add(this.tbNV2State);
             this.gbNitrogen.Controls.Add(this.tbNV1State);
@@ -425,18 +437,40 @@ namespace UserInterface
             this.gbNitrogen.Controls.Add(this.tbNV1Pos);
             this.gbNitrogen.Controls.Add(this.label13);
             this.gbNitrogen.Controls.Add(this.label14);
-            this.gbNitrogen.Location = new System.Drawing.Point(848, 375);
+            this.gbNitrogen.Location = new System.Drawing.Point(691, 665);
             this.gbNitrogen.Name = "gbNitrogen";
-            this.gbNitrogen.Size = new System.Drawing.Size(383, 120);
+            this.gbNitrogen.Size = new System.Drawing.Size(975, 175);
             this.gbNitrogen.TabIndex = 1;
             this.gbNitrogen.TabStop = false;
             this.gbNitrogen.Text = "Nitrogen";
+            // 
+            // tbarNV2
+            // 
+            this.tbarNV2.Location = new System.Drawing.Point(384, 112);
+            this.tbarNV2.Maximum = 90;
+            this.tbarNV2.Name = "tbarNV2";
+            this.tbarNV2.Size = new System.Drawing.Size(585, 56);
+            this.tbarNV2.TabIndex = 30;
+            this.tbarNV2.Scroll += new System.EventHandler(this.tbarNV2_Scroll);
+            this.tbarNV2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarNV2_MouseDown);
+            this.tbarNV2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarNV2_MouseUp);
+            // 
+            // tbarNV1
+            // 
+            this.tbarNV1.Location = new System.Drawing.Point(384, 50);
+            this.tbarNV1.Maximum = 90;
+            this.tbarNV1.Name = "tbarNV1";
+            this.tbarNV1.Size = new System.Drawing.Size(585, 56);
+            this.tbarNV1.TabIndex = 18;
+            this.tbarNV1.Scroll += new System.EventHandler(this.tbarNV1_Scroll);
+            this.tbarNV1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarNV1_MouseDown);
+            this.tbarNV1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarNV1_MouseUp);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(255, 18);
+            this.label26.Location = new System.Drawing.Point(129, 18);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(46, 17);
             this.label26.TabIndex = 29;
@@ -444,21 +478,21 @@ namespace UserInterface
             // 
             // tbNV2State
             // 
-            this.tbNV2State.Location = new System.Drawing.Point(180, 79);
+            this.tbNV2State.Location = new System.Drawing.Point(54, 112);
             this.tbNV2State.Name = "tbNV2State";
             this.tbNV2State.Size = new System.Drawing.Size(197, 22);
             this.tbNV2State.TabIndex = 29;
             // 
             // tbNV1State
             // 
-            this.tbNV1State.Location = new System.Drawing.Point(180, 50);
+            this.tbNV1State.Location = new System.Drawing.Point(54, 50);
             this.tbNV1State.Name = "tbNV1State";
             this.tbNV1State.Size = new System.Drawing.Size(197, 22);
             this.tbNV1State.TabIndex = 28;
             // 
             // tbNV2Pos
             // 
-            this.tbNV2Pos.Location = new System.Drawing.Point(54, 79);
+            this.tbNV2Pos.Location = new System.Drawing.Point(258, 112);
             this.tbNV2Pos.Name = "tbNV2Pos";
             this.tbNV2Pos.Size = new System.Drawing.Size(120, 22);
             this.tbNV2Pos.TabIndex = 17;
@@ -466,7 +500,7 @@ namespace UserInterface
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 82);
+            this.label12.Location = new System.Drawing.Point(8, 112);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(39, 17);
             this.label12.TabIndex = 16;
@@ -474,7 +508,7 @@ namespace UserInterface
             // 
             // tbNV1Pos
             // 
-            this.tbNV1Pos.Location = new System.Drawing.Point(54, 50);
+            this.tbNV1Pos.Location = new System.Drawing.Point(258, 50);
             this.tbNV1Pos.Name = "tbNV1Pos";
             this.tbNV1Pos.Size = new System.Drawing.Size(120, 22);
             this.tbNV1Pos.TabIndex = 14;
@@ -483,7 +517,7 @@ namespace UserInterface
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(49, 18);
+            this.label13.Location = new System.Drawing.Point(253, 18);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(130, 17);
             this.label13.TabIndex = 13;
@@ -492,7 +526,7 @@ namespace UserInterface
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 53);
+            this.label14.Location = new System.Drawing.Point(8, 50);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 17);
             this.label14.TabIndex = 12;
@@ -500,6 +534,11 @@ namespace UserInterface
             // 
             // gbOxygen
             // 
+            this.gbOxygen.Controls.Add(this.tbarPV);
+            this.gbOxygen.Controls.Add(this.tbarOV4);
+            this.gbOxygen.Controls.Add(this.tbarOV3);
+            this.gbOxygen.Controls.Add(this.tbarOV2);
+            this.gbOxygen.Controls.Add(this.tbarOV1);
             this.gbOxygen.Controls.Add(this.tbOV4State);
             this.gbOxygen.Controls.Add(this.tbOV4Pos);
             this.gbOxygen.Controls.Add(this.label31);
@@ -517,23 +556,78 @@ namespace UserInterface
             this.gbOxygen.Controls.Add(this.tbOV1Pos);
             this.gbOxygen.Controls.Add(this.label9);
             this.gbOxygen.Controls.Add(this.label10);
-            this.gbOxygen.Location = new System.Drawing.Point(847, 184);
+            this.gbOxygen.Location = new System.Drawing.Point(691, 305);
             this.gbOxygen.Name = "gbOxygen";
-            this.gbOxygen.Size = new System.Drawing.Size(383, 185);
+            this.gbOxygen.Size = new System.Drawing.Size(975, 354);
             this.gbOxygen.TabIndex = 1;
             this.gbOxygen.TabStop = false;
             this.gbOxygen.Text = "Oxygen";
             // 
+            // tbarPV
+            // 
+            this.tbarPV.Location = new System.Drawing.Point(384, 290);
+            this.tbarPV.Maximum = 90;
+            this.tbarPV.Name = "tbarPV";
+            this.tbarPV.Size = new System.Drawing.Size(585, 56);
+            this.tbarPV.TabIndex = 36;
+            this.tbarPV.Scroll += new System.EventHandler(this.tbarPV_Scroll);
+            this.tbarPV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarPV_MouseDown);
+            this.tbarPV.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarPV_MouseUp);
+            // 
+            // tbarOV4
+            // 
+            this.tbarOV4.Location = new System.Drawing.Point(384, 228);
+            this.tbarOV4.Maximum = 90;
+            this.tbarOV4.Name = "tbarOV4";
+            this.tbarOV4.Size = new System.Drawing.Size(585, 56);
+            this.tbarOV4.TabIndex = 35;
+            this.tbarOV4.Scroll += new System.EventHandler(this.tbarOV4_Scroll);
+            this.tbarOV4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarOV4_MouseDown);
+            this.tbarOV4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarOV4_MouseUp);
+            // 
+            // tbarOV3
+            // 
+            this.tbarOV3.Location = new System.Drawing.Point(384, 166);
+            this.tbarOV3.Maximum = 90;
+            this.tbarOV3.Name = "tbarOV3";
+            this.tbarOV3.Size = new System.Drawing.Size(585, 56);
+            this.tbarOV3.TabIndex = 34;
+            this.tbarOV3.Scroll += new System.EventHandler(this.tbarOV3_Scroll);
+            this.tbarOV3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarOV3_MouseDown);
+            this.tbarOV3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarOV3_MouseUp);
+            // 
+            // tbarOV2
+            // 
+            this.tbarOV2.Location = new System.Drawing.Point(384, 104);
+            this.tbarOV2.Maximum = 90;
+            this.tbarOV2.Name = "tbarOV2";
+            this.tbarOV2.Size = new System.Drawing.Size(585, 56);
+            this.tbarOV2.TabIndex = 33;
+            this.tbarOV2.Scroll += new System.EventHandler(this.tbarOV2_Scroll);
+            this.tbarOV2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarOV2_MouseDown);
+            this.tbarOV2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarOV2_MouseUp);
+            // 
+            // tbarOV1
+            // 
+            this.tbarOV1.Location = new System.Drawing.Point(384, 42);
+            this.tbarOV1.Maximum = 180;
+            this.tbarOV1.Name = "tbarOV1";
+            this.tbarOV1.Size = new System.Drawing.Size(585, 56);
+            this.tbarOV1.TabIndex = 32;
+            this.tbarOV1.Scroll += new System.EventHandler(this.tbarOV1_Scroll);
+            this.tbarOV1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarOV1_MouseDown);
+            this.tbarOV1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarOV1_MouseUp);
+            // 
             // tbOV4State
             // 
-            this.tbOV4State.Location = new System.Drawing.Point(180, 127);
+            this.tbOV4State.Location = new System.Drawing.Point(54, 228);
             this.tbOV4State.Name = "tbOV4State";
             this.tbOV4State.Size = new System.Drawing.Size(197, 22);
             this.tbOV4State.TabIndex = 31;
             // 
             // tbOV4Pos
             // 
-            this.tbOV4Pos.Location = new System.Drawing.Point(54, 127);
+            this.tbOV4Pos.Location = new System.Drawing.Point(258, 228);
             this.tbOV4Pos.Name = "tbOV4Pos";
             this.tbOV4Pos.Size = new System.Drawing.Size(120, 22);
             this.tbOV4Pos.TabIndex = 30;
@@ -541,7 +635,7 @@ namespace UserInterface
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(8, 130);
+            this.label31.Location = new System.Drawing.Point(8, 228);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(40, 17);
             this.label31.TabIndex = 29;
@@ -551,7 +645,7 @@ namespace UserInterface
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(255, 18);
+            this.label25.Location = new System.Drawing.Point(129, 18);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(46, 17);
             this.label25.TabIndex = 28;
@@ -559,35 +653,35 @@ namespace UserInterface
             // 
             // tbPVState
             // 
-            this.tbPVState.Location = new System.Drawing.Point(181, 155);
+            this.tbPVState.Location = new System.Drawing.Point(54, 290);
             this.tbPVState.Name = "tbPVState";
             this.tbPVState.Size = new System.Drawing.Size(197, 22);
             this.tbPVState.TabIndex = 27;
             // 
             // tbOV3State
             // 
-            this.tbOV3State.Location = new System.Drawing.Point(180, 99);
+            this.tbOV3State.Location = new System.Drawing.Point(54, 166);
             this.tbOV3State.Name = "tbOV3State";
             this.tbOV3State.Size = new System.Drawing.Size(197, 22);
             this.tbOV3State.TabIndex = 26;
             // 
             // tbOV2State
             // 
-            this.tbOV2State.Location = new System.Drawing.Point(180, 70);
+            this.tbOV2State.Location = new System.Drawing.Point(54, 104);
             this.tbOV2State.Name = "tbOV2State";
             this.tbOV2State.Size = new System.Drawing.Size(197, 22);
             this.tbOV2State.TabIndex = 25;
             // 
             // tbOV1State
             // 
-            this.tbOV1State.Location = new System.Drawing.Point(180, 42);
+            this.tbOV1State.Location = new System.Drawing.Point(54, 42);
             this.tbOV1State.Name = "tbOV1State";
             this.tbOV1State.Size = new System.Drawing.Size(197, 22);
             this.tbOV1State.TabIndex = 24;
             // 
             // tbPVPos
             // 
-            this.tbPVPos.Location = new System.Drawing.Point(55, 155);
+            this.tbPVPos.Location = new System.Drawing.Point(258, 290);
             this.tbPVPos.Name = "tbPVPos";
             this.tbPVPos.Size = new System.Drawing.Size(120, 22);
             this.tbPVPos.TabIndex = 23;
@@ -595,7 +689,7 @@ namespace UserInterface
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 158);
+            this.label11.Location = new System.Drawing.Point(9, 290);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 17);
             this.label11.TabIndex = 22;
@@ -603,7 +697,7 @@ namespace UserInterface
             // 
             // tbOV3Pos
             // 
-            this.tbOV3Pos.Location = new System.Drawing.Point(54, 99);
+            this.tbOV3Pos.Location = new System.Drawing.Point(258, 166);
             this.tbOV3Pos.Name = "tbOV3Pos";
             this.tbOV3Pos.Size = new System.Drawing.Size(120, 22);
             this.tbOV3Pos.TabIndex = 20;
@@ -611,7 +705,7 @@ namespace UserInterface
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 102);
+            this.label5.Location = new System.Drawing.Point(8, 166);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 17);
             this.label5.TabIndex = 19;
@@ -619,7 +713,7 @@ namespace UserInterface
             // 
             // tbOV2Pos
             // 
-            this.tbOV2Pos.Location = new System.Drawing.Point(54, 71);
+            this.tbOV2Pos.Location = new System.Drawing.Point(258, 104);
             this.tbOV2Pos.Name = "tbOV2Pos";
             this.tbOV2Pos.Size = new System.Drawing.Size(120, 22);
             this.tbOV2Pos.TabIndex = 17;
@@ -627,7 +721,7 @@ namespace UserInterface
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 74);
+            this.label7.Location = new System.Drawing.Point(8, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 17);
             this.label7.TabIndex = 16;
@@ -635,7 +729,7 @@ namespace UserInterface
             // 
             // tbOV1Pos
             // 
-            this.tbOV1Pos.Location = new System.Drawing.Point(54, 42);
+            this.tbOV1Pos.Location = new System.Drawing.Point(258, 42);
             this.tbOV1Pos.Name = "tbOV1Pos";
             this.tbOV1Pos.Size = new System.Drawing.Size(120, 22);
             this.tbOV1Pos.TabIndex = 14;
@@ -644,7 +738,7 @@ namespace UserInterface
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(49, 18);
+            this.label9.Location = new System.Drawing.Point(253, 18);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(130, 17);
             this.label9.TabIndex = 13;
@@ -653,7 +747,7 @@ namespace UserInterface
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 45);
+            this.label10.Location = new System.Drawing.Point(8, 42);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 17);
             this.label10.TabIndex = 12;
@@ -661,6 +755,10 @@ namespace UserInterface
             // 
             // gbFuel
             // 
+            this.gbFuel.Controls.Add(this.tbarFV4);
+            this.gbFuel.Controls.Add(this.tbarFV3);
+            this.gbFuel.Controls.Add(this.tbarFV2);
+            this.gbFuel.Controls.Add(this.tbarFV1);
             this.gbFuel.Controls.Add(this.tbFV4State);
             this.gbFuel.Controls.Add(this.tbFV4Pos);
             this.gbFuel.Controls.Add(this.label32);
@@ -675,23 +773,67 @@ namespace UserInterface
             this.gbFuel.Controls.Add(this.tbFV1Pos);
             this.gbFuel.Controls.Add(this.label4);
             this.gbFuel.Controls.Add(this.label3);
-            this.gbFuel.Location = new System.Drawing.Point(847, 6);
+            this.gbFuel.Location = new System.Drawing.Point(691, 6);
             this.gbFuel.Name = "gbFuel";
-            this.gbFuel.Size = new System.Drawing.Size(383, 172);
+            this.gbFuel.Size = new System.Drawing.Size(975, 293);
             this.gbFuel.TabIndex = 0;
             this.gbFuel.TabStop = false;
             this.gbFuel.Text = "Fuel";
             // 
+            // tbarFV4
+            // 
+            this.tbarFV4.Location = new System.Drawing.Point(384, 224);
+            this.tbarFV4.Maximum = 90;
+            this.tbarFV4.Name = "tbarFV4";
+            this.tbarFV4.Size = new System.Drawing.Size(585, 56);
+            this.tbarFV4.TabIndex = 36;
+            this.tbarFV4.Scroll += new System.EventHandler(this.tbarFV4_Scroll);
+            this.tbarFV4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarFV4_MouseDown);
+            this.tbarFV4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarFV4_MouseUp);
+            // 
+            // tbarFV3
+            // 
+            this.tbarFV3.Location = new System.Drawing.Point(384, 162);
+            this.tbarFV3.Maximum = 90;
+            this.tbarFV3.Name = "tbarFV3";
+            this.tbarFV3.Size = new System.Drawing.Size(585, 56);
+            this.tbarFV3.TabIndex = 35;
+            this.tbarFV3.Scroll += new System.EventHandler(this.tbarFV3_Scroll);
+            this.tbarFV3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarFV3_MouseDown);
+            this.tbarFV3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarFV3_MouseUp);
+            // 
+            // tbarFV2
+            // 
+            this.tbarFV2.Location = new System.Drawing.Point(384, 100);
+            this.tbarFV2.Maximum = 90;
+            this.tbarFV2.Name = "tbarFV2";
+            this.tbarFV2.Size = new System.Drawing.Size(585, 56);
+            this.tbarFV2.TabIndex = 34;
+            this.tbarFV2.Scroll += new System.EventHandler(this.tbarFV2_Scroll);
+            this.tbarFV2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarFV2_MouseDown);
+            this.tbarFV2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarFV2_MouseUp);
+            // 
+            // tbarFV1
+            // 
+            this.tbarFV1.Location = new System.Drawing.Point(384, 38);
+            this.tbarFV1.Maximum = 180;
+            this.tbarFV1.Name = "tbarFV1";
+            this.tbarFV1.Size = new System.Drawing.Size(585, 56);
+            this.tbarFV1.TabIndex = 33;
+            this.tbarFV1.Scroll += new System.EventHandler(this.tbarFV1_Scroll);
+            this.tbarFV1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbarFV1_MouseDown);
+            this.tbarFV1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbarFV1_MouseUp);
+            // 
             // tbFV4State
             // 
-            this.tbFV4State.Location = new System.Drawing.Point(181, 141);
+            this.tbFV4State.Location = new System.Drawing.Point(54, 224);
             this.tbFV4State.Name = "tbFV4State";
             this.tbFV4State.Size = new System.Drawing.Size(197, 22);
             this.tbFV4State.TabIndex = 17;
             // 
             // tbFV4Pos
             // 
-            this.tbFV4Pos.Location = new System.Drawing.Point(55, 141);
+            this.tbFV4Pos.Location = new System.Drawing.Point(258, 224);
             this.tbFV4Pos.Name = "tbFV4Pos";
             this.tbFV4Pos.Size = new System.Drawing.Size(120, 22);
             this.tbFV4Pos.TabIndex = 16;
@@ -699,7 +841,7 @@ namespace UserInterface
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(12, 144);
+            this.label32.Location = new System.Drawing.Point(12, 224);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(37, 17);
             this.label32.TabIndex = 15;
@@ -709,7 +851,7 @@ namespace UserInterface
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(255, 23);
+            this.label24.Location = new System.Drawing.Point(129, 18);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(46, 17);
             this.label24.TabIndex = 14;
@@ -717,28 +859,28 @@ namespace UserInterface
             // 
             // tbFV3State
             // 
-            this.tbFV3State.Location = new System.Drawing.Point(180, 113);
+            this.tbFV3State.Location = new System.Drawing.Point(54, 162);
             this.tbFV3State.Name = "tbFV3State";
             this.tbFV3State.Size = new System.Drawing.Size(197, 22);
             this.tbFV3State.TabIndex = 13;
             // 
             // tbFV2State
             // 
-            this.tbFV2State.Location = new System.Drawing.Point(180, 85);
+            this.tbFV2State.Location = new System.Drawing.Point(54, 100);
             this.tbFV2State.Name = "tbFV2State";
             this.tbFV2State.Size = new System.Drawing.Size(197, 22);
             this.tbFV2State.TabIndex = 12;
             // 
             // tbFV1State
             // 
-            this.tbFV1State.Location = new System.Drawing.Point(180, 56);
+            this.tbFV1State.Location = new System.Drawing.Point(54, 38);
             this.tbFV1State.Name = "tbFV1State";
             this.tbFV1State.Size = new System.Drawing.Size(197, 22);
             this.tbFV1State.TabIndex = 11;
             // 
             // tbFV3Pos
             // 
-            this.tbFV3Pos.Location = new System.Drawing.Point(54, 113);
+            this.tbFV3Pos.Location = new System.Drawing.Point(258, 162);
             this.tbFV3Pos.Name = "tbFV3Pos";
             this.tbFV3Pos.Size = new System.Drawing.Size(120, 22);
             this.tbFV3Pos.TabIndex = 10;
@@ -746,7 +888,7 @@ namespace UserInterface
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 116);
+            this.label8.Location = new System.Drawing.Point(11, 162);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 17);
             this.label8.TabIndex = 8;
@@ -754,7 +896,7 @@ namespace UserInterface
             // 
             // tbFV2Pos
             // 
-            this.tbFV2Pos.Location = new System.Drawing.Point(54, 85);
+            this.tbFV2Pos.Location = new System.Drawing.Point(258, 100);
             this.tbFV2Pos.Name = "tbFV2Pos";
             this.tbFV2Pos.Size = new System.Drawing.Size(120, 22);
             this.tbFV2Pos.TabIndex = 6;
@@ -762,7 +904,7 @@ namespace UserInterface
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 88);
+            this.label6.Location = new System.Drawing.Point(11, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 17);
             this.label6.TabIndex = 4;
@@ -770,7 +912,7 @@ namespace UserInterface
             // 
             // tbFV1Pos
             // 
-            this.tbFV1Pos.Location = new System.Drawing.Point(54, 56);
+            this.tbFV1Pos.Location = new System.Drawing.Point(258, 38);
             this.tbFV1Pos.Name = "tbFV1Pos";
             this.tbFV1Pos.Size = new System.Drawing.Size(120, 22);
             this.tbFV1Pos.TabIndex = 2;
@@ -779,7 +921,7 @@ namespace UserInterface
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(52, 23);
+            this.label4.Location = new System.Drawing.Point(256, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 17);
             this.label4.TabIndex = 1;
@@ -788,7 +930,7 @@ namespace UserInterface
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 59);
+            this.label3.Location = new System.Drawing.Point(11, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 17);
             this.label3.TabIndex = 0;
@@ -1010,24 +1152,27 @@ namespace UserInterface
             // 
             // btnStop
             // 
+            this.btnStop.BackColor = System.Drawing.Color.White;
             this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(614, 311);
+            this.btnStop.Location = new System.Drawing.Point(1519, 975);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(177, 33);
             this.btnStop.TabIndex = 23;
             this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnStart
             // 
-            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnStart.BackColor = System.Drawing.Color.Green;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(419, 308);
+            this.btnStart.Location = new System.Drawing.Point(1336, 975);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(189, 33);
+            this.btnStart.Size = new System.Drawing.Size(177, 33);
             this.btnStart.TabIndex = 22;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStopRec
             // 
@@ -1068,7 +1213,7 @@ namespace UserInterface
             this.tabControl1.Location = new System.Drawing.Point(19, 54);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1680, 914);
+            this.tabControl1.Size = new System.Drawing.Size(1680, 919);
             this.tabControl1.TabIndex = 27;
             // 
             // tabPage1
@@ -1083,7 +1228,7 @@ namespace UserInterface
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1672, 885);
+            this.tabPage1.Size = new System.Drawing.Size(1672, 890);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sensor Data";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1126,13 +1271,12 @@ namespace UserInterface
             this.tabPage2.Controls.Add(this.pbMain);
             this.tabPage2.Controls.Add(this.btnReset);
             this.tabPage2.Controls.Add(this.gbFuel);
-            this.tabPage2.Controls.Add(this.btnActuate);
             this.tabPage2.Controls.Add(this.gbOxygen);
             this.tabPage2.Controls.Add(this.gbNitrogen);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1672, 885);
+            this.tabPage2.Size = new System.Drawing.Size(1672, 890);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Servo Control";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1140,7 +1284,7 @@ namespace UserInterface
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(457, 286);
+            this.label43.Location = new System.Drawing.Point(457, 288);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(35, 17);
             this.label43.TabIndex = 30;
@@ -1149,7 +1293,7 @@ namespace UserInterface
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(242, 288);
+            this.label42.Location = new System.Drawing.Point(241, 287);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(35, 17);
             this.label42.TabIndex = 30;
@@ -1167,7 +1311,7 @@ namespace UserInterface
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(492, 442);
+            this.label40.Location = new System.Drawing.Point(491, 441);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(33, 17);
             this.label40.TabIndex = 18;
@@ -1176,7 +1320,7 @@ namespace UserInterface
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(613, 508);
+            this.label39.Location = new System.Drawing.Point(614, 504);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(33, 17);
             this.label39.TabIndex = 38;
@@ -1185,7 +1329,7 @@ namespace UserInterface
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(57, 264);
+            this.label38.Location = new System.Drawing.Point(59, 264);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(36, 17);
             this.label38.TabIndex = 32;
@@ -1230,7 +1374,7 @@ namespace UserInterface
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(546, 734);
+            this.label33.Location = new System.Drawing.Point(544, 734);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(33, 17);
             this.label33.TabIndex = 37;
@@ -1238,7 +1382,7 @@ namespace UserInterface
             // 
             // pbNV1
             // 
-            this.pbNV1.Location = new System.Drawing.Point(445, 305);
+            this.pbNV1.Location = new System.Drawing.Point(445, 307);
             this.pbNV1.Name = "pbNV1";
             this.pbNV1.Size = new System.Drawing.Size(58, 54);
             this.pbNV1.TabIndex = 36;
@@ -1246,7 +1390,7 @@ namespace UserInterface
             // 
             // pbNV2
             // 
-            this.pbNV2.Location = new System.Drawing.Point(230, 308);
+            this.pbNV2.Location = new System.Drawing.Point(229, 307);
             this.pbNV2.Name = "pbNV2";
             this.pbNV2.Size = new System.Drawing.Size(58, 54);
             this.pbNV2.TabIndex = 35;
@@ -1254,7 +1398,7 @@ namespace UserInterface
             // 
             // pbOV4
             // 
-            this.pbOV4.Location = new System.Drawing.Point(96, 248);
+            this.pbOV4.Location = new System.Drawing.Point(98, 248);
             this.pbOV4.Name = "pbOV4";
             this.pbOV4.Size = new System.Drawing.Size(58, 54);
             this.pbOV4.TabIndex = 34;
@@ -1286,7 +1430,7 @@ namespace UserInterface
             // 
             // pbFV1
             // 
-            this.pbFV1.Location = new System.Drawing.Point(533, 677);
+            this.pbFV1.Location = new System.Drawing.Point(531, 677);
             this.pbFV1.Name = "pbFV1";
             this.pbFV1.Size = new System.Drawing.Size(58, 54);
             this.pbFV1.TabIndex = 30;
@@ -1310,7 +1454,7 @@ namespace UserInterface
             // 
             // pbFV3
             // 
-            this.pbFV3.Location = new System.Drawing.Point(530, 421);
+            this.pbFV3.Location = new System.Drawing.Point(529, 420);
             this.pbFV3.Name = "pbFV3";
             this.pbFV3.Size = new System.Drawing.Size(58, 54);
             this.pbFV3.TabIndex = 27;
@@ -1318,7 +1462,7 @@ namespace UserInterface
             // 
             // pbFV2
             // 
-            this.pbFV2.Location = new System.Drawing.Point(600, 527);
+            this.pbFV2.Location = new System.Drawing.Point(601, 523);
             this.pbFV2.Name = "pbFV2";
             this.pbFV2.Size = new System.Drawing.Size(58, 54);
             this.pbFV2.TabIndex = 26;
@@ -1329,12 +1473,13 @@ namespace UserInterface
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1711, 995);
+            this.ClientSize = new System.Drawing.Size(1714, 1012);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label23);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CAT_UI";
             this.Text = "CAT_UI";
@@ -1344,10 +1489,21 @@ namespace UserInterface
             ((System.ComponentModel.ISupportInitialize)(this.chartPress)).EndInit();
             this.gbNitrogen.ResumeLayout(false);
             this.gbNitrogen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarNV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarNV1)).EndInit();
             this.gbOxygen.ResumeLayout(false);
             this.gbOxygen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarPV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarOV1)).EndInit();
             this.gbFuel.ResumeLayout(false);
             this.gbFuel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFV1)).EndInit();
             this.gbTemp.ResumeLayout(false);
             this.gbTemp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemp)).EndInit();
@@ -1406,7 +1562,6 @@ namespace UserInterface
         private System.Windows.Forms.Label label17;
         public System.Windows.Forms.Button btnReConnect;
         private System.IO.Ports.SerialPort mySerialPort;
-        private System.Windows.Forms.Button btnActuate;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox tbNV2State;
         private System.Windows.Forms.TextBox tbNV1State;
@@ -1494,6 +1649,17 @@ namespace UserInterface
         private System.Windows.Forms.Label label33;
         public System.Windows.Forms.DataVisualization.Charting.Chart chartTemp;
         public System.Windows.Forms.Button btnStartRec;
+        private System.Windows.Forms.TrackBar tbarNV2;
+        private System.Windows.Forms.TrackBar tbarNV1;
+        private System.Windows.Forms.TrackBar tbarPV;
+        private System.Windows.Forms.TrackBar tbarOV4;
+        private System.Windows.Forms.TrackBar tbarOV3;
+        private System.Windows.Forms.TrackBar tbarOV2;
+        private System.Windows.Forms.TrackBar tbarOV1;
+        private System.Windows.Forms.TrackBar tbarFV3;
+        private System.Windows.Forms.TrackBar tbarFV2;
+        private System.Windows.Forms.TrackBar tbarFV1;
+        private System.Windows.Forms.TrackBar tbarFV4;
     }
 }
 

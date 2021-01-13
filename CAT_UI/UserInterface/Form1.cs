@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -12,10 +13,12 @@ namespace UserInterface
     {
         //public variable declarations
         public bool rec;
+        public bool slide;
+        public bool mouseUp = true;
         public delegate void SetTextDeleg(string text);
         public Form2 form2 = new Form2();
-        public Form3 form3 = new Form3();
         public DateTime dateTime;
+        public Bitmap drawArea;
         //public FileInfo file;
         //public string separator = ",";
         //public string headings = "TempSens1,TempSens2,TempSens3,TempSens4,TempSens5,TempSens6,PressSens1,PressSens2,PressSens3,PressSens4,PressSens5,PressSens6";
@@ -38,6 +41,10 @@ namespace UserInterface
         public enum BoxType : int
         {
             Horizontal, Vertical, Threeway
+        }
+        public enum Servo : int
+        {
+            FV1, FV2, FV3, FV4, OV1, OV2, OV3, OV4, PV, NV1, NV2
         }
 
         private void CAT_UI_Load(object sender, EventArgs e)
@@ -106,13 +113,13 @@ namespace UserInterface
             InitializeComponent();
 
             form2.btnConnect.Click += new EventHandler(ReconnectPortHandler);
-            form3.btnActuate.Click += new EventHandler(WriteSerialHandler);
         }
 
         // Event Handlers
         private void ReconnectPortHandler(object sender, EventArgs e)
         {
-            rec = true;
+            rec = false;
+            slide = true;
             setCheckBoxTrue();
             ReconnectPort();
             //DateTime fileDate = DateTime.Now;
@@ -127,10 +134,6 @@ namespace UserInterface
             SerialPort sp = (SerialPort)sender;
             string x = sp.ReadLine();
             this.BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
-        }
-        private void WriteSerialHandler(object sender, EventArgs e)
-        {
-            WriteSerial();
         }
 
         // Methods
@@ -260,83 +263,77 @@ namespace UserInterface
                             }
                         }
                     }
-                    if (datapnt.Contains("S01"))
+                    if (mouseUp)
                     {
-                        tbFV1Pos.Text = GetValue(datapnt);
-                        tbFV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV1, (int)BoxType.Threeway, GetValue(datapnt));
+                        if (datapnt.Contains("S01"))
+                        {
+                            tbFV1Pos.Text = GetValue(datapnt);
+                            tbFV1State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S02"))
+                        {
+                            tbFV2Pos.Text = GetValue(datapnt);
+                            tbFV2State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S03"))
+                        {
+                            tbFV3Pos.Text = GetValue(datapnt);
+                            tbFV3State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S04"))
+                        {
+                            tbOV1Pos.Text = GetValue(datapnt);
+                            tbOV1State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S05"))
+                        {
+                            tbOV2Pos.Text = GetValue(datapnt);
+                            tbOV2State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S06"))
+                        {
+                            tbOV3Pos.Text = GetValue(datapnt);
+                            tbOV3State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S07"))
+                        {
+                            tbNV1Pos.Text = GetValue(datapnt);
+                            tbNV1State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S08"))
+                        {
+                            tbNV2Pos.Text = GetValue(datapnt);
+                            tbNV2State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S09"))
+                        {
+                            tbPVPos.Text = GetValue(datapnt);
+                            tbPVState.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S10"))
+                        {
+                            tbFV4Pos.Text = GetValue(datapnt);
+                            tbFV4State.Text = GetStateValue(datapnt);
+                        }
+                        else if (datapnt.Contains("S11"))
+                        {
+                            tbOV4Pos.Text = GetValue(datapnt);
+                            tbOV4State.Text = GetStateValue(datapnt);
+                        }
+
                     }
-                    else if (datapnt.Contains("S02"))
-                    {
-                        tbFV2Pos.Text = GetValue(datapnt);
-                        tbFV2State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV2, (int)BoxType.Horizontal, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S03"))
-                    {
-                        tbFV3Pos.Text = GetValue(datapnt);
-                        tbFV3State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV3, (int)BoxType.Vertical, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S04"))
-                    {
-                        tbOV1Pos.Text = GetValue(datapnt);
-                        tbOV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV1, (int)BoxType.Threeway, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S05"))
-                    {
-                        tbOV2Pos.Text = GetValue(datapnt);
-                        tbOV2State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV2, (int)BoxType.Horizontal, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S06"))
-                    {
-                        tbOV3Pos.Text = GetValue(datapnt);
-                        tbOV3State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV3, (int)BoxType.Vertical, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S07"))
-                    {
-                        tbNV1Pos.Text = GetValue(datapnt);
-                        tbNV1State.Text = GetStateValue(datapnt);
-                        drawServo(pbNV1, (int)BoxType.Horizontal, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S08"))
-                    {
-                        tbNV2Pos.Text = GetValue(datapnt);
-                        tbNV2State.Text = GetStateValue(datapnt);
-                        drawServo(pbNV2, (int)BoxType.Horizontal, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S09"))
-                    {
-                        tbPVPos.Text = GetValue(datapnt);
-                        tbPVState.Text = GetStateValue(datapnt);
-                        drawServo(pbPV, (int)BoxType.Vertical, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S10"))
-                    {
-                        tbFV4Pos.Text = GetValue(datapnt);
-                        tbFV4State.Text = GetStateValue(datapnt);
-                        drawServo(pbFV4, (int)BoxType.Vertical, GetValue(datapnt));
-                    }
-                    else if (datapnt.Contains("S11"))
-                    {
-                        tbOV4Pos.Text = GetValue(datapnt);
-                        tbOV4State.Text = GetStateValue(datapnt);
-                        drawServo(pbOV4, (int)BoxType.Vertical, GetValue(datapnt));
-                    }
+                }
+                if (slide)
+                {
+                    setSliderValues();
+                    initServos();
+                    slide = false;
                 }
             }
         }
-        private void WriteSerial()
+        private void WriteSerial(string valve, string position)
         {
-            string valve = form3.ValveName;
-            string position = form3.ValvePosition;
-            if (!string.IsNullOrEmpty(position))
-            {
                 mySerialPort.WriteLine(valve + ":" + position);
-            }
         }
         private void clearBoxes()
         {
@@ -395,49 +392,79 @@ namespace UserInterface
                 series.Points.Clear();
             }
         }
+        private void initServos()
+        {
+            drawServo(pbFV1, (int)BoxType.Threeway, tbFV1Pos.Text);
+            drawServo(pbFV2, (int)BoxType.Horizontal, tbFV2Pos.Text);
+            drawServo(pbFV3, (int)BoxType.Vertical, tbFV3Pos.Text);
+            drawServo(pbFV4, (int)BoxType.Vertical, tbFV4Pos.Text);
+            drawServo(pbOV1, (int)BoxType.Threeway, tbOV1Pos.Text);
+            drawServo(pbOV2, (int)BoxType.Horizontal, tbOV2Pos.Text);
+            drawServo(pbOV3, (int)BoxType.Vertical, tbOV3Pos.Text);
+            drawServo(pbOV4, (int)BoxType.Vertical, tbOV4Pos.Text);
+            drawServo(pbPV, (int)BoxType.Vertical, tbPVPos.Text);
+            drawServo(pbNV1, (int)BoxType.Horizontal, tbNV1Pos.Text);
+            drawServo(pbNV2, (int)BoxType.Horizontal, tbNV2Pos.Text);
+        }
         private void drawServo(PictureBox pb, int boxType, string degrees)
         {
-            int x = 2;
-            int y = 2;
-            int width = 40;
-            int height = 40;
+            drawArea = new Bitmap(pb.Size.Width, pb.Size.Height);
+            int x = 0;
+            int y = 0;
+            int width = pb.Size.Width;
+            int height = pb.Size.Height;
             float deg = float.Parse(degrees);
 
-            Graphics g = pb.CreateGraphics();
-            g.Clear(Color.Transparent);
-
+            Graphics g = Graphics.FromImage(drawArea);
             Pen myPen = new Pen(Color.Black, 2f);
             SolidBrush myBrush = new SolidBrush(Color.White);
             SolidBrush myBrush1 = new SolidBrush(Color.Black);
 
-            g.FillRectangle(myBrush, x, y, width, height);
+            g.FillRectangle(myBrush1, x, y, width, height);
+            g.FillRectangle(myBrush, x + 2, y + 2, width - 4, height - 4);
 
             switch (boxType)
             {
                 case (int)BoxType.Horizontal:
-                    g.TranslateTransform((width + 2) / 2, (height + 2) / 2);
+                    g.TranslateTransform(width / 2, height / 2);
                     g.RotateTransform(deg);
-                    g.TranslateTransform(-(width + 2) / 2, -(height + 2) / 2);
-                    g.DrawRectangle(myPen, x + 2, y + 15, width - 4, 8);
-                    g.FillRectangle(myBrush1, x + 2, y + 15, width - 4, 8);
+                    g.TranslateTransform(-(width / 2), -(height / 2));
+                    g.DrawRectangle(myPen, x + 4, y + 18, width - 8, 8);
+                    g.FillRectangle(myBrush1, x + 4, y + 18, width - 8, 8);
                     break;
                 case (int)BoxType.Vertical:
-                    g.TranslateTransform((width + 6) / 2, (height + 3) / 2);
+                    g.TranslateTransform(width / 2, height / 2);
                     g.RotateTransform(deg);
-                    g.TranslateTransform(-(width + 6) / 2, -(height + 3) / 2);
-                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height - 4);
-                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height - 4);
+                    g.TranslateTransform(-(width / 2), -(height / 2));
+                    g.DrawRectangle(myPen, x + 18, y + 4, 8, height - 8);
+                    g.FillRectangle(myBrush1, x + 18, y + 4, 8, height - 8);
                     break;
                 case (int)BoxType.Threeway:
-                    g.TranslateTransform((width + 4) / 2, (height + 4) / 2);
+                    g.TranslateTransform(width / 2, height / 2);
                     g.RotateTransform(deg / 2);
-                    g.TranslateTransform(-(width + 4) / 2, -(height + 4) / 2);
-                    g.DrawRectangle(myPen, x + 15, y + 2, 8, height / 2);
-                    g.FillRectangle(myBrush1, x + 15, y + 2, 8, height / 2);
-                    g.DrawRectangle(myPen, x + 2, y + 15, width / 2, 8);
-                    g.FillRectangle(myBrush1, x + 2, y + 15, width / 2, 8);
+                    g.TranslateTransform(-(width / 2), -(height / 2));
+                    g.DrawRectangle(myPen, x + 18, y + 4, 8, height / 2);
+                    g.FillRectangle(myBrush1, x + 18, y + 4, 8, height / 2);
+                    g.DrawRectangle(myPen, x + 4, y + 18, width / 2, 8);
+                    g.FillRectangle(myBrush1, x + 4, y + 18, width / 2, 8);
                     break;
             }
+
+            pb.Image = drawArea;
+        }
+        private void setSliderValues()
+        {
+            tbarFV1.Value = (int)double.Parse(tbFV1Pos.Text);
+            tbarFV2.Value = (int)double.Parse(tbFV2Pos.Text);
+            tbarFV3.Value = (int)double.Parse(tbFV3Pos.Text);
+            tbarFV4.Value = (int)double.Parse(tbFV4Pos.Text);
+            tbarOV1.Value = (int)double.Parse(tbOV1Pos.Text);
+            tbarOV2.Value = (int)double.Parse(tbOV2Pos.Text);
+            tbarOV3.Value = (int)double.Parse(tbOV3Pos.Text);
+            tbarOV4.Value = (int)double.Parse(tbOV4Pos.Text);
+            tbarPV.Value = (int)double.Parse(tbPVPos.Text);
+            tbarNV1.Value = (int)double.Parse(tbNV1Pos.Text);
+            tbarNV2.Value = (int)double.Parse(tbNV2Pos.Text);
         }
         private string GetValue(string line)
         {
@@ -505,23 +532,20 @@ namespace UserInterface
         {
             btnStart.BackColor = Color.White;
             btnStop.BackColor = Color.Red;
-            mySerialPort.WriteLine("Start");
+            //mySerialPort.WriteLine("Start");
         }
         private void btnStop_Click(object sender, EventArgs e)
         {
             btnStop.BackColor = Color.White;
             btnStart.BackColor = Color.Green;
-            mySerialPort.WriteLine("Stop");
+            //mySerialPort.WriteLine("Stop");
             clearBoxes();
-        }
-        private void btnActuate_Click(object sender, EventArgs e)
-        {
-            form3.Show();
-            form3.TopMost = true;
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
             mySerialPort.WriteLine("Reset");
+            slide = true;
+            Thread.Sleep(1000);
         }
         private void btnStartRec_Click(object sender, EventArgs e)
         {
@@ -536,6 +560,166 @@ namespace UserInterface
         {
             clearBoxes();
             clearSeries();
+        }
+
+        // Slider Scroll Events
+        private void tbarFV1_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbFV1, (int)BoxType.Threeway, tbarFV1.Value.ToString());
+            tbFV1Pos.Text = tbarFV1.Value.ToString();
+        }
+        private void tbarFV2_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbFV2, (int)BoxType.Horizontal, tbarFV2.Value.ToString());
+            tbFV2Pos.Text = tbarFV2.Value.ToString();
+        }
+        private void tbarFV3_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbFV3, (int)BoxType.Horizontal, tbarFV3.Value.ToString());
+            tbFV3Pos.Text = tbarFV3.Value.ToString();
+        }
+        private void tbarFV4_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbFV4, (int)BoxType.Horizontal, tbarFV4.Value.ToString());
+            tbFV4Pos.Text = tbarFV4.Value.ToString();
+        }
+        private void tbarOV1_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbOV1, (int)BoxType.Threeway, tbarOV1.Value.ToString());
+            tbOV1Pos.Text = tbarOV1.Value.ToString();
+        }
+        private void tbarOV2_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbOV2, (int)BoxType.Horizontal, tbarOV2.Value.ToString());
+            tbOV2Pos.Text = tbarOV2.Value.ToString();
+        }
+        private void tbarOV3_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbOV3, (int)BoxType.Vertical, tbarOV3.Value.ToString());
+            tbOV3Pos.Text = tbarOV3.Value.ToString();
+        }
+        private void tbarOV4_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbOV4, (int)BoxType.Vertical, tbarOV4.Value.ToString());
+            tbOV4Pos.Text = tbarOV4.Value.ToString();
+        }
+        private void tbarPV_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbPV, (int)BoxType.Vertical, tbarPV.Value.ToString());
+            tbPVPos.Text = tbarPV.Value.ToString();
+        }
+        private void tbarNV1_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbNV1, (int)BoxType.Horizontal, tbarNV1.Value.ToString());
+            tbNV1Pos.Text = tbarNV1.Value.ToString();
+        }
+        private void tbarNV2_Scroll(object sender, EventArgs e)
+        {
+            drawServo(pbNV2, (int)BoxType.Horizontal, tbarNV2.Value.ToString());
+            tbNV2Pos.Text = tbarNV2.Value.ToString();
+        }
+
+        // Slider Mouse Down Events
+        private void tbarFV1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarFV2_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarFV3_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarFV4_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarOV1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarOV2_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarOV3_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarOV4_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarPV_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarNV1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+        private void tbarNV2_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseUp = false;
+        }
+
+        // Slider Mouse Up Events
+        private void tbarFV1_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.FV1.ToString(), tbarFV1.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarFV2_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.FV2.ToString(), tbarFV2.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarFV3_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.FV3.ToString(), tbarFV3.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarFV4_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.FV4.ToString(), tbarFV4.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarOV1_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.OV1.ToString(), tbarOV1.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarOV2_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.OV2.ToString(), tbarOV2.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarOV3_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.OV3.ToString(), tbarOV2.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarOV4_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.OV4.ToString(), tbarOV4.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarPV_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.PV.ToString(), tbarPV.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarNV1_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.NV1.ToString(), tbarNV1.Value.ToString());
+            mouseUp = true;
+        }
+        private void tbarNV2_MouseUp(object sender, MouseEventArgs e)
+        {
+            WriteSerial(Servo.NV2.ToString(), tbarNV2.Value.ToString());
+            mouseUp = true;
         }
     }
 }

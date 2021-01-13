@@ -38,7 +38,9 @@ namespace Drawing_Test
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbInput
@@ -95,11 +97,22 @@ namespace Drawing_Test
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trackBar1.Location = new System.Drawing.Point(17, 205);
+            this.trackBar1.Maximum = 180;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trackBar1.Size = new System.Drawing.Size(416, 56);
+            this.trackBar1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1298, 1055);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -109,6 +122,7 @@ namespace Drawing_Test
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +137,7 @@ namespace Drawing_Test
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 

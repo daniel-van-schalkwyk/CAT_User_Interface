@@ -14,19 +14,19 @@ namespace Drawing_Test
         public Form1()
         {
             InitializeComponent();
-            serialPort1 = new SerialPort("COM8", 115200);
-            serialPort1.DtrEnable = true;
-            serialPort1.Open();
-            serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            //serialPort1 = new SerialPort("COM8", 115200);
+            //serialPort1.DtrEnable = true;
+            //serialPort1.Open();
+            //serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
 
-        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
-            SerialPort sp = (SerialPort)sender;
-            string line = serialPort1.ReadLine();
-            this.BeginInvoke(new writeText(WriteData), new object[] { line });
-            paintServo(400, 300, 100, 100);
-        }
+        //private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        //{
+        //    SerialPort sp = (SerialPort)sender;
+        //    string line = serialPort1.ReadLine();
+        //    this.BeginInvoke(new writeText(WriteData), new object[] { line });
+        //    paintServo(400, 300, 100, 100);
+        //}
         private void WriteData(string line)
         {
             string[] splitdata = line.Split(',');
