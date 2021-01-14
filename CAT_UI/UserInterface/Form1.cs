@@ -1,4 +1,5 @@
 ﻿using System;
+//using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
@@ -12,17 +13,21 @@ namespace UserInterface
     public partial class CAT_UI : Form
     {
         //public variable declarations
+        public bool rec;
         public bool Trec;
         public bool Prec;
         public bool slide;
         public bool mouseUp = true;
+        public bool setTime;
         public delegate void SetTextDeleg(string text);
         public Form2 form2 = new Form2();
         public DateTime dateTime;
+        public DateTime fileTime;
         public Bitmap drawArea;
-        //public FileInfo file;
-        //public string separator = ",";
-        //public string headings = "TempSens1,TempSens2,TempSens3,TempSens4,TempSens5,TempSens6,PressSens1,PressSens2,PressSens3,PressSens4,PressSens5,PressSens6";
+        public FileInfo file;
+        public StringBuilder dataStream = new StringBuilder();
+        public readonly string separator = ",";
+        public readonly string headings = "TimeStamp,PressSens1,PressSens2,PressSens3,PressSens4,PressSens5,PressSens6,TempSens1,TempSens2,TempSens3,TempSens4,TempSens5,TempSens6,FV1,FV2,FV3,OV1,OV2,OV3,NV1,NV2,PV,FV4,OV4";
 
 
         // series declarations
@@ -39,6 +44,7 @@ namespace UserInterface
         public Series pressSens5 = new Series();
         public Series pressSens6 = new Series();
 
+        // Enum declarations
         public enum BoxType : int
         {
             Horizontal, Vertical, Threeway
@@ -48,6 +54,7 @@ namespace UserInterface
             FV1, FV2, FV3, FV4, OV1, OV2, OV3, OV4, PV, NV1, NV2
         }
 
+        // Form methods
         private void CAT_UI_Load(object sender, EventArgs e)
         {
             // Make the form full screen
@@ -108,7 +115,6 @@ namespace UserInterface
             Title title2 = chartPress.Titles.Add("Pressure");
             chartPress.ChartAreas["ChartArea1"].Visible = true;
         }
-
         public CAT_UI()
         {
             InitializeComponent();
@@ -119,23 +125,26 @@ namespace UserInterface
         // Event Handlers
         private void ReconnectPortHandler(object sender, EventArgs e)
         {
-            Trec = false;
-            Prec = false;
-            slide = true;
+            Trec = true;
+            Prec = true;
             setCheckBoxTrue();
             ReconnectPort();
-            //DateTime fileDate = DateTime.Now;
-            //string path = @"c:\Users\totos\Desktop\Data_Log_" + fileDate.ToString("yyyy/MM/dd") + ".csv";
-            //file = new FileInfo(path);
-            //StreamWriter sw = file.AppendText();
-            //sw.WriteLine(headings);
+            setTime = true;
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
-            string x = sp.ReadLine();
-            this.BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
+            if (rec)
+            {
+                if (setTime)
+                {
+                    fileTime = DateTime.Now;
+                    setTime = false;
+                }
+                string x = sp.ReadLine();
+                this.BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
+            }
         }
 
         // Methods
@@ -153,6 +162,14 @@ namespace UserInterface
             try
             {
                 mySerialPort.Open();
+                DateTime fileDate = DateTime.Now;
+                string filename = fileDate.ToString("dd-MM-yy") + "_" + fileDate.ToString("HH-mm");
+                string path = "C:\\Users\\totos\\Desktop\\Data_Log_" + filename + ".csv";
+                file = new FileInfo(path);
+                using (StreamWriter sw = file.AppendText())
+                {
+                    sw.WriteLine(headings);
+                }
             }
             catch
             {
@@ -167,6 +184,12 @@ namespace UserInterface
                 string[] splitdata = indata.Split(',');
                 foreach (string datapnt in splitdata)
                 {
+                    if (datapnt.Contains("TE"))
+                    {
+                        string msPassed = GetValue(datapnt);
+                        fileTime.AddMilliseconds(double.Parse(msPassed));
+                        dataStream.Append(fileTime.ToString("HH:mm:ss:fff") + separator);
+                    }
                     if (Trec)
                     {
                         if (datapnt.Contains("T01"))
@@ -174,6 +197,7 @@ namespace UserInterface
                             if (checkBoxT1.Checked == true)
                             {
                                 tbTemp1.Text = GetValue(datapnt);
+                                dataStream.Append(tbTemp1.Text + separator);
                                 addDataPnt(chartTemp, tempSens1, tbTemp1.Text);
                             }
                         }
@@ -182,6 +206,7 @@ namespace UserInterface
                             if (checkBoxT2.Checked == true)
                             {
                                 tbTemp2.Text = GetValue(datapnt);
+                                dataStream.Append(tbTemp2.Text + separator);
                                 addDataPnt(chartTemp, tempSens2, tbTemp2.Text);
                             }
                         }
@@ -190,6 +215,7 @@ namespace UserInterface
                             if (checkBoxT3.Checked == true)
                             {
                                 tbTemp3.Text = GetValue(datapnt);
+                                dataStream.Append(tbTemp3.Text + separator);
                                 addDataPnt(chartTemp, tempSens3, tbTemp3.Text);
                             }
                         }
@@ -198,6 +224,7 @@ namespace UserInterface
                             if (checkBoxT4.Checked == true)
                             {
                                 tbTemp4.Text = GetValue(datapnt);
+                                dataStream.Append(tbTemp4.Text + separator);
                                 addDataPnt(chartTemp, tempSens4, tbTemp4.Text);
                             }
                         }
@@ -206,6 +233,7 @@ namespace UserInterface
                             if (checkBoxT5.Checked == true)
                             {
                                 tbTemp5.Text = GetValue(datapnt);
+                                dataStream.Append(tbTemp5.Text + separator);
                                 addDataPnt(chartTemp, tempSens5, tbTemp5.Text);
                             }
                         }
@@ -214,6 +242,7 @@ namespace UserInterface
                             if (checkBoxT6.Checked == true)
                             {
                                 tbTemp6.Text = GetValue(datapnt);
+                                dataStream.Append(tbTemp6.Text + separator);
                                 addDataPnt(chartTemp, tempSens6, tbTemp6.Text);
                             }
                         }
@@ -225,6 +254,7 @@ namespace UserInterface
                             if (checkBoxP1.Checked == true)
                             {
                                 tbPress1.Text = GetValue(datapnt);
+                                dataStream.Append(tbPress1.Text + separator);
                                 addDataPnt(chartPress, pressSens1, tbPress1.Text);
                             }
                         }
@@ -233,6 +263,7 @@ namespace UserInterface
                             if (checkBoxP2.Checked == true)
                             {
                                 tbPress2.Text = GetValue(datapnt);
+                                dataStream.Append(tbPress2.Text + separator);
                                 addDataPnt(chartPress, pressSens2, tbPress2.Text);
                             }
                         }
@@ -241,6 +272,7 @@ namespace UserInterface
                             if (checkBoxP3.Checked == true)
                             {
                                 tbPress3.Text = GetValue(datapnt);
+                                dataStream.Append(tbPress3.Text + separator);
                                 addDataPnt(chartPress, pressSens3, tbPress3.Text);
                             }
                         }
@@ -249,6 +281,7 @@ namespace UserInterface
                             if (checkBoxP4.Checked == true)
                             {
                                 tbPress4.Text = GetValue(datapnt);
+                                dataStream.Append(tbPress4.Text + separator);
                                 addDataPnt(chartPress, pressSens4, tbPress4.Text);
                             }
                         }
@@ -257,6 +290,7 @@ namespace UserInterface
                             if (checkBoxP5.Checked == true)
                             {
                                 tbPress5.Text = GetValue(datapnt);
+                                dataStream.Append(tbPress5.Text + separator);
                                 addDataPnt(chartPress, pressSens5, tbPress5.Text);
                             }
                         }
@@ -265,6 +299,7 @@ namespace UserInterface
                             if (checkBoxP6.Checked == true)
                             {
                                 tbPress6.Text = GetValue(datapnt);
+                                dataStream.Append(tbPress6.Text + separator);
                                 addDataPnt(chartPress, pressSens6, tbPress6.Text);
                             }
                         }
@@ -274,60 +309,82 @@ namespace UserInterface
                         if (datapnt.Contains("S01"))
                         {
                             tbFV1Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbFV1Pos.Text + separator);
                             tbFV1State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S02"))
                         {
                             tbFV2Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbFV2Pos.Text + separator);
                             tbFV2State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S03"))
                         {
                             tbFV3Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbFV3Pos.Text + separator);
                             tbFV3State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S04"))
                         {
                             tbOV1Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbOV1Pos.Text + separator);
                             tbOV1State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S05"))
                         {
                             tbOV2Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbOV2Pos.Text + separator);
                             tbOV2State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S06"))
                         {
                             tbOV3Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbOV3Pos.Text + separator);
                             tbOV3State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S07"))
                         {
                             tbNV1Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbNV1Pos.Text + separator);
                             tbNV1State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S08"))
                         {
                             tbNV2Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbNV2Pos.Text + separator);
                             tbNV2State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S09"))
                         {
                             tbPVPos.Text = GetValue(datapnt);
+                            dataStream.Append(tbPVPos.Text + separator);
                             tbPVState.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S10"))
                         {
                             tbFV4Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbFV4Pos.Text + separator);
                             tbFV4State.Text = GetStateValue(datapnt);
                         }
                         else if (datapnt.Contains("S11"))
                         {
                             tbOV4Pos.Text = GetValue(datapnt);
+                            dataStream.Append(tbOV4Pos.Text + separator);
                             tbOV4State.Text = GetStateValue(datapnt);
                         }
-
                     }
+                }
+                using (StreamWriter sw = file.AppendText())
+                {
+                    sw.WriteLine(dataStream.ToString());
+                }
+                try
+                {
+                    dataStream.Clear();
+                }
+                catch
+                {
+                    return;
                 }
                 if (slide)
                 {
@@ -546,13 +603,13 @@ namespace UserInterface
         {
             btnStart.BackColor = Color.White;
             btnStop.BackColor = Color.Red;
-            //mySerialPort.WriteLine("Start");
+            mySerialPort.WriteLine("Start");
         }
         private void btnStop_Click(object sender, EventArgs e)
         {
             btnStop.BackColor = Color.White;
             btnStart.BackColor = Color.Green;
-            //mySerialPort.WriteLine("Stop");
+            mySerialPort.WriteLine("Stop");
             clearTBoxes();
             clearPBoxes();
         }
@@ -564,14 +621,14 @@ namespace UserInterface
         }
         private void btnStartRec_Click(object sender, EventArgs e)
         {
-            Trec = true;
-            Prec = true;
+            mySerialPort.WriteLine("SD");
+            rec = true;
+            slide = true;
         }
         private void btnStopRec_Click(object sender, EventArgs e)
         {
-            Trec = false;
-            Prec = false;
             mySerialPort.WriteLine("StopRec");
+            rec = false;
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
