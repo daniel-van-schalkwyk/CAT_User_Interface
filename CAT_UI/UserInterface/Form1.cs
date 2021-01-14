@@ -16,9 +16,9 @@ namespace UserInterface
         public bool rec;
         public bool Trec;
         public bool Prec;
-        public bool slide;
         public bool mouseUp = true;
         public bool setTime;
+        public int count;
         public delegate void SetTextDeleg(string text);
         public Form2 form2 = new Form2();
         public DateTime dateTime;
@@ -170,6 +170,7 @@ namespace UserInterface
                 {
                     sw.WriteLine(headings);
                 }
+                count = 0;
             }
             catch
             {
@@ -386,12 +387,12 @@ namespace UserInterface
                 {
                     return;
                 }
-                if (slide)
+                if (count == 1)
                 {
                     setSliderValues();
                     initServos();
-                    slide = false;
                 }
+                count++;
             }
         }
         private void WriteSerial(string valve, string position)
@@ -616,14 +617,12 @@ namespace UserInterface
         private void btnReset_Click(object sender, EventArgs e)
         {
             mySerialPort.WriteLine("Reset");
-            Thread.Sleep(1000);
-            slide = true;
+            count = 0;
         }
         private void btnStartRec_Click(object sender, EventArgs e)
         {
             mySerialPort.WriteLine("SD");
             rec = true;
-            slide = true;
         }
         private void btnStopRec_Click(object sender, EventArgs e)
         {
