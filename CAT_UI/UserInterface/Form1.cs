@@ -12,7 +12,8 @@ namespace UserInterface
     public partial class CAT_UI : Form
     {
         //public variable declarations
-        public bool rec;
+        public bool Trec;
+        public bool Prec;
         public bool slide;
         public bool mouseUp = true;
         public delegate void SetTextDeleg(string text);
@@ -118,7 +119,8 @@ namespace UserInterface
         // Event Handlers
         private void ReconnectPortHandler(object sender, EventArgs e)
         {
-            rec = false;
+            Trec = false;
+            Prec = false;
             slide = true;
             setCheckBoxTrue();
             ReconnectPort();
@@ -139,7 +141,8 @@ namespace UserInterface
         // Methods
         private void ReconnectPort()
         {
-            clearSeries();
+            clearTSeries();
+            clearPSeries();
             dateTime = DateTime.Now;
 
             string CP = form2.COMPort;
@@ -164,7 +167,7 @@ namespace UserInterface
                 string[] splitdata = indata.Split(',');
                 foreach (string datapnt in splitdata)
                 {
-                    if (rec)
+                    if (Trec)
                     {
                         if (datapnt.Contains("T01"))
                         {
@@ -214,7 +217,10 @@ namespace UserInterface
                                 addDataPnt(chartTemp, tempSens6, tbTemp6.Text);
                             }
                         }
-                        else if (datapnt.Contains("P01"))
+                    }
+                    if (Prec)
+                    {
+                        if (datapnt.Contains("P01"))
                         {
                             if (checkBoxP1.Checked == true)
                             {
@@ -335,15 +341,19 @@ namespace UserInterface
         {
                 mySerialPort.WriteLine(valve + ":" + position);
         }
-        private void clearBoxes()
+        private void clearTBoxes()
         {
-            // Clear the boxes containing the temperature and pressure data
+            // Clear the boxes containing the temperature data
             tbTemp1.Text = "";
             tbTemp2.Text = "";
             tbTemp3.Text = "";
             tbTemp4.Text = "";
             tbTemp5.Text = "";
             tbTemp6.Text = "";
+        }
+        private void clearPBoxes()
+        {
+            // Clear the boxes containing the pressure data
             tbPress1.Text = "";
             tbPress2.Text = "";
             tbPress3.Text = "";
@@ -381,12 +391,15 @@ namespace UserInterface
             checkBoxP5.Checked = true;
             checkBoxP6.Checked = true;
         }
-        private void clearSeries()
+        private void clearTSeries()
         {
             foreach (var series in chartTemp.Series)
             {
                 series.Points.Clear();
             }
+        }
+        private void clearPSeries()
+        {
             foreach (var series in chartPress.Series)
             {
                 series.Points.Clear();
@@ -525,7 +538,8 @@ namespace UserInterface
         private void btnReConnect_Click(object sender, EventArgs e)
         {
             mySerialPort.Close();
-            clearBoxes();
+            clearTBoxes();
+            clearPBoxes();
             form2.Show();
         }
         private void btnStart_Click(object sender, EventArgs e)
@@ -539,27 +553,32 @@ namespace UserInterface
             btnStop.BackColor = Color.White;
             btnStart.BackColor = Color.Green;
             //mySerialPort.WriteLine("Stop");
-            clearBoxes();
+            clearTBoxes();
+            clearPBoxes();
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
             mySerialPort.WriteLine("Reset");
-            slide = true;
             Thread.Sleep(1000);
+            slide = true;
         }
         private void btnStartRec_Click(object sender, EventArgs e)
         {
-            rec = true;
+            Trec = true;
+            Prec = true;
         }
         private void btnStopRec_Click(object sender, EventArgs e)
         {
-            rec = false;
+            Trec = false;
+            Prec = false;
             mySerialPort.WriteLine("StopRec");
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
-            clearBoxes();
-            clearSeries();
+            clearTBoxes();
+            clearPBoxes();
+            clearTSeries();
+            clearPSeries();
         }
 
         // Slider Scroll Events
@@ -720,6 +739,40 @@ namespace UserInterface
         {
             WriteSerial(Servo.NV2.ToString(), tbarNV2.Value.ToString());
             mouseUp = true;
+        }
+
+        // Combobox Events
+        private void cbTempUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mySerialPort.WriteLine("TempUnit:" + cbTempUnit.Text);
+            Trec = false;
+            if (cbTempUnit.Text.Contains("Celcius"))
+            {
+                chartTemp.ChartAreas["ChartArea1"].AxisY.Title = "Temperature [°C]";
+            }
+            else
+            {
+                chartTemp.ChartAreas["ChartArea1"].AxisY.Title = "Temperature [K]";
+            }
+            clearTBoxes();
+            clearTSeries();
+            Trec = true;
+        }
+        private void cbPressUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mySerialPort.WriteLine("PressUnit:" + cbPressUnit.Text);
+            Prec = false;
+            if (cbPressUnit.Text.Contains("psi"))
+            {
+                chartPress.ChartAreas["ChartArea1"].AxisY.Title = "Pressure [psi]";
+            }
+            else
+            {
+                chartPress.ChartAreas["ChartArea1"].AxisY.Title = "Pressure [bar]";
+            }
+            clearPBoxes();
+            clearPSeries();
+            Prec = true;
         }
     }
 }
