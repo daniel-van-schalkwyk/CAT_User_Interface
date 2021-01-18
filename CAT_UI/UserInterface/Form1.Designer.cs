@@ -30,11 +30,12 @@ namespace UserInterface
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.gbPress = new System.Windows.Forms.GroupBox();
+            this.cbPressUnit = new System.Windows.Forms.ComboBox();
             this.checkBoxP6 = new System.Windows.Forms.CheckBox();
             this.checkBoxP5 = new System.Windows.Forms.CheckBox();
             this.checkBoxP4 = new System.Windows.Forms.CheckBox();
@@ -113,6 +114,7 @@ namespace UserInterface
             this.mySerialPort = new System.IO.Ports.SerialPort(this.components);
             this.label23 = new System.Windows.Forms.Label();
             this.gbTemp = new System.Windows.Forms.GroupBox();
+            this.cbTempUnit = new System.Windows.Forms.ComboBox();
             this.checkBoxT6 = new System.Windows.Forms.CheckBox();
             this.checkBoxT5 = new System.Windows.Forms.CheckBox();
             this.checkBoxT4 = new System.Windows.Forms.CheckBox();
@@ -164,8 +166,6 @@ namespace UserInterface
             this.pbPV = new System.Windows.Forms.PictureBox();
             this.pbFV3 = new System.Windows.Forms.PictureBox();
             this.pbFV2 = new System.Windows.Forms.PictureBox();
-            this.cbTempUnit = new System.Windows.Forms.ComboBox();
-            this.cbPressUnit = new System.Windows.Forms.ComboBox();
             this.gbPress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPress)).BeginInit();
             this.gbNitrogen.SuspendLayout();
@@ -231,6 +231,18 @@ namespace UserInterface
             this.gbPress.TabIndex = 0;
             this.gbPress.TabStop = false;
             this.gbPress.Text = "Pressure";
+            // 
+            // cbPressUnit
+            // 
+            this.cbPressUnit.FormattingEnabled = true;
+            this.cbPressUnit.Items.AddRange(new object[] {
+            "psi",
+            "bar"});
+            this.cbPressUnit.Location = new System.Drawing.Point(1411, 23);
+            this.cbPressUnit.Name = "cbPressUnit";
+            this.cbPressUnit.Size = new System.Drawing.Size(239, 24);
+            this.cbPressUnit.TabIndex = 37;
+            this.cbPressUnit.SelectedIndexChanged += new System.EventHandler(this.cbPressUnit_SelectedIndexChanged);
             // 
             // checkBoxP6
             // 
@@ -298,12 +310,12 @@ namespace UserInterface
             // 
             // chartPress
             // 
-            chartArea3.AxisX.Title = "Time [s]";
-            chartArea3.AxisY.Title = "Pressure [bar]";
-            chartArea3.Name = "ChartArea1";
-            this.chartPress.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartPress.Legends.Add(legend3);
+            chartArea1.AxisX.Title = "Time [s]";
+            chartArea1.AxisY.Title = "Pressure [bar]";
+            chartArea1.Name = "ChartArea1";
+            this.chartPress.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartPress.Legends.Add(legend1);
             this.chartPress.Location = new System.Drawing.Point(6, 23);
             this.chartPress.Name = "chartPress";
             this.chartPress.Size = new System.Drawing.Size(1364, 365);
@@ -615,6 +627,7 @@ namespace UserInterface
             this.tbarOV1.Location = new System.Drawing.Point(384, 42);
             this.tbarOV1.Maximum = 180;
             this.tbarOV1.Name = "tbarOV1";
+            this.tbarOV1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbarOV1.Size = new System.Drawing.Size(585, 56);
             this.tbarOV1.TabIndex = 32;
             this.tbarOV1.Scroll += new System.EventHandler(this.tbarOV1_Scroll);
@@ -821,6 +834,7 @@ namespace UserInterface
             this.tbarFV1.Location = new System.Drawing.Point(384, 38);
             this.tbarFV1.Maximum = 180;
             this.tbarFV1.Name = "tbarFV1";
+            this.tbarFV1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbarFV1.Size = new System.Drawing.Size(585, 56);
             this.tbarFV1.TabIndex = 33;
             this.tbarFV1.Scroll += new System.EventHandler(this.tbarFV1_Scroll);
@@ -981,6 +995,18 @@ namespace UserInterface
             this.gbTemp.TabStop = false;
             this.gbTemp.Text = "Temperature";
             // 
+            // cbTempUnit
+            // 
+            this.cbTempUnit.FormattingEnabled = true;
+            this.cbTempUnit.Items.AddRange(new object[] {
+            "Celcius",
+            "Kelvin"});
+            this.cbTempUnit.Location = new System.Drawing.Point(1411, 21);
+            this.cbTempUnit.Name = "cbTempUnit";
+            this.cbTempUnit.Size = new System.Drawing.Size(239, 24);
+            this.cbTempUnit.TabIndex = 36;
+            this.cbTempUnit.SelectedIndexChanged += new System.EventHandler(this.cbTempUnit_SelectedIndexChanged);
+            // 
             // checkBoxT6
             // 
             this.checkBoxT6.AutoSize = true;
@@ -1047,12 +1073,12 @@ namespace UserInterface
             // 
             // chartTemp
             // 
-            chartArea4.AxisX.Title = "Time [s]";
-            chartArea4.AxisY.Title = "Temperature [°C]";
-            chartArea4.Name = "ChartArea1";
-            this.chartTemp.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartTemp.Legends.Add(legend4);
+            chartArea2.AxisX.Title = "Time [s]";
+            chartArea2.AxisY.Title = "Temperature [°C]";
+            chartArea2.Name = "ChartArea1";
+            this.chartTemp.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartTemp.Legends.Add(legend2);
             this.chartTemp.Location = new System.Drawing.Point(6, 21);
             this.chartTemp.Name = "chartTemp";
             this.chartTemp.Size = new System.Drawing.Size(1364, 365);
@@ -1471,30 +1497,6 @@ namespace UserInterface
             this.pbFV2.Size = new System.Drawing.Size(58, 54);
             this.pbFV2.TabIndex = 26;
             this.pbFV2.TabStop = false;
-            // 
-            // cbTempUnit
-            // 
-            this.cbTempUnit.FormattingEnabled = true;
-            this.cbTempUnit.Items.AddRange(new object[] {
-            "Celcius",
-            "Kelvin"});
-            this.cbTempUnit.Location = new System.Drawing.Point(1411, 21);
-            this.cbTempUnit.Name = "cbTempUnit";
-            this.cbTempUnit.Size = new System.Drawing.Size(239, 24);
-            this.cbTempUnit.TabIndex = 36;
-            this.cbTempUnit.SelectedIndexChanged += new System.EventHandler(this.cbTempUnit_SelectedIndexChanged);
-            // 
-            // cbPressUnit
-            // 
-            this.cbPressUnit.FormattingEnabled = true;
-            this.cbPressUnit.Items.AddRange(new object[] {
-            "psi",
-            "bar"});
-            this.cbPressUnit.Location = new System.Drawing.Point(1411, 23);
-            this.cbPressUnit.Name = "cbPressUnit";
-            this.cbPressUnit.Size = new System.Drawing.Size(239, 24);
-            this.cbPressUnit.TabIndex = 37;
-            this.cbPressUnit.SelectedIndexChanged += new System.EventHandler(this.cbPressUnit_SelectedIndexChanged);
             // 
             // CAT_UI
             // 

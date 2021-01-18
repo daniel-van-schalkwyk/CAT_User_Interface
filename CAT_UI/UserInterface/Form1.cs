@@ -188,7 +188,7 @@ namespace UserInterface
                     if (datapnt.Contains("TE"))
                     {
                         string msPassed = GetValue(datapnt);
-                        fileTime.AddMilliseconds(double.Parse(msPassed));
+                        fileTime = fileTime.AddMilliseconds(double.Parse(msPassed));
                         dataStream.Append(fileTime.ToString("HH:mm:ss:fff") + separator);
                     }
                     if (Trec)
@@ -498,26 +498,26 @@ namespace UserInterface
             {
                 case (int)BoxType.Horizontal:
                     g.TranslateTransform(width / 2, height / 2);
-                    g.RotateTransform(deg);
+                    g.RotateTransform(90 - deg);
                     g.TranslateTransform(-(width / 2), -(height / 2));
                     g.DrawRectangle(myPen, x + 4, y + 18, width - 8, 8);
                     g.FillRectangle(myBrush1, x + 4, y + 18, width - 8, 8);
                     break;
                 case (int)BoxType.Vertical:
                     g.TranslateTransform(width / 2, height / 2);
-                    g.RotateTransform(deg);
+                    g.RotateTransform(90 - deg);
                     g.TranslateTransform(-(width / 2), -(height / 2));
                     g.DrawRectangle(myPen, x + 18, y + 4, 8, height - 8);
                     g.FillRectangle(myBrush1, x + 18, y + 4, 8, height - 8);
                     break;
                 case (int)BoxType.Threeway:
                     g.TranslateTransform(width / 2, height / 2);
-                    g.RotateTransform(deg / 2);
+                    g.RotateTransform(-deg / 2);
                     g.TranslateTransform(-(width / 2), -(height / 2));
                     g.DrawRectangle(myPen, x + 18, y + 4, 8, height / 2);
                     g.FillRectangle(myBrush1, x + 18, y + 4, 8, height / 2);
-                    g.DrawRectangle(myPen, x + 4, y + 18, width / 2, 8);
-                    g.FillRectangle(myBrush1, x + 4, y + 18, width / 2, 8);
+                    g.DrawRectangle(myPen, x + 18, y + 18, width / 2, 8);
+                    g.FillRectangle(myBrush1, x + 18, y + 18, width / 2, 8);
                     break;
             }
 
@@ -525,17 +525,24 @@ namespace UserInterface
         }
         private void setSliderValues()
         {
-            tbarFV1.Value = (int)double.Parse(tbFV1Pos.Text);
-            tbarFV2.Value = (int)double.Parse(tbFV2Pos.Text);
-            tbarFV3.Value = (int)double.Parse(tbFV3Pos.Text);
-            tbarFV4.Value = (int)double.Parse(tbFV4Pos.Text);
-            tbarOV1.Value = (int)double.Parse(tbOV1Pos.Text);
-            tbarOV2.Value = (int)double.Parse(tbOV2Pos.Text);
-            tbarOV3.Value = (int)double.Parse(tbOV3Pos.Text);
-            tbarOV4.Value = (int)double.Parse(tbOV4Pos.Text);
-            tbarPV.Value = (int)double.Parse(tbPVPos.Text);
-            tbarNV1.Value = (int)double.Parse(tbNV1Pos.Text);
-            tbarNV2.Value = (int)double.Parse(tbNV2Pos.Text);
+            try
+            {
+                tbarFV1.Value = (int)double.Parse(tbFV1Pos.Text);
+                tbarFV2.Value = (int)double.Parse(tbFV2Pos.Text);
+                tbarFV3.Value = (int)double.Parse(tbFV3Pos.Text);
+                tbarFV4.Value = (int)double.Parse(tbFV4Pos.Text);
+                tbarOV1.Value = (int)double.Parse(tbOV1Pos.Text);
+                tbarOV2.Value = (int)double.Parse(tbOV2Pos.Text);
+                tbarOV3.Value = (int)double.Parse(tbOV3Pos.Text);
+                tbarOV4.Value = (int)double.Parse(tbOV4Pos.Text);
+                tbarPV.Value = (int)double.Parse(tbPVPos.Text);
+                tbarNV1.Value = (int)double.Parse(tbNV1Pos.Text);
+                tbarNV2.Value = (int)double.Parse(tbNV2Pos.Text);
+            }
+            catch
+            {
+                MessageBox.Show("The values are out of bounds of the slider.");
+            }
         }
         private string GetValue(string line)
         {
@@ -773,7 +780,7 @@ namespace UserInterface
         }
         private void tbarOV3_MouseUp(object sender, MouseEventArgs e)
         {
-            WriteSerial(Servo.OV3.ToString(), tbarOV2.Value.ToString());
+            WriteSerial(Servo.OV3.ToString(), tbarOV3.Value.ToString());
             mouseUp = true;
         }
         private void tbarOV4_MouseUp(object sender, MouseEventArgs e)
