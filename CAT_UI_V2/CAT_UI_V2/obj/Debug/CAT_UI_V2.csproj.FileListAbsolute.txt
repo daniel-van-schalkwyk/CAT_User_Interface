@@ -1,0 +1,17 @@
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\bin\Debug\CAT_UI_V2.exe.config
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\bin\Debug\CAT_UI_V2.exe
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\bin\Debug\CAT_UI_V2.pdb
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2.csprojAssemblyReference.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\ConnectPort.g.cs
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\MainWindow.g.cs
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\App.g.cs
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2_MarkupCompile.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2_MarkupCompile.lref
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\MainWindow.baml
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\ConnectPort.baml
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2.g.resources
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2.Properties.Resources.resources
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2.csproj.GenerateResource.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2.csproj.CoreCompileInputs.cache
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2.exe
+C:\Users\totos\Desktop\CAT\Repository\CAT_UI_V2\CAT_UI_V2\obj\Debug\CAT_UI_V2.pdb

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Text;
-using System.Threading;
+//using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -143,7 +143,7 @@ namespace UserInterface
                     setTime = false;
                 }
                 string x = sp.ReadLine();
-                this.BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
+                BeginInvoke(new SetTextDeleg(WriteData), new object[] { x });
             }
         }
 
